@@ -31,7 +31,7 @@ SECRET_KEY = 'e(ggkf(0^)*rvb@ab-#hqq_!+m^+#wr8il@g2!dx&5s_n#0b1('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 DATE_FORMAT = '%d-%m-%Y'
 SHORT_DATETIME_FORMAT = DATE_FORMAT
@@ -117,8 +117,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-MEDIA_ROOT = os.path.join(BASE_DIR, "core/media")
-STATIC_ROOT = os.path.join(BASE_DIR, "core/static")
+# MEDIA_ROOT = os.path.join(BASE_DIR, "core/media")
+# STATIC_ROOT = os.path.join(BASE_DIR, "core/static")
+MEDIA_ROOT = "/opt/bitnami/apps/django/django_projects/Project/core/media"
+STATIC_ROOT = "/opt/bitnami/apps/django/django_projects/Project/core/static"
 UPLOADS_PROTEGIDOS = os.path.join(BASE_DIR, "core/protegido")
 
 MEDIA_URL = '/media/'
@@ -132,3 +134,11 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+EMAIL_HOST          = 'smtp.gmail.com'
+EMAIL_PORT          = 587
+EMAIL_HOST_USER     = 'guilherme.guic@gmail.com'
+EMAIL_HOST_PASSWORD = 'carolly2010'
+EMAIL_USE_TLS       = True
+EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
+
