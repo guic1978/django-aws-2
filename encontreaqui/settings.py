@@ -117,10 +117,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-# MEDIA_ROOT = os.path.join(BASE_DIR, "core/media")
-# STATIC_ROOT = os.path.join(BASE_DIR, "core/static")
-MEDIA_ROOT = "/opt/bitnami/apps/django/django_projects/Project/core/media"
-STATIC_ROOT = "/opt/bitnami/apps/django/django_projects/Project/core/static"
+MEDIA_ROOT = os.path.join(BASE_DIR, "core/media")
+STATIC_ROOT = os.path.join(BASE_DIR, "core/static")
+# MEDIA_ROOT = "/opt/bitnami/apps/django/django_projects/Project/core/media"
+# STATIC_ROOT = "/opt/bitnami/apps/django/django_projects/Project/core/static"
+# STATIC_ADMIN_ROOT = "/opt/bitnami/python/lib/python2.7/site-packages/django/contrib/admin/static"
 UPLOADS_PROTEGIDOS = os.path.join(BASE_DIR, "core/protegido")
 
 MEDIA_URL = '/media/'
@@ -135,10 +136,10 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-EMAIL_HOST          = 'smtp.gmail.com'
-EMAIL_PORT          = 587
-EMAIL_HOST_USER     = 'guilherme.guic@gmail.com'
-EMAIL_HOST_PASSWORD = 'carolly2010'
-EMAIL_USE_TLS       = True
-EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST          = 'smtp.gmail.com'
+# EMAIL_PORT          = 587
+# EMAIL_HOST_USER     = 'guilherme.guic@gmail.com'
+# EMAIL_HOST_PASSWORD = 'carolly2010'
+# EMAIL_USE_TLS       = True
+# EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
 
