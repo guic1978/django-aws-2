@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 
 import os
 
+import sys
+sys.path.append('/opt/bitnami/apps/django_projects/Project/')
+os.environ.setdefault("/opt/bitnami/apps/django_projects/Project/egg_cache")
+
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "encontreaqui.settings")
