@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+  <div class="product-view product-view-compact row"><br /><br />
+    
+    <div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 ">
+        {% with produto.produtoimagem_set.all|first as imagem %}
+        <div class="large-image"> <img src = "{{ MEDIA_URL }}{{ imagem.imagem.url }}" class="img-responsive" /> </div>
+        {% endwith %}
+      </div>
+    <div class="info-cell col-sm-6 col-md-6 col-lg-6"> <a href="{{ produto.get_absolute_url }}" class="close-view"><span class="icon flaticon-close19"></span></a>
+      <h2>{{ produto.nome }}</h2>
+        {% if produto.preco_desconto > 0 %}
+        <span class="price old">R${{ produto.preco }}</span><span class="price new">R${{ produto.preco_desconto }}</span>
+        {% else %}
+        <span class="price old">R${{ produto.preco }}</span>
+        {% endif %}
+      <div class="rating"><i class="icon flaticon-star129 icon-xs"></i> <i class="icon flaticon-star129 icon-xs"></i> <i class="icon flaticon-star129 icon-xs"></i> <i class="icon flaticon-star129 icon-xs"></i> <i class="icon flaticon-star129 icon-xs"></i> </div>
+      <p><span><strong>Em estoque</strong></span> <span>CÓDIGO: {{ produto.sku }}</span><br><span><strong>Vendido e Entregue por: </strong></span> <span><a href="#"> {{ produto.usuario.username }} </a></span></p>
+      <p class="product-info">
+          {{ produto.descricao }}
+      </p>
+
+      <span class="rating"> <i class="icon-star-3"></i> <i class="icon-star-3"></i> <i class="icon-star-3"></i> <i class="icon-star-3"></i> <i class="icon-star-empty"></i> </span>
+      <form action="#">
+        <!--<div class="product-options"><i class="icon icon-color icon-color-pink"></i><i class="icon icon-color icon-color-white"></i><i class="icon icon-color icon-color-grey"></i><i class="icon icon-color icon-color-marine"></i></div>-->
+        <!--<div class="product-options"><i class="disable icon icon-size">4.0</i><i class="icon icon-size">4.5</i><i class="disable icon icon-size">5.0</i><i class="icon icon-size">5.5</i><i class="icon icon-size">6.0</i><i class="icon icon-size">6.5</i><i class="icon icon-size">7.0</i><i class="disable icon icon-size">7.5</i><i class="icon icon-size">8.0</i><i class="icon icon-size">8.5</i><i class="icon icon-size">9.0</i><i class="icon icon-size">9.5</i><i class="icon icon-size">10.0</i></div>-->
+        <div class="form-inputs">
+          <label>Qtd:</label>
+          <input type="text" class="form-control input-quantity" value="1">
+          <button class="btn btn-cool btn-lg" type="submit"><i class="icon flaticon-shopping66"></i>COMPRAR ESTE PRODUTO</button>
+        </div>
+      </form>
+      <div class="social-buttons"><span class="pull-left">Compartilhar:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <ul class="socials">
+          <li><a href="#"><span class="icon flaticon-facebook12"></span></a></li>
+          <li><a href="#"><span class="icon flaticon-twitter20"></span></a></li>
+          <li><a href="#"><span class="icon flaticon-google10"></span></a></li>
+          <li><a href="#"><span class="icon flaticon-pinterest9"></span></a></li>
+        </ul>
+      </div>
+      </div>
+    </div>

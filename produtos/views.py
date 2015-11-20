@@ -1,11 +1,12 @@
 # -*- encoding: utf-8 -*-
 import os
+import json
 from itertools import chain
 from mimetypes import guess_type
 
 from django.conf import settings
 from django.http import HttpResponse, Http404
-from django.shortcuts import render, HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse, render_to_response, RequestContext
 from django.template.defaultfilters import slugify
 from django.forms import modelformset_factory
 from django.core.servers.basehttp import FileWrapper
@@ -126,3 +127,14 @@ def categoria(request, slug):
         return render(request, "produtos/produtos_categoria.html", locals())
     except:
         raise Http404
+
+def produto_ajax_quick_view(request, produto_id):
+    try:
+        produto = Produto.objects.get(pk=produto_id)
+    except:
+        produto = False
+
+    return render_to_response("produtos/_ajax_view-product.html", locals(), context_instance=RequestContext(request))
+    # json_response = {'produto': {'nome': produto.nome}}
+    #
+    # return HttpResponse(json.dumps(json_response), content_type='application/json')
