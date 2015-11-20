@@ -98,7 +98,7 @@
                 {% if produto.preco_desconto > 0 %}
                 <span class="price old">R${{ produto.preco }}</span><span class="price new">R${{ produto.preco_desconto }}</span>
                 {% else %}
-                <span class="price old">R${{ produto.preco }}</span>
+                <span class="price new">R${{ produto.preco }}</span>
                 {% endif %}
                 <ul class="product-controls-list">
                     <li><a href="#"><span class="icon flaticon-bars34"></span></a></li>

@@ -12,7 +12,7 @@
         {% if produto.preco_desconto > 0 %}
         <span class="price old">R${{ produto.preco }}</span><span class="price new">R${{ produto.preco_desconto }}</span>
         {% else %}
-        <span class="price old">R${{ produto.preco }}</span>
+        <span class="price new">R${{ produto.preco }}</span>
         {% endif %}
       <div class="rating"><i class="icon flaticon-star129 icon-xs"></i> <i class="icon flaticon-star129 icon-xs"></i> <i class="icon flaticon-star129 icon-xs"></i> <i class="icon flaticon-star129 icon-xs"></i> <i class="icon flaticon-star129 icon-xs"></i> </div>
       <p><span><strong>Em estoque</strong></span> <span>CÓDIGO: {{ produto.sku }}</span><br><span><strong>Vendido e Entregue por: </strong></span> <span><a href="#"> {{ produto.usuario.username }} </a></span></p>
