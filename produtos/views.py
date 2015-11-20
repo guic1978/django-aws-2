@@ -98,12 +98,13 @@ def buscar(request):
         Q(nome__icontains=search)|
         Q(descricao_curta__icontains=search)
     )
-    categoria_queryset = Categoria.objects.filter(
-        Q(nome__icontains=search)|
-        Q(descricao__icontains=search)
-    )
+    # categoria_queryset = Categoria.objects.filter(
+    #     Q(nome__icontains=search)|
+    #     Q(descricao__icontains=search)
+    # )
 
-    produtos = list(chain(produto_queryset, categoria_queryset))
+    # produtos = list(chain(produto_queryset, categoria_queryset))
+    produtos = produto_queryset
 
     #
     # if search:
@@ -135,6 +136,3 @@ def produto_ajax_quick_view(request, produto_id):
         produto = False
 
     return render_to_response("produtos/_ajax_view-product.html", locals(), context_instance=RequestContext(request))
-    # json_response = {'produto': {'nome': produto.nome}}
-    #
-    # return HttpResponse(json.dumps(json_response), content_type='application/json')

@@ -1,5 +1,6 @@
 {% load staticfiles %}
 
+  {% if produto %}
   <div class="product-view product-view-compact row"><br /><br />
     
     <div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 ">
@@ -7,8 +8,8 @@
         <div class="large-image"> <img src = "{{ MEDIA_URL }}{{ imagem.imagem.url }}" class="img-responsive" /> </div>
         {% endwith %}
       </div>
-    <div class="info-cell col-sm-6 col-md-6 col-lg-6"> <a href="{{ produto.get_absolute_url }}" class="close-view"><span class="icon flaticon-close19"></span></a>
-      <h2>{{ produto.nome }}</h2>
+    <div class="info-cell col-sm-6 col-md-6 col-lg-6"> <a href="#" class="close-view"><span class="icon flaticon-close19"></span></a>
+      <h2><a href="{{ produto.get_absolute_url }}" >{{ produto.nome }}</a></h2>
         {% if produto.preco_desconto > 0 %}
         <span class="price old">R${{ produto.preco }}</span><span class="price new">R${{ produto.preco_desconto }}</span>
         {% else %}
@@ -40,3 +41,4 @@
       </div>
       </div>
     </div>
+  {% endif %}

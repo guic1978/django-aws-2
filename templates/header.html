@@ -27,9 +27,10 @@
 <div id="openSearch">
     <div class="container">
         <div class="inside">
-            <form id="searchHeader" method="get" action="#">
+            <form id="searchHeader" method="get" action="{% url "busca_produtos" %}">
+                {% csrf_token %}
                 <div class="input-outer">
-                    <input type="text" class="search-input" value="BUSQUE..." onblur="if (this.value == '') {this.value = 'BUSQUE...';}" onfocus="if(this.value == 'BUSQUE...') {this.value = '';}">
+                    <input type="text" name="busca" class="search-input" value="BUSQUE..." onblur="if (this.value == '') {this.value = 'BUSQUE...';}" onfocus="if(this.value == 'BUSQUE...') {this.value = '';}">
                 </div>
                 <div class="button-outer">
                     <button type="button" class="pull-right search-close"><i class="icon">&#10005;</i></button>

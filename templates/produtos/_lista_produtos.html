@@ -1,0 +1,113 @@
+{% load staticfiles %}
+
+<!-- Filters -->
+<div class="filters-panel">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-4 hidden-xs">
+            <div class="view-mode">
+                <a href="#" class="view-grid active icon flaticon-tiles"></a><a href="#" class="view-list icon flaticon-menu29"></a>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-4 hidden-xs">
+             Show
+            <div class="btn-group btn-select perpage-select">
+                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="value">15</span><span class="caret min"></span></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-up"></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-down"></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">30</a></li>
+                    <li><a href="#">50</a></li>
+                    <li><a href="#">100</a></li>
+                    <li><a href="#">All</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+            <div class="pagination pull-right text-right">
+                <a href="#" class="icon flaticon-left33 pagination-prev"></a><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#" class="icon flaticon-play45 pagination-next"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //end Filters -->
+<!-- Listing products -->
+<div class="products-list">
+    {% for produto in produtos %}
+    <div class="product-preview-outer">
+        <div class="product-preview">
+            <div class="preview">
+                <div class="preview-image-outer">
+                    <a href="{{ produto.get_absolute_url }}" class="preview-image">
+                        {% with produto.produtoimagem_set.all|first as imagem %}
+                        <img class="img-responsive img-default" src="{{ MEDIA_URL }}{{ imagem.imagem.url }}" alt="{{ imagem.titulo }}">
+                        <img class="img-responsive img-second" src="{{ MEDIA_URL }}{{ imagem.imagem.url }}" alt="{{ imagem.titulo }}">
+                        {% endwith %}
+                    </a>
+                </div>
+                <a href="{% url 'ajax-view-product' produto.id %}" class="quick-view"><span>Dê uma espiada</span></a>
+            </div>
+            <h3 class="title"><a href="{{ produto.get_absolute_url }}">{{ produto.nome }}</a></h3>
+            {% if produto.preco_desconto > 0 %}
+            <span class="price old">R${{ produto.preco }}</span><span class="price new">R${{ produto.preco_desconto }}</span>
+            {% else %}
+            <span class="price new">R${{ produto.preco }}</span>
+            {% endif %}
+            <ul class="product-controls-list">
+                <li><a href="#"><span class="icon flaticon-bars34"></span></a></li>
+                <li><a href="#"><span class="icon flaticon-heart68"></span></a></li>
+                <li><a href="#drop-shopcart" class='add-to-cart open-cart'><span class="icon flaticon-shopping66"></span></a></li>
+            </ul>
+            <div class="rating">
+                <i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i>
+            </div>
+            <div class="info">
+                {{ produto.descricao }}
+            </div>
+            <ul class="product-controls-list-row">
+                <li><a href="#"><span class="icon flaticon-bars34"></span></a></li>
+                <li><a href="#"><span class="icon flaticon-heart68"></span></a></li>
+                <li><a href="#drop-shopcart" class='add-to-cart open-cart'><span class="icon flaticon-shopping66"></span></a></li>
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<!-- product view ajax container -->
+<div class="product-view-ajax-container">
+</div>
+<!-- //end product view ajax container -->
+<!-- Product view compact -->
+<div class="product-view-ajax">
+    <div class="layar">
+    </div>
+    <div class="product-view-container">
+    </div>
+</div>
+<!-- //end Product view compact -->
+<!-- //end Listing products -->
+<!-- Filters -->
+<div class="filters-panel">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-4 hidden-xs">
+            <div class="view-mode">
+                <a href="#" class="view-grid active"><img src="{% static 'images/icon-grid.png' %}" alt=""></a><a href="#" class="view-list"><img src="{% static 'images/icon-list.png' %}" alt=""></a>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-4 hidden-xs">
+             Show
+            <div class="btn-group btn-select perpage-select">
+                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="value">15</span><span class="caret min"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">30</a></li>
+                    <li><a href="#">50</a></li>
+                    <li><a href="#">100</a></li>
+                    <li><a href="#">All</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+            <div class="pagination pull-right text-right">
+                <a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //end Filters -->
