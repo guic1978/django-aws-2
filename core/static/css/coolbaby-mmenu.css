@@ -1,0 +1,38 @@
+#menuScrollerWrapper ul.mega_dropdown {
+	list-style: none;	
+}
+#menuScrollerWrapper .dropdown > ul:not(.row-list) {
+	padding: 25px 0 18px;
+	margin: 0 0 0 3em;
+	list-style-type: none
+}
+#menuScrollerWrapper .dropdown > ul:not(.row-list)  > li, .navbar-main-menu li ul.item-content-simple-drop > li{
+	padding: 0 0 4px;
+	margin: 0;
+	position: relative;
+	text-transform: uppercase;
+	font-size: 1em;
+	color: #000
+}
+#menuScrollerWrapper .dropdown > ul:not(.row-list)  > li:hover>a {
+	text-decoration: underline
+}
+.navbar-main-menu .item-content-simple-drop {
+    overflow: hidden;
+    display: none;
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	min-width: 180px;
+    margin-top: 38px !important;
+    margin-bottom: -6px !important;
+    background: #f5f5f5;
+	text-align: left;
+	border: 1px dotted #cacaca;
+}
+.navbar-main-menu li:hover .item-content-simple-drop {
+	display: block;
+	padding: 20px;
+	list-style-type: none
+}

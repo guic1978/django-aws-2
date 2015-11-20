@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block head %}
     <title>Encontre Aqui - Home</title>
@@ -14,13 +15,13 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-lg-4">
-            <a href="index.html" class="item anim-icon"><span class="icon"><img src="images/anim-icon-1.gif" data-hover="images/anim-icon-1-hover.gif" alt=""/></span><span class="title">Frete Grátis acima de R$200,00</span></a>
+            <a href="index.html" class="item anim-icon"><span class="icon"><img src="{% static 'images/anim-icon-1.gif' %}" data-hover="{% static 'images/anim-icon-1-hover.gif' %}" alt=""/></span><span class="title">Frete Grátis acima de R$200,00</span></a>
         </div>
         <div class="col-xs-12 col-sm-4 col-lg-4">
-            <a href="index.html" class="item anim-icon"><span class="icon"><img src="images/anim-icon-2.gif" data-hover="images/anim-icon-2-hover.gif" alt=""/></span><span class="title">Garantia de entrega</span></a>
+            <a href="index.html" class="item anim-icon"><span class="icon"><img src="{% static 'images/anim-icon-2.gif' %}" data-hover="{% static 'images/anim-icon-2-hover.gif' %}" alt=""/></span><span class="title">Garantia de entrega</span></a>
         </div>
         <div class="col-xs-12 col-sm-4 col-lg-4">
-            <a href="index.html" class="item anim-icon"><span class="icon"><img src="images/anim-icon-3.gif" data-hover="images/anim-icon-3-hover.gif" alt=""/></span><span class="title">Suporte Online</span></a>
+            <a href="index.html" class="item anim-icon"><span class="icon"><img src="{% static 'images/anim-icon-3.gif' %}" data-hover="{% static 'images/anim-icon-3-hover.gif' %}" alt=""/></span><span class="title">Suporte Online</span></a>
         </div>
     </div>
 </div>
@@ -40,18 +41,18 @@
             <!-- SLIDE  -->
             <li id="slide1" data-transition="zoomout" data-slotamount="7" data-masterspeed="500" data-title="First Slide" data-link="listing.html">
             <!-- MAIN IMAGE -->
-            <img src="images/dummy.png" alt="slide1" data-lazyload="images/sliders/slide1.png">
+            <img src="{% static 'images/dummy.png' %}" alt="slide1" data-lazyload="images/sliders/slide1.png' %}">
             <!-- LAYERS img 1 -->
             <div class="tp-caption fadein fadeout rs-parallaxlevel-1" data-x="500" data-y="0" data-speed="1000" data-start="500" data-easing="Power3.easeInOut" data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 4;">
-                <img src="images/sliders/slide1-1.png" alt="">
+                <img src="{% static 'images/sliders/slide1-1.png' %}" alt="">
             </div>
             <!-- LAYERS img 2 -->
             <div class="tp-caption lfl fadeout rs-parallaxlevel-2" data-x="200" data-y="0" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut" data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 4;">
-                <img src="images/sliders/slide1-2.png" alt="">
+                <img src="{% static 'images/sliders/slide1-2.png' %}" alt="">
             </div>
             <!-- LAYERS img 3 -->
             <div class="tp-caption lfr fadeout rs-parallaxlevel-3" data-x="700" data-y="0" data-speed="1200" data-start="1600" data-easing="Power3.easeInOut" data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 4;">
-                <img src="images/sliders/slide1-3.png" alt="">
+                <img src="{% static 'images/sliders/slide1-3.png' %}" alt="">
             </div>
             <!-- LAYER NR. 0  -->
             <div class="tp-caption text0 fadeout" data-x="1050" data-y="140" data-speed="800" data-start="2500" data-easing="Power3.easeInOut" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">
@@ -75,11 +76,11 @@
             <!-- SLIDE  -->
             <li id="slide2" data-transition="zoomout" data-slotamount="7" data-masterspeed="500" data-title="Second Slide" data-link="listing.html">
             <!-- MAIN IMAGE -->
-            <img src="images/dummy.png" alt="slide2" data-lazyload="images/sliders/slide2.jpg">
+            <img src="{% static 'images/dummy.png' %}" alt="slide2" data-lazyload="images/sliders/slide2.jpg' %}">
             <!-- LAYERS -->
             <!-- LAYERS img 1 -->
             <div class="tp-caption fadein fadeout rs-parallaxlevel-1" data-x="750" data-y="0" data-speed="1000" data-start="500" data-easing="Power3.easeInOut" data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 4;">
-                <img src="images/sliders/slide2.gif" alt="">
+                <img src="{% static 'images/sliders/slide2.gif' %}" alt="">
             </div>
             <!-- LAYER NR. 0  -->
             <div class="tp-caption text0 fadeout" data-x="380" data-y="210" data-speed="800" data-start="1000" data-easing="Power3.easeInOut" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">
@@ -116,7 +117,7 @@
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
         <div class="banner-circle animate fadeInDown" onclick="window.open('http://redemulherempreendedora.com.br/artigos/geral/onde-estao-as-empreendedoras-de-sucesso')">
             <div class="image">
-                <img src="images/AnaFontes-Colunistas.jpg" alt="" class="animate-scale">
+                <img src="{% static 'images/AnaFontes-Colunistas.jpg' %}" alt="" class="animate-scale">
             </div>
             <div class="title">
                 <span>Ana Fontes</span>
@@ -126,7 +127,7 @@
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
         <div class="banner-circle animate fadeInDown" onclick="window.open('http://redemulherempreendedora.com.br/noticias/geral/7-erros/')">
             <div class="image">
-                <img src="images/FernandaNascimento-Colunistas.jpg" alt="" class="animate-scale">
+                <img src="{% static 'images/FernandaNascimento-Colunistas.jpg' %}" alt="" class="animate-scale">
             </div>
             <div class="title">
                 <span>Fernanda Nascimento</span>
@@ -136,7 +137,7 @@
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
         <div class="banner-circle animate fadeInDown" onclick="window.open('http://redemulherempreendedora.com.br/noticias/geral/--10-dicas-comportamentais-para-alavancar-sua-carreira/')">
             <div class="image">
-                <img src="images/CamilaFarani-Colunistas.jpg" alt="" class="animate-scale">
+                <img src="{% static 'images/CamilaFarani-Colunistas.jpg' %}" alt="" class="animate-scale">
             </div>
             <div class="title">
                 <span>Camila Farani</span>
@@ -161,7 +162,7 @@
         <div class="slides row1">
             <div class="carousel-item 1">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Bijoux003.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Bijoux003.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -180,7 +181,7 @@
             </div>
             <div class="carousel-item 2">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Coleira001.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Coleira001.jpg' %}" alt=""></a>
                     <div class="label label-sale">
                         <span>Sale</span>
                     </div>
@@ -208,7 +209,7 @@
             </div>
             <div class="carousel-item 3">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Roupinha001.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Roupinha001.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -227,7 +228,7 @@
             </div>
             <div class="carousel-item 4">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Sapatos002.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Sapatos002.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -246,7 +247,7 @@
             </div>
             <div class="carousel-item 5">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Chinelo003.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Chinelo003.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -265,7 +266,7 @@
             </div>
             <div class="carousel-item 6">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Bolsa001.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Bolsa001.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -284,7 +285,7 @@
             </div>
             <div class="carousel-item 7">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Doces002.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Doces002.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -303,7 +304,7 @@
             </div>
             <div class="carousel-item 8">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Vela001.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Vela001.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -322,7 +323,7 @@
             </div>
             <div class="carousel-item 9">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Sapatos006.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Sapatos006.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -341,7 +342,7 @@
             </div>
             <div class="carousel-item 10">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Chinelo002.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Chinelo002.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -370,7 +371,7 @@
         <div class="slides">
             <div class="carousel-item">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/NuCorpo003.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/NuCorpo003.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -389,7 +390,7 @@
             </div>
             <div class="carousel-item">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Movel002.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Movel002.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -408,7 +409,7 @@
             </div>
             <div class="carousel-item">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Roupinha002.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Roupinha002.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -427,7 +428,7 @@
             </div>
             <div class="carousel-item">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/RoupaCao001.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/RoupaCao001.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -446,7 +447,7 @@
             </div>
             <div class="carousel-item">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Chinelo002.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Chinelo002.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -465,7 +466,7 @@
             </div>
             <div class="carousel-item">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Bijoux004.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Bijoux004.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -484,7 +485,7 @@
             </div>
             <div class="carousel-item">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Sapatos006.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Sapatos006.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -503,7 +504,7 @@
             </div>
             <div class="carousel-item">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Doces003.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Doces003.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -522,7 +523,7 @@
             </div>
             <div class="carousel-item">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Caixa002.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Caixa002.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -541,7 +542,7 @@
             </div>
             <div class="carousel-item">
                 <div class="product-preview">
-                    <a href="#" class="preview-image"><img class="img-default" src="images/products/Movel001.jpg" alt=""></a>
+                    <a href="#" class="preview-image"><img class="img-default" src="{% static 'images/products/Movel001.jpg' %}" alt=""></a>
                     <div class="hover">
                         <div class="inside">
                             <h3 class="title"><a href="product.html">Long Product name Example</a></h3>
@@ -590,7 +591,7 @@
             <div class="product-preview">
                 <div class="preview">
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Tenis-Couro-Azul.jpg" alt=""><img class="img-responsive img-second" src="images/products/Tenis-Couro-Azul.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Tenis-Couro-Azul.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Tenis-Couro-Azul.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -622,7 +623,7 @@
                         <span>New</span>
                     </div>
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Bota-Couro-Preta.jpg" alt=""><img class="img-responsive img-second" src="images/products/Bota-Couro-Preta.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Bota-Couro-Preta.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Bota-Couro-Preta.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -642,7 +643,7 @@
             <div class="product-preview">
                 <div class="preview">
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Bouquet-Bombom.jpg" alt=""><img class="img-responsive img-second" src="images/products/Bouquet-Bombom.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Bouquet-Bombom.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Bouquet-Bombom.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -671,7 +672,7 @@
             <div class="product-preview">
                 <div class="preview">
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Vela-Aroma-Canela.jpg" alt=""><img class="img-responsive img-second" src="images/products/Vela-Aroma-Canela.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Vela-Aroma-Canela.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Vela-Aroma-Canela.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -691,7 +692,7 @@
             <div class="product-preview">
                 <div class="preview">
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Bikini-Flamenca.jpg" alt=""><img class="img-responsive img-second" src="images/products/Bikini-Flamenca.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Bikini-Flamenca.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Bikini-Flamenca.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -711,7 +712,7 @@
             <div class="product-preview">
                 <div class="preview">
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Coleiras-New-Collors.jpg" alt=""><img class="img-responsive img-second" src="images/products/Coleiras-New-Collors.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Coleiras-New-Collors.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Coleiras-New-Collors.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -731,7 +732,7 @@
             <div class="product-preview">
                 <div class="preview">
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Tenis-Couro-Azul.jpg" alt=""><img class="img-responsive img-second" src="images/products/Tenis-Couro-Azul.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Tenis-Couro-Azul.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Tenis-Couro-Azul.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -763,7 +764,7 @@
                         <span>New</span>
                     </div>
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Bota-Couro-Preta.jpg" alt=""><img class="img-responsive img-second" src="images/products/Bota-Couro-Preta.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Bota-Couro-Preta.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Bota-Couro-Preta.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -783,7 +784,7 @@
             <div class="product-preview">
                 <div class="preview">
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Bouquet-Bombom.jpg" alt=""><img class="img-responsive img-second" src="images/products/Bouquet-Bombom.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Bouquet-Bombom.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Bouquet-Bombom.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -812,7 +813,7 @@
             <div class="product-preview">
                 <div class="preview">
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Vela-Aroma-Canela.jpg" alt=""><img class="img-responsive img-second" src="images/products/Vela-Aroma-Canela.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Vela-Aroma-Canela.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Vela-Aroma-Canela.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -832,7 +833,7 @@
             <div class="product-preview">
                 <div class="preview">
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Bikini-Flamenca.jpg" alt=""><img class="img-responsive img-second" src="images/products/Bikini-Flamenca.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Bikini-Flamenca.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Bikini-Flamenca.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -852,7 +853,7 @@
             <div class="product-preview">
                 <div class="preview">
                     <div class="preview-image-outer">
-                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="images/products/Coleiras-New-Collors.jpg" alt=""><img class="img-responsive img-second" src="images/products/Coleiras-New-Collors.jpg" alt=""></a>
+                        <a href="product.html" class="preview-image"><img class="img-responsive img-default" src="{% static 'images/products/Coleiras-New-Collors.jpg' %}" alt=""><img class="img-responsive img-second" src="{% static 'images/products/Coleiras-New-Collors.jpg' %}" alt=""></a>
                     </div>
                     <a href="_ajax_view-product.html" class="quick-view"><span>Dê uma espiada</span></a>
                 </div>
@@ -891,28 +892,28 @@
         </div>
         <div class="slides slick-style3">
             <div class="carousel-item">
-                <a href="blog-single.html"><img src="images/blog/noticia-1.jpg" alt=""><span class="info">FECOMERCIO - SP<span class="date">Novembro de 2015</span></span></a>
+                <a href="blog-single.html"><img src="{% static 'images/blog/noticia-1.jpg' %}" alt=""><span class="info">FECOMERCIO - SP<span class="date">Novembro de 2015</span></span></a>
             </div>
             <div class="carousel-item">
-                <a href="blog-single.html"><img src="images/blog/noticia-2.jpg" alt=""><span class="info">Além da Cura<span class="date">Novembro de 2015</span></span></a>
+                <a href="blog-single.html"><img src="{% static 'images/blog/noticia-2.jpg' %}" alt=""><span class="info">Além da Cura<span class="date">Novembro de 2015</span></span></a>
             </div>
             <div class="carousel-item">
-                <a href="blog-single.html"><img src="images/blog/noticia-3.jpg" alt=""><span class="info">RME na Anprotec<span class="date">Novembro de 2015</span></span></a>
+                <a href="blog-single.html"><img src="{% static 'images/blog/noticia-3.jpg' %}" alt=""><span class="info">RME na Anprotec<span class="date">Novembro de 2015</span></span></a>
             </div>
             <div class="carousel-item">
-                <a href="blog-single.html"><img src="images/blog/noticia-4.jpg" alt=""><span class="info">Parceria ONU Mulheres<span class="date">Novembro de 2015</span></span></a>
+                <a href="blog-single.html"><img src="{% static 'images/blog/noticia-4.jpg' %}" alt=""><span class="info">Parceria ONU Mulheres<span class="date">Novembro de 2015</span></span></a>
             </div>
             <div class="carousel-item">
-                <a href="blog-single.html"><img src="images/blog/noticia-5.jpg" alt=""><span class="info">Confefrência Anjos do Brasil<span class="date">Novembro de 2015</span></span></a>
+                <a href="blog-single.html"><img src="{% static 'images/blog/noticia-5.jpg' %}" alt=""><span class="info">Confefrência Anjos do Brasil<span class="date">Novembro de 2015</span></span></a>
             </div>
             <div class="carousel-item">
-                <a href="blog-single.html"><img src="images/blog/blog-img-01.jpg" alt=""><span class="info">Inovação, Tecnologia, ... <span class="date">September 02, 2015</span></span></a>
+                <a href="blog-single.html"><img src="{% static 'images/blog/blog-img-01.jpg' %}" alt=""><span class="info">Inovação, Tecnologia, ... <span class="date">September 02, 2015</span></span></a>
             </div>
             <div class="carousel-item">
-                <a href="blog-single.html"><img src="images/blog/blog-img-02.jpg" alt=""><span class="info">Blog post number 7 <span class="date">September 02, 2015</span></span></a>
+                <a href="blog-single.html"><img src="{% static 'images/blog/blog-img-02.jpg' %}" alt=""><span class="info">Blog post number 7 <span class="date">September 02, 2015</span></span></a>
             </div>
             <div class="carousel-item">
-                <a href="blog-single.html"><img src="images/blog/blog-img-03.jpg" alt=""><span class="info">Blog post number 8 <span class="date">September 02, 2015</span></span></a>
+                <a href="blog-single.html"><img src="{% static 'images/blog/blog-img-03.jpg' %}" alt=""><span class="info">Blog post number 8 <span class="date">September 02, 2015</span></span></a>
             </div>
         </div>
     </div>
@@ -929,28 +930,28 @@
 <div class="brands-carousel">
     <div class="slides">
         <div>
-            <a href="#"><img src="images/logo-empresa-1.jpg" alt=""></a>
+            <a href="#"><img src="{% static 'images/logo-empresa-1.jpg' %}" alt=""></a>
         </div>
         <div>
-            <a href="#"><img src="images/logo-empresa-2.jpg" alt=""></a>
+            <a href="#"><img src="{% static 'images/logo-empresa-2.jpg' %}" alt=""></a>
         </div>
         <div>
-            <a href="#"><img src="images/logo-empresa-3.jpg" alt=""></a>
+            <a href="#"><img src="{% static 'images/logo-empresa-3.jpg' %}" alt=""></a>
         </div>
         <div>
-            <a href="#"><img src="images/logo-empresa-4.jpg" alt=""></a>
+            <a href="#"><img src="{% static 'images/logo-empresa-4.jpg' %}" alt=""></a>
         </div>
         <div>
-            <a href="#"><img src="images/logo-empresa-5.jpg" alt=""></a>
+            <a href="#"><img src="{% static 'images/logo-empresa-5.jpg' %}" alt=""></a>
         </div>
         <div>
-            <a href="#"><img src="images/logo-empresa-6.jpg" alt=""></a>
+            <a href="#"><img src="{% static 'images/logo-empresa-6.jpg' %}" alt=""></a>
         </div>
         <div>
-            <a href="#"><img src="images/logo-empresa-7.jpg" alt=""></a>
+            <a href="#"><img src="{% static 'images/logo-empresa-7.jpg' %}" alt=""></a>
         </div>
         <div>
-            <a href="#"><img src="images/logo-empresa-8.jpg" alt=""></a>
+            <a href="#"><img src="{% static 'images/logo-empresa-8.jpg' %}" alt=""></a>
         </div>
     </div>
 </div>
@@ -1028,7 +1029,7 @@
             </div>
             <div class="widget-outer">
                 <p>
-                    <img src="images/sobrenos.jpg" alt="" class="img-responsive">
+                    <img src="{% static 'images/sobrenos.jpg' %}" alt="" class="img-responsive">
                 </p>
                 <p>
                     Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas eu enim in lorem scelerisque auctor. Ut non erat. Suspendisse fermentum posuere lectus. Fusce vulputate nibh egestas orci. Aliquam lectus. Morbi eget dolor ullamcorper massa pellentesque sagittis. Morbi sit amet quam labore diam nonumy.
@@ -1107,7 +1108,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/Bikini-Flamenca.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/Bikini-Flamenca.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1121,7 +1122,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/Bouquet-Bombom.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/Bouquet-Bombom.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1135,7 +1136,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/Pulseira-Contas.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/Pulseira-Contas.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1149,7 +1150,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/Vela-Aroma-Canela.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/Vela-Aroma-Canela.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1163,7 +1164,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/Pulseira-Couro-Dourada.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/Pulseira-Couro-Dourada.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1177,7 +1178,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/product-06.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/product-06.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1204,7 +1205,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/Vela-Aroma-Canela.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/Vela-Aroma-Canela.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1218,7 +1219,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/Bolsa-Rosa-Chic.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/Bolsa-Rosa-Chic.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1232,7 +1233,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/Pulseira-Couro-Dourada.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/Pulseira-Couro-Dourada.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1246,7 +1247,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/product-01.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/product-01.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1260,7 +1261,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/product-03.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/product-03.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1274,7 +1275,7 @@
                     <div class="carousel-item">
                         <div class="product">
                             <div class="preview-image-outer">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/products/product-06.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/products/product-06.jpg' %}" alt=""></a>
                             </div>
                             <p class="name">
                                 <a href="product.html">Product Example</a>
@@ -1301,7 +1302,7 @@
                     <div class="carousel-item">
                         <div class="post">
                             <div class="image">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/img-resent-1.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/img-resent-1.jpg' %}" alt=""></a>
                             </div>
                             <div class="text">
                                 <div class="text">
@@ -1317,7 +1318,7 @@
                     <div class="carousel-item">
                         <div class="post">
                             <div class="image">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/img-resent-2.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/img-resent-2.jpg' %}" alt=""></a>
                             </div>
                             <div class="text">
                                 <div class="text">
@@ -1333,7 +1334,7 @@
                     <div class="carousel-item">
                         <div class="post">
                             <div class="image">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/img-resent-1.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/img-resent-1.jpg' %}" alt=""></a>
                             </div>
                             <div class="text">
                                 <div class="text">
@@ -1349,7 +1350,7 @@
                     <div class="carousel-item">
                         <div class="post">
                             <div class="image">
-                                <a href="product.html" class="preview-image"><img class="img-responsive" src="images/img-resent-2.jpg" alt=""></a>
+                                <a href="product.html" class="preview-image"><img class="img-responsive" src="{% static 'images/img-resent-2.jpg' %}" alt=""></a>
                             </div>
                             <div class="text">
                                 <div class="text">
@@ -1374,7 +1375,7 @@
         </div>
         <div class="pull-left padding-left">
             <div class="small-photos">
-                <a href="gallery-single.html"><img src="images/flickr-photo-1.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-2.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-3.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-4.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-5.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-6.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-7.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-8.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-9.jpg" alt=""></a>
+                <a href="gallery-single.html"><img src="{% static 'images/flickr-photo-1.jpg' %}" alt=""></a><a href="gallery-single.html"><img src="{% static 'images/flickr-photo-2.jpg' %}" alt=""></a><a href="gallery-single.html"><img src="{% static 'images/flickr-photo-3.jpg' %}" alt=""></a><a href="gallery-single.html"><img src="{% static 'images/flickr-photo-4.jpg' %}" alt=""></a><a href="gallery-single.html"><img src="{% static 'images/flickr-photo-5.jpg' %}" alt=""></a><a href="gallery-single.html"><img src="{% static 'images/flickr-photo-6.jpg' %}" alt=""></a><a href="gallery-single.html"><img src="{% static 'images/flickr-photo-7.jpg' %}" alt=""></a><a href="gallery-single.html"><img src="{% static 'images/flickr-photo-8.jpg' %}" alt=""></a><a href="gallery-single.html"><img src="{% static 'images/flickr-photo-9.jpg' %}" alt=""></a>
             </div>
             <div class="text-center">
                 <a class="btn-cool" href="#"> more photos </a>

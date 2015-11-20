@@ -17,10 +17,11 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
+from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', "produtos.views.produtos"),
+    url(r'^$', TemplateView.as_view(template_name='home.html')),
     url(r'^produtos/', "produtos.views.produtos", name="produtos"),
     url(r'^busca/', "produtos.views.buscar", name="busca_produtos"),
     url(r'^produto/([0-9]+)/$', "produtos.views.produto", name="item_produto"),

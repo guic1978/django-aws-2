@@ -2,9 +2,9 @@
 <html>
 <head lang="pt-br">
     <meta charset="UTF-8">
+    {% include "head.html" %}
     {% block head %}
     {% endblock %}
-    {% include "head.html" %}
 </head>
 <body class="responsive">
     <div class="loader">
@@ -330,8 +330,9 @@
         </div>
     </div>
 
+
+    {% include "scripts.html" %}
     {% block scripts %}
-        {% include "scripts.html" %}
     {% endblock %}
 </body>
 </html>
