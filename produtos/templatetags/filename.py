@@ -10,3 +10,7 @@ def filename(value):
 @register.filter
 def classname(value):
     return value.__class__.__name__
+
+@register.filter
+def index(List, i):
+    return List[int(i)]

@@ -1,0 +1,105 @@
+{% load staticfiles %}
+
+{% if produtos_destaque %}
+<section class="container content">
+    <div class="subtitle right-space">
+        <div>
+            <span>Veja nossos produtos em destaque</span>
+        </div>
+    </div>
+    <div class="slick-arrows">
+        <button type="button" class="slick-prev" id="prevSlick" style="display: block;">Previous</button>
+        <button type="button" class="slick-next" id="nextSlick" style="display: block;">Next</button>
+    </div>
+    <div class="products-nospace-outer row1">
+        <div class="products-nospace">
+            <div class="slides row1">
+                {% for produto in produtos_destaque|slice:":10" %}
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <a href="{{ produto.get_absolute_url }}" class="preview-image">
+                            {% with produto.produtoimagem_set.all|first as imagem %}
+                                <img class="img-default" src="{{ MEDIA_URL }}{{ imagem.imagem.url }}" alt="{{ imagem.titulo }}">
+                            {% endwith %}
+                        </a>
+                        <div class="hover">
+                            <div class="inside">
+                                <h3 class="title"><a href="{{ produto.get_absolute_url }}">{{ produto.nome }}</a></h3>
+                                {% if produto.preco_desconto > 0 %}
+                                    <span class="price old">R${{ produto.preco }}</span><span class="price new">R${{ produto.preco_desconto }}</span>
+                                {% else %}
+                                    <span class="price new">R${{ produto.preco }}</span>
+                                {% endif %}
+                                <div class="rating">
+                                    <i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i>
+                                </div>
+                                <ul class="product-controls-list">
+                                    <li><a href="#"><span class="icon flaticon-bars34"></span></a></li>
+                                    <li><a href="#" class="add-to-cart open-cart"><span class="icon flaticon-shopping66"></span></a></li>
+                                    <li><a href="{% url 'ajax-view-product' produto.id %}" class="quick-view"><span class="icon flaticon-view9"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- product view ajax container -->
+    <div class="product-view-ajax-container">
+    </div>
+    <!-- //end product view ajax container -->
+
+    {% if produtos_destaque|length > 10 %}
+    <div class="products-nospace-outer row2">
+        <div class="products-nospace">
+            <div class="slides">
+                {% for produto in produtos_destaque|slice:"10:10" %}
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <a href="{{ produto.get_absolute_url }}" class="preview-image">
+                            {% with produto.produtoimagem_set.all|first as imagem %}
+                                <img class="img-default" src="{{ MEDIA_URL }}{{ imagem.imagem.url }}" alt="{{ imagem.titulo }}">
+                            {% endwith %}
+                        </a>
+                        <div class="hover">
+                            <div class="inside">
+                                <h3 class="title"><a href="{{ produto.get_absolute_url }}">{{ produto.nome }}</a></h3>
+                                {% if produto.preco_desconto > 0 %}
+                                    <span class="price old">R${{ produto.preco }}</span><span class="price new">R${{ produto.preco_desconto }}</span>
+                                {% else %}
+                                    <span class="price new">R${{ produto.preco }}</span>
+                                {% endif %}
+                                <div class="rating">
+                                    <i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i><i class="icon flaticon-star129 icon-xs"></i>
+                                </div>
+                                <ul class="product-controls-list">
+                                    <li><a href="#"><span class="icon flaticon-bars34"></span></a></li>
+                                    <li><a href="#" class="add-to-cart open-cart"><span class="icon flaticon-shopping66"></span></a></li>
+                                    <li><a href="{% url 'ajax-view-product' produto.id %}" class="quick-view"><span class="icon flaticon-view9"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- product view ajax container -->
+    <div class="product-view-ajax-container">
+    </div>
+    <!-- //end product view ajax container -->
+    {% endif %}
+
+    <!-- Product view compact -->
+    <div class="product-view-ajax">
+        <div class="layar">
+        </div>
+        <div class="product-view-container">
+        </div>
+    </div>
+    <!-- //end Product view compact -->
+</section>
+{% endif %}

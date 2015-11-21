@@ -21,7 +21,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', TemplateView.as_view(template_name='home.html')),
+    url(r'^$', "encontreaqui.views.home", name="home"),
     url(r'^ajax_view-product/(?P<produto_id>.*)', "produtos.views.produto_ajax_quick_view", name="ajax-view-product"),
     url(r'^produtos/', "produtos.views.produtos", name="produtos"),
     url(r'^busca/', "produtos.views.buscar", name="busca_produtos"),

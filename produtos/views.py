@@ -11,11 +11,11 @@ from django.template.defaultfilters import slugify
 from django.forms import modelformset_factory
 from django.core.servers.basehttp import FileWrapper
 from django.db.models import Q
-
+from produtos.models import get_active_tree
 from .models import Produto, Categoria, ProdutoImagem
 from .forms import ProdutoForm, ProdutoImagemForm
 
-def _checar_produto(user, produto):
+def _checar_produto_comprado(user, produto):
     if user.is_authenticated():
         if produto in user.usuariocompra.produtos.all():
             return True
@@ -27,7 +27,7 @@ def _checar_produto(user, produto):
 def download_produto(request, produto_id, filename):
     produto = Produto.objects.get(pk=produto_id)
 
-    if _checar_produto(request.user, produto):
+    if _checar_produto_comprado(request.user, produto):
         arquivo =str(produto.download)
         caminho_arquivo = os.path.join(settings.UPLOADS_PROTEGIDOS, arquivo)
         wrapper = FileWrapper(file(caminho_arquivo))
@@ -47,7 +47,15 @@ def produtos(request):
 
 def produto(request, produto_id):
     produto = Produto.objects.get(pk=produto_id)
-    downloadable = _checar_produto(request.user, produto)
+    downloadable = _checar_produto_comprado(request.user, produto)
+
+    produtos_relacionados = []
+    for categoria in produto.categoria_set.all():
+        produtos_categoria = categoria.produto.all()
+        for item in produtos_categoria:
+            if (not item == produto) and (item not in produtos_relacionados):
+                produtos_relacionados.append(item)
+
     return render(request, "produtos/mostra_produto.html", locals())
 
 def incluir_produto(request):
@@ -124,10 +132,25 @@ def buscar(request):
 def categoria(request, slug):
     try:
         categoria = Categoria.objects.get(slug=slug)
-        # produtos = Produto.objects.filter(categoria_slug=slug)
-        return render(request, "produtos/produtos_categoria.html", locals())
     except:
         raise Http404
+
+    # print categoria
+    # print categoria.parents()
+    # print categoria.get_all_children()
+
+    produtos = categoria.produto.all()
+
+    # print get_active_tree()
+
+    categorias_relacionadas = []
+    for produto in produtos:
+        categorias_produto = produto.categoria_set.all()
+        for item_categoria in categorias_produto:
+            if (not item_categoria == categoria) and (item_categoria not in categorias_relacionadas):
+                categorias_relacionadas.append(item_categoria)
+
+    return render(request, "produtos/produtos_categoria.html", locals())
 
 def produto_ajax_quick_view(request, produto_id):
     try:

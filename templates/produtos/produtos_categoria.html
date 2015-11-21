@@ -31,7 +31,7 @@
     <h1>{{ categoria }}</h1>
     <!-- Description -->
     <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, laoreet sit amet, nunc. Ut sit amet turpis.
+        {{ categoria.descricao }}
     </p>
     <!-- //end Description -->
     {% if categoria.produto %}
@@ -44,6 +44,15 @@
     {% else %}
         <h6>Não há resultado para essa busca</h6>
     {% endif %}
+
+    {% if categorias_relacionadas %}
+    <h3>Categorias Relacionadas</h3>
+
+    {% for item in categorias_relacionadas %}
+        {{ item.nome }}
+    {% endfor %}
+    {% endif %}
+
     </section>
     <!-- //end Right column -->
 

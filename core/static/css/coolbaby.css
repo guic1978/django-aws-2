@@ -2126,9 +2126,8 @@ body.off-canvas-menu-open #outer-overlay {
 
 
 /* blog widget */
-
 .blog-widget {
-	background: url(../images/blog-back.jpg) no-repeat 50% 0 #f0f0f0;
+	background: url(../images/ambiente_natheia_coworking_.jpg) no-repeat 50% 0 #f0f0f0;
 	overflow: hidden;
 	padding: 15px 0 30px;
 	margin: 0 0 15px
@@ -3515,7 +3514,7 @@ body.responsive .subscribe h3 {
 	width: 830px;
 	margin: 0 auto;
 	overflow: hidden;
-	background: url(../images/newsletter-bg.jpg) no-repeat right 0;
+	background: url(../images/Fundo-Modal-NewsLetter2.jpg) no-repeat right 0;
 	padding: 40px 30px 10px
 }
 #popup-box h1 {
