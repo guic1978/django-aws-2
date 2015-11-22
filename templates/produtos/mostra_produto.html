@@ -75,18 +75,20 @@
             <p>
                 <span><strong>Em estoque </strong></span><span>Código: {{ produto.sku }}</span>
             </p>
+            {% if produto.descricao_curta|length > 0 %}
             <div class="brand-row">
                 <!--<div class="col-xs-4">-->
                     <!--<img src="images/brand_hilfinger.png" alt="" class="img-responsive">-->
                 <!--</div>-->
                 <div class="col-xs-12">
-                    {{ produto.descricao_curta }}
+                    {{ produto.descricao_curta|truncatechars:200 }}
                 </div>
             </div>
             <div class="divider divider-sm">
             </div>
             <div class="line-divider">
             </div>
+            {% endif %}
             <div class="divider divider-md">
             </div>
             <form action="#">

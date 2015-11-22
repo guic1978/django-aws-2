@@ -1,0 +1,32 @@
+{#{%  %}#}
+{#<div class="panel">#}
+{#    <div class="panel-heading">#}
+{#        <a data-toggle="collapse" href="#box1"><span class="arrow-down">+</span><span class="arrow-up">-</span> CATEGORIAS </a>#}
+{#    </div>#}
+{#    <div id="box1" class="panel-collapse in">#}
+{#        <div class="panel-body">#}
+{#            <ul class="simple-list">#}
+{#                <li><a href="listing.html">Suits & Blazers (15)</a></li>#}
+{#                <li><a href="listing.html">T-Shirts & Vests (15)</a></li>#}
+{#                <li><a href="listing.html">Underwear & Socks (15)</a></li>#}
+{#                <li><a href="listing.html">Jackets & Coats (15)</a></li>#}
+{#            </ul>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
+{% load sitetree %}
+<ul>
+	{% for item in sitetree_items %}
+	<li>
+        <a href="{% sitetree_url for item %}"
+           {% if item.hint %}title="{{ item.hint }}"
+           {% endif %}
+           {% if item.is_current or item.in_current_branch %}class="{{ item.is_current|yesno:"current_item ," }}{{ item.in_current_branch|yesno:"current_branch," }}"
+           {% endif %}>{{ item.title_resolved }}</a>
+		{% if item.has_children %}
+			{% sitetree_children of item for menu template "sitetree/menu.html" %}
+		{% endif %}
+	</li>
+	{% endfor %}
+</ul>

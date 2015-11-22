@@ -36,10 +36,10 @@
                         </div>
                         <a href="{% url 'ajax-view-product' produto.id %}" class="quick-view"><span>Dê uma espiada</span></a>
                     </div>
-                    <h3 class="title"><a href="{{ produto.get_absolute_url }}">{{ produto }}</a></h3>
-                    <div class="product-options">
-                        <i class="icon icon-color icon-color-pink"></i><i class="icon icon-color icon-color-white"></i><i class="icon icon-color icon-color-grey"></i><i class="icon icon-color icon-color-marine"></i>
-                    </div>
+                    <h3 class="title"><a href="{{ produto.get_absolute_url }}">{{ produto|truncatechars:40 }}</a></h3>
+{#                    <div class="product-options">#}
+{#                        <i class="icon icon-color icon-color-pink"></i><i class="icon icon-color icon-color-white"></i><i class="icon icon-color icon-color-grey"></i><i class="icon icon-color icon-color-marine"></i>#}
+{#                    </div>#}
                     {% if produto.preco_desconto > 0 %}
                         <span class="price old">R${{ produto.preco }}</span><span class="price new">R${{ produto.preco_desconto }}</span>
                     {% else %}

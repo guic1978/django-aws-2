@@ -24,8 +24,7 @@ class Produto(models.Model):
     especificacao = models.TextField(null=True, blank=True, verbose_name="Especificações")
     sku = models.IntegerField(null=True, blank=True)
     order = models.IntegerField(default=0)
-    ativo = models.BooleanField(default=False)
-    destaque = models.BooleanField(default=False, blank=True)
+    ativo = models.BooleanField(default=True)
     preco = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     preco_desconto = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     slug = models.SlugField()
@@ -205,3 +204,18 @@ class CategoriaImagem(models.Model):
 # def atualizar_historico_delete(sender, instance, **kwargs):
 #     historico = Historico(usuario=instance.carrinho.user, modelo="carrinho", operacao="D")
 #     historico.save()
+
+class Destaque(models.Model):
+    titulo = models.CharField(max_length=120)
+    produtos = models.ManyToManyField(Produto, limit_choices_to={'ativo': True}, null=True, blank=True)
+    inicio = models.DateField(auto_now_add=False, auto_now=False)
+    fim = models.DateField(auto_now_add=False, auto_now=False)
+    ativo = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
+    updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
+
+    def __unicode__(self):
+        return self.titulo
+
+    def get_destaques(self):
+        return self.produtos[:2]

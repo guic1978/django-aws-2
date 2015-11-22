@@ -1,5 +1,5 @@
 {% load staticfiles %}
-
+{% load sitetree %}
 
 {#{% if user.is_authenticated %}#}
 {#<p class="f_size_small">Benvindo {{ user.username }}, <a href="#" data-popup="#login_popup">Não é minha conta</a></p>#}
@@ -22,7 +22,15 @@
 
 
 <!-- Navbar -->
+
+
+
+
 <header>
+
+{#<br>#}
+{#{% sitetree_breadcrumbs from "maintree" %}#}
+
 <!-- Search -->
 <div id="openSearch">
     <div class="container">
@@ -215,55 +223,29 @@
         </div>
     </div>
     <!-- Main menu -->
+
+
+
     <div class="navbar-main-menu-outer hidden-xs">
         <div class="container">
             <dl class="navbar-main-menu">
-                <dt class="item"><a href="index.html" class="btn-main"><span class="icon icon-xl flaticon-home113"></span></a></dt>
+                <dt class="item"><a href="{% url "home" %}" class="btn-main"><span class="icon icon-xl flaticon-home113"></span></a></dt>
                 <dd></dd>
-                <dt class="item"><a href="#" class="btn-main">Artesanato</a></dt>
-                <dd class="item-content content-small">
-                <div class="megamenuClose">
-                </div>
-                <ul class="row-list">
-                    <li><a href="listing.html">With Left Column</a></li>
-                    <li><a href="listing-gallery.html">Gallery Listing</a></li>
-                    <li><a href="listing-no-left.html">No Left Column</a></li>
-                    <li><a href="listing-categories.html">Only Categories</a></li>
-                </ul>
-                </dd>
-                <dt class="item"><a href="#" class="btn-main">Vestuário</a></dt>
-                <dd class="item-content content-small">
-                <div class="megamenuClose">
-                </div>
-                <ul class="row-list">
-                    <li><a href="listing.html">With Left Column</a></li>
-                    <li><a href="listing-gallery.html">Gallery Listing</a></li>
-                    <li><a href="listing-no-left.html">No Left Column</a></li>
-                    <li><a href="listing-categories.html">Only Categories</a></li>
-                </ul>
-                </dd>
-                <dt class="item"><a href="#" class="btn-main">Gastronomia</a></dt>
-                <dd class="item-content content-small">
-                <div class="megamenuClose">
-                </div>
-                <ul class="row-list">
-                    <li><a href="listing.html">With Left Column</a></li>
-                    <li><a href="listing-gallery.html">Gallery Listing</a></li>
-                    <li><a href="listing-no-left.html">No Left Column</a></li>
-                    <li><a href="listing-categories.html">Only Categories</a></li>
-                </ul>
-                </dd>
-                <dt class="item"><a href="#" class="btn-main">Beleza</a></dt>
-                <dd class="item-content content-small">
-                <div class="megamenuClose">
-                </div>
-                <ul class="row-list">
-                    <li><a href="listing.html">With Left Column</a></li>
-                    <li><a href="listing-gallery.html">Gallery Listing</a></li>
-                    <li><a href="listing-no-left.html">No Left Column</a></li>
-                    <li><a href="listing-categories.html">Only Categories</a></li>
-                </ul>
-                </dd>
+
+                {% sitetree_tree from "maintree" include "trunk,topmenu" template "sitetree/megamenu_coolbaby.html" %}
+
+{#                <dt class="item"><a href="#" class="btn-main">Vestuário</a></dt>#}
+{#                <dd class="item-content content-small">#}
+{#                <div class="megamenuClose">#}
+{#                </div>#}
+{#                <ul class="row-list">#}
+{#                    <li><a href="listing.html">With Left Column</a></li>#}
+{#                    <li><a href="listing-gallery.html">Gallery Listing</a></li>#}
+{#                    <li><a href="listing-no-left.html">No Left Column</a></li>#}
+{#                    <li><a href="listing-categories.html">Only Categories</a></li>#}
+{#                </ul>#}
+{#                </dd>#}
+
                 <dt class="item"><a href="#" class="btn-main">Blog</a></dt>
                 <!--<dt class="item"><a href="#" class="btn-main">lAYOUT</a></dt>-->
                 <!--<dd class="item-content content-small">-->

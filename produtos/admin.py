@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 from django.contrib import admin
-from .models import Produto, Categoria, Tag, ProdutoImagem, CategoriaImagem
+from .models import Produto, Categoria, Tag, ProdutoImagem, CategoriaImagem, Destaque
 
 class CategoriaImagemInLine(admin.StackedInline):
     model = CategoriaImagem
@@ -51,3 +51,9 @@ class CategoriaAdmin(admin.ModelAdmin):
 
 admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Tag)
+
+class ProdutosDestaquesAdmin(admin.ModelAdmin):
+    class Meta:
+        model = Destaque
+
+admin.site.register(Destaque, ProdutosDestaquesAdmin)

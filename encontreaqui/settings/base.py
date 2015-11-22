@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'perfis',
     # 'contato',
     'carrinho',
+    'sitetree',
 )
 
 MIDDLEWARE_CLASSES = (

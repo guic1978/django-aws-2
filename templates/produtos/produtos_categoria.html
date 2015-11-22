@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% load filename %}
-
+{% load sitetree %}
 {% block content %}
 
 {% include "services.html" %}
@@ -9,7 +9,10 @@
 <!-- Breadcrumbs-->
 <section class="breadcrumbs">
 <div class="container">
-    <a href="index.html">home</a><span class="divider">&nbsp;</span><a href="#">artesanato</a><span class="divider">&nbsp;</span><a href="#">brincos</a>
+    <a href="{% url "home" %}">home</a><span class="divider">&nbsp;</span>
+    {% sitetree_breadcrumbs from "maintree" template "sitetree/breadcrumbs_coolbaby.html" %}
+{#    <a href="#">artesanato</a><span class="divider">&nbsp;</span>#}
+{#    <a href="#">brincos</a>#}
 </div>
 </section>
 <!-- //end Breadcrumbs -->
@@ -55,9 +58,14 @@
 
     </section>
     <!-- //end Right column -->
-
-    {% include "produtos/_menu_lateral.html" %}
-
+    <!-- Left column -->
+    <aside class="col-sm-4 col-md-3 col-lg-2 content-aside">
+    <div class="panel-group accordion-simple">
+{#    {% include "produtos/_secao_categoria_menu_lateral.html" %}#}
+        {% sitetree_menu from "maintree" include "this-siblings" template "sitetree/menu_categoria_lateral_coolbaby.html" %}
+    </div>
+    </aside>
+    <!-- //end Left column -->
 </div>
 </section>
 <!-- //end Two columns content -->

@@ -17,9 +17,12 @@ from .forms import ProdutoForm, ProdutoImagemForm
 
 def _checar_produto_comprado(user, produto):
     if user.is_authenticated():
-        if produto in user.usuariocompra.produtos.all():
-            return True
-        else:
+        try:
+            if produto in user.usuariocompra.produtos.all():
+                return True
+            else:
+                return False
+        except:
             return False
     else:
         return False
@@ -149,6 +152,12 @@ def categoria(request, slug):
         for item_categoria in categorias_produto:
             if (not item_categoria == categoria) and (item_categoria not in categorias_relacionadas):
                 categorias_relacionadas.append(item_categoria)
+
+    try:
+        todas_categorias = Categoria.objects.all
+    except:
+        todas_categorias = False
+
 
     return render(request, "produtos/produtos_categoria.html", locals())
 

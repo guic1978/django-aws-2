@@ -24,7 +24,7 @@
                         </a>
                         <div class="hover">
                             <div class="inside">
-                                <h3 class="title"><a href="{{ produto.get_absolute_url }}">{{ produto.nome }}</a></h3>
+                                <h3 class="title"><a href="{{ produto.get_absolute_url }}">{{ produto|truncatechars:90 }}</a></h3>
                                 {% if produto.preco_desconto > 0 %}
                                     <span class="price old">R${{ produto.preco }}</span><span class="price new">R${{ produto.preco_desconto }}</span>
                                 {% else %}
