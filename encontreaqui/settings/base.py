@@ -42,9 +42,7 @@ SHORT_DATETIME_FORMAT = DATE_FORMAT
 TIME_FORMAT = '%H:%M'
 DATETIME_FORMAT = DATE_FORMAT + ' ' + TIME_FORMAT
 
-
 # Application definition
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,7 +53,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'registration',
     'widget_tweaks',
-    'stripe',
+    # 'stripe',
     'core',
     'produtos',
     # 'pedidos',
