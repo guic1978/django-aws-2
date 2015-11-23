@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block content %}
+<!-- Breadcrumbs-->
+<section class="breadcrumbs">
+<div class="container">
+    <a href="index.html">home</a><span class="divider">&nbsp;</span><span>ENTRE OU CADASTRE-SE</span>
+</div>
+</section>
+<!-- //end Breadcrumbs -->
+<!--Page Content-->
+<section class="content">
+<div class="container">
+    <div class="subtitle">
+        <div>
+            <span>ENTRE OU CADASTRE-SE</span>
+        </div>
+    </div>
+    <div class="divider divider-sm">
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="rect-nohover rect-equal-height">
+                <h2>Não tenho cadastro</h2>
+                <div class="divider-xs">
+                </div>
+                <p>
+                    Receba promoções e ofertas exclusivas. Salve seus dados e facilite compras futuras
+                </p>
+{#                <button class="btn btn-cool btn-md-sm btn-bottom" type="submit">Create an account</button>#}
+                <a  class="btn btn-cool btn-md-sm btn-bottom" href="{% url 'registration_register' %}">Criar uma conta</a>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="rect-nohover rect-equal-height">
+                <h2>Já tenho Cadastro</h2>
+                <div class="divider-xs">
+                </div>
+                <p>
+                    Digite seu usuário e senha abaixo
+                </p>
+                <div class="divider-sm">
+                </div>
+                <form method="post" action=".">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="form-group">
+{#                        <input name="your-name" type="text" class="form-control" placeholder="Login">#}
+                        <label class="control-label" for="inputSuccess1">Usuário</label>
+                        {{ form.username|add_class:"form-control"|attr:"placeholder:Digite o seu usuário..."  }}
+                        {% if form.username.errors %}
+                            <span id="helpBlock2" class="help-block text-danger danger">{{ form.username.errors }}</span>
+{#                        <div class="well text-danger alert-danger">{{ form.username.errors }}</div>#}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+{#                        <input name="password" type="password" class="form-control" placeholder="Senha">#}
+                        <label class="control-label" for="inputSuccess1">Senha</label>
+                        {{ form.password|add_class:"form-control"|attr:"placeholder:Digite sua senha..." }}
+                        {% if form.password.errors %}
+                            <span id="helpBlock2" class="help-block text-danger danger">{{ form.password.errors }}</span>
+{#                        <div class="well text-danger alert-danger">{{ form.password.errors }}</div>#}
+                        {% endif %}
+                    </div>
+                    <div class="divider-sm">
+                    </div>
+                    <p>
+                         <a href="{% url 'auth_password_reset' %}">Esqueceu sua Senha?</a>
+                    </p>
+                    <div class="divider-sm">
+                    </div>
+                    <button class="btn btn-cool btn-md-sm btn-bottom" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+        <div class="divider divider-lg">
+        </div>
+    </div>
+{#    <div class="subtitle">#}
+{#        <div class="subtitle">#}
+{#            <div>#}
+{#                <span>Social Connect</span>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="text-center">#}
+{#        You can connect store account with you Social account so you could login easier in the future.#}
+{#    </div>#}
+{#    <div class="divider divider-md">#}
+{#    </div>#}
+{#    <div class="text-center">#}
+{#        <a href="#" class="sign-btn sign-btn-facebook"><span class="icon flaticon-facebook12"></span>Sign in</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="sign-btn sign-btn-twitter"><span class="icon flaticon-social19"></span>Sign in</a>#}
+{#    </div>#}
+</div>
+</section>
+<!-- //end Page Content -->
+{% endblock %}
+
+
+{#{% block content %}#}
+{#<form method="post" action=".">#}
+{#  {% csrf_token %} #}
+{#  {{ form.as_p }}#}
+{##}
+{#  <input type="submit" value="{% trans 'Log in' %}" />#}
+{#  <input type="hidden" name="next" value="{{ next }}" />#}
+{#</form>#}
+{##}
+{#<p>{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>#}
+{#<p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>#}
+{#{% endblock %}#}

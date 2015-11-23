@@ -4,7 +4,7 @@
 <section class="container content">
     <div class="subtitle right-space">
         <div>
-            <span>Veja nossos produtos em destaque</span>
+            <span>{{ produtos_destaque.titulo }}</span>
         </div>
     </div>
     <div class="slick-arrows">
@@ -14,7 +14,7 @@
     <div class="products-nospace-outer row1">
         <div class="products-nospace">
             <div class="slides row1">
-                {% for produto in produtos_destaque|slice:":10" %}
+                {% for produto in produtos_destaque.produtos.all|slice:":10" %}
                 <div class="carousel-item">
                     <div class="product-preview">
                         <a href="{{ produto.get_absolute_url }}" class="preview-image">

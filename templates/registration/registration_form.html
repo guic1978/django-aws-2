@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block content %}
+<!-- Breadcrumbs-->
+<section class="breadcrumbs">
+<div class="container">
+    <a href="index.html">home</a><span class="divider">&nbsp;</span><span>CADASTRE-SE</span>
+</div>
+</section>
+<!-- //end Breadcrumbs -->
+<!--Page Content-->
+<section class="content">
+<div class="container">
+    <div class="subtitle">
+        <div>
+            <span>CADASTRE-SE</span>
+        </div>
+    </div>
+    <div class="divider divider-sm">
+    </div>
+    <div class="row">
+{#        <div class="col-sm-6">#}
+{#            <div class="rect-nohover rect-equal-height">#}
+{#                <h2>Não tenho cadastro</h2>#}
+{#                <div class="divider-xs">#}
+{#                </div>#}
+{#                <p>#}
+{#                    Receba promoções e ofertas exclusivas. Salve seus dados e facilite compras futuras#}
+{#                </p>#}
+{#                <button class="btn btn-cool btn-md-sm btn-bottom" type="submit">Create an account</button>#}
+{#                <a  class="btn btn-cool btn-md-sm btn-bottom" href="{% url 'registration_register' %}">Criar uma conta</a>#}
+{#            </div>#}
+{#        </div>#}
+        <div class="col-sm-6">
+            <div class="rect-nohover rect-equal-height">
+                <h2>Preencha o cadastro</h2>
+                <div class="divider-xs">
+                </div>
+                <p>
+                    Receba promoções e ofertas exclusivas. Salve seus dados e facilite compras futuras
+                </p>
+                <div class="divider-sm">
+                </div>
+                <form method="post" action=".">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="form-group">
+                        {{ form.username.label_tag }}
+                        {{ form.username|add_class:"form-control" }}
+                        <span id="helpBlock2" class="help-block">Obrigatório. 30 caracteres ou menos. Somente letras, dígitos e @/./+/-/_.</span>
+                        {% if form.username.errors %}
+                            <span id="helpBlock2" class="help-block text-danger danger">{{ form.username.errors }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email.label_tag }}
+                        {{ form.email|add_class:"form-control" }}
+                        {% if form.username.errors %}
+                            <span id="helpBlock2" class="help-block text-danger danger">{{ form.email.errors }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.password1.label_tag }}
+                        {{ form.password1|add_class:"form-control" }}
+                        {% if form.password1.errors %}
+                            <span id="helpBlock2" class="help-block text-danger danger">{{ form.password1.errors }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.password2.label_tag }}
+                        {{ form.password2|add_class:"form-control" }}
+                        {% if form.password2.errors %}
+                            <span id="helpBlock2" class="help-block text-danger danger">{{ form.password2.errors }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="divider-sm">
+                    </div>
+                    <button class="btn btn-cool btn-md-sm btn-bottom" type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <div class="divider divider-lg">
+        </div>
+    </div>
+{#    <div class="subtitle">#}
+{#        <div class="subtitle">#}
+{#            <div>#}
+{#                <span>Social Connect</span>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="text-center">#}
+{#        You can connect store account with you Social account so you could login easier in the future.#}
+{#    </div>#}
+{#    <div class="divider divider-md">#}
+{#    </div>#}
+{#    <div class="text-center">#}
+{#        <a href="#" class="sign-btn sign-btn-facebook"><span class="icon flaticon-facebook12"></span>Sign in</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="sign-btn sign-btn-twitter"><span class="icon flaticon-social19"></span>Sign in</a>#}
+{#    </div>#}
+</div>
+</section>
+<!-- //end Page Content -->
+{% endblock %}
+
+
+{#{% extends "base.html" %}#}
+{#{% load i18n %}#}
+{##}
+{#{% block content %}#}
+{#<form method="post" action=".">#}
+{#  {% csrf_token %}#}
+{#  {{ form.as_p }}#}
+{##}
+{#  <input type="submit" value="{% trans 'Submit' %}" />#}
+{#</form>#}
+{#{% endblock %}#}

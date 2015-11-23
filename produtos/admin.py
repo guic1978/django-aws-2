@@ -53,6 +53,7 @@ admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Tag)
 
 class ProdutosDestaquesAdmin(admin.ModelAdmin):
+    list_display = ('titulo','descricao', 'inicio', 'fim', 'ativo', 'default')
     class Meta:
         model = Destaque
 

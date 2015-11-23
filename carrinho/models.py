@@ -16,6 +16,10 @@ class Carrinho(models.Model):
     def __unicode__(self):
         return "%s %s" %(self.id, self.total)
 
+    # def quantidade(self):
+    #     itens = ItemCarrinho.objects.filter(carrinho=self)
+    #     return itens.count()
+
 class ItemCarrinho(models.Model):
     carrinho = models.ForeignKey(Carrinho)
     produto = models.ForeignKey(Produto)

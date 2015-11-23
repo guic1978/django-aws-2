@@ -21,6 +21,10 @@ MANAGERS = ADMINS
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
+#Django Registration
+ACCOUNT_ACTIVATION_DAYS = 7
+LOGIN_REDIRECT_URL = '/'
+SITE_ID = 1
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -44,10 +48,14 @@ DATETIME_FORMAT = DATE_FORMAT + ' ' + TIME_FORMAT
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
+    'widget_tweaks',
+    'stripe',
     'core',
     'produtos',
     # 'pedidos',
@@ -82,7 +90,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.core.context_processors.static',
-                # 'carrinho.views.checa_carrinho',
+                'carrinho.context_processors.checa_carrinho',
             ],
         },
     },
@@ -136,10 +144,10 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-# EMAIL_HOST          = 'smtp.gmail.com'
-# EMAIL_PORT          = 587
-# EMAIL_HOST_USER     = 'guilherme.guic@gmail.com'
-# EMAIL_HOST_PASSWORD = 'carolly2010'
-# EMAIL_USE_TLS       = True
+EMAIL_HOST          = 'smtp.gmail.com'
+EMAIL_PORT          = 587
+EMAIL_HOST_USER     = 'guilherme.guic@gmail.com'
+EMAIL_HOST_PASSWORD = 'carolly2010'
+EMAIL_USE_TLS       = True
 # EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
 

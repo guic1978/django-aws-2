@@ -7,6 +7,8 @@ from django.db.models import signals
 from django.dispatch.dispatcher import receiver
 from django.core.urlresolvers import reverse
 
+import datetime
+
 local_protegido = settings.UPLOADS_PROTEGIDOS
 
 def local_download(instance, filename):
@@ -205,14 +207,27 @@ class CategoriaImagem(models.Model):
 #     historico = Historico(usuario=instance.carrinho.user, modelo="carrinho", operacao="D")
 #     historico.save()
 
+class DestaqueManager(models.Manager):
+    def get_instancia_destaque(self):
+        destaques_ativos_no_periodo = super(DestaqueManager, self).filter(inicio__lte=datetime.datetime.now()).filter(fim__gte=datetime.datetime.now()).filter(ativo=True)
+        if len(destaques_ativos_no_periodo) > 0:
+            return destaques_ativos_no_periodo[0]
+        else:
+            destaques_padrao = super(DestaqueManager, self).filter(default=True)
+            return destaques_padrao[0]
+
 class Destaque(models.Model):
     titulo = models.CharField(max_length=120)
+    descricao = models.TextField(max_length=200, null=True, blank=True)
     produtos = models.ManyToManyField(Produto, limit_choices_to={'ativo': True}, null=True, blank=True)
     inicio = models.DateField(auto_now_add=False, auto_now=False)
     fim = models.DateField(auto_now_add=False, auto_now=False)
     ativo = models.BooleanField(default=True)
+    default = models.BooleanField(default=False, verbose_name="Padrão")
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
+
+    objects = DestaqueManager()
 
     def __unicode__(self):
         return self.titulo

@@ -22,24 +22,32 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', "encontreaqui.views.home", name="home"),
+
     url(r'^ajax_view-product/(?P<produto_id>.*)', "produtos.views.produto_ajax_quick_view", name="ajax-view-product"),
     url(r'^produtos/', "produtos.views.produtos", name="produtos"),
-    url(r'^busca/', "produtos.views.buscar", name="busca_produtos"),
     url(r'^produto/([0-9]+)/$', "produtos.views.produto", name="item_produto"),
     url(r'^produto/([0-9]+)/editar/', "produtos.views.editar_produto", name="editar_produto"),
     url(r'^produto/incluir/', "produtos.views.incluir_produto", name="incluir_produto"),
     url(r'^produto/([0-9]+)/imagens/', "produtos.views.gerenciar_imagem_produto", name="editar_imagem"),
     url(r'^produto/(?P<produto_id>.*)/download/(?P<filename>.*)$', "produtos.views.download_produto", name="download_produto"),
+
     url(r'^categoria/(?P<slug>.*)/$', "produtos.views.categoria", name="categoria"),
+
+    url(r'^busca/', "produtos.views.buscar", name="busca_produtos"),
+
     url(r'^lib/', "perfis.views.library", name="library"),
+
     url(r'^carrinho/alterar/(?P<produto_id>.*)', "carrinho.views.alterar_carrinho", name="alterar_carrinho"),
     url(r'^carrinho/', "carrinho.views.carrinho", name="carrinho"),
+
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
         }),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.STATIC_ROOT,
         }),
+
+    url(r'^accounts/', include('registration.backends.hmac.urls')),
 ]
 
 

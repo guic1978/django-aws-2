@@ -52,36 +52,12 @@
 <div id="newsLine">
     <div class="container">
         <div class="row">
-            <!--<div class="col-sm-3 col-md-2 hidden-xs">-->
-                <!--<div class="title upper">-->
-                    <!--<i class="icon flaticon-news"></i>News-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-xs-5 col-sm-6 col-md-7 col-xs-push-1 col-sm-push-0">-->
-                <!--<div id="newsCarousel" class="slick-style1">-->
-                    <!--<div class="item upper">-->
-                        <!--<div class="marquee">-->
-                            <!--<span class="date">10.10.2015.</span> Fusce eu dui. Integer vel nibh sit amet turpis vulputate aliquet. Phasellus id nisi vitae odio pretium aliquam.-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="item upper">-->
-                        <!--<div class="marquee">-->
-                            <!--<span class="date">14.10.2015.</span> Fusce eu dui. Integer vel nibh sit amet turpis vulputate aliquet. Phasellus id nisi vitae odio pretium aliquam.-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="item upper">-->
-                        <!--<div class="marquee">-->
-                            <!--<span class="date">20.10.2015.</span> Fusce eu dui. Integer vel nibh sit amet turpis vulputate aliquet. Phasellu id nisi vitae odio pretium aliquam.-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
             <div class="col-xs-5 col-sm-3 col-md-2 top-link pull-right">
                 <div class="btn-outer btn-search">
                     <a href="#" class="btn btn-xs btn-default" data-toggle="dropdown"><span class="icon icon-lg flaticon-zoom45"></span></a>
                 </div>
                 <div class="btn-outer btn-shopping-cart">
-                    <a href="#drop-shopcart" class="btn btn-xs btn-default open-cart" data-toggle="dropdown"><span class="icon icon-md flaticon-shopping66"></span><span class="badge">3</span></a>
+                    <a href="#drop-shopcart" class="btn btn-xs btn-default open-cart" data-toggle="dropdown"><span class="icon icon-md flaticon-shopping66"></span><span class="badge">{{ carrinho_sessao.itemcarrinho_set.count }}</span></a>
                     <div class="hidden">
                         <div id="drop-shopcart" class="shoppingcart-box">
                             <div class="title">
@@ -100,6 +76,7 @@
                                 </div>
                             </div>
                             <div class="list animate-delay-outer">
+                                {% for produtos in carrinho_sessao.produtos.all %}
                                 <div class="item animate-delay fadeInRight">
                                     <div class="image">
                                         <a href="product.html" class="preview-image"><img src="{% static 'images/products/Tenis-Couro-Azul.jpg' %}" alt=""></a>
@@ -111,24 +88,16 @@
                                         <a href="#" class="icon icon-sm flaticon-write13"></a><a href="#" class="icon icon-sm flaticon-recycle59 remove-from-cart"></a>
                                     </div>
                                 </div>
-                                <div class="item animate-delay fadeInRight">
-                                    <div class="image">
-                                        <a href="product.html" class="preview-image"><img src="{% static 'images/products/Vela-Aroma-Canela.jpg' %}" alt=""></a>
-                                    </div>
-                                    <div class="description">
-                                        <a href="#">Vela Aroma Canela</a><strong class="price">1 x R$19,99</strong>
-                                    </div>
-                                    <div class="buttons">
-                                        <a href="#" class="icon icon-sm flaticon-write13"></a><a href="#" class="icon icon-sm flaticon-recycle59 remove-from-cart"></a>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                             <div class="total">
-                                Total: <strong>R$165,95</strong>
+                                Total: <strong>R${{ carrinho_sessao.total }}</strong>
                             </div>
+                            {% if not carrinho_sessao %}
                             <div class="empty">
                                 Carrinho vazio
                             </div>
+                            {% endif %}
                             <a href="checkout.html" class="btn btn-cool">Comprar todos os produtos</a>
                             <div class="view-link">
                                 <a href="shopping-cart.html">Ver detalhe do carrinho </a>
@@ -152,7 +121,14 @@
             <div class="header-left col-sm-5 col-md-8">
                 <div class="row">
                     <div class="navbar-welcome col-md-6 compact-hidden hidden-sm hidden-xs">
-                        Bem-vindos ao nosso shopping
+                        Bem-vindos ao nosso shopping<br><br>
+                        {% if user.is_authenticated %}
+                            {% if user.first_name %}
+                                <strong>{{ user.first_name }} {{ user.last_name }}</strong>
+                            {% else %}
+                                <strong>{{ user }}</strong>
+                            {% endif %}
+                        {% endif %}
                     </div>
                     <!-- Mobile menu Button-->
                     <div class="col-xs-2 visible-xs">
@@ -180,12 +156,21 @@
                 <div class="btn-group">
                     <a href="#" title="Account" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><span class="icon icon-lg flaticon-business137"></span><span class="drop-title">Account</span></a>
                     <ul class="dropdown-menu" role="menu">
+                        {% if user.is_authenticated %}
                         <li><a href="#">Conta</a></li>
                         <li><a href="#">Desejos</a></li>
-                        <li><a href="#">Carrinho</a></li>
+                        {% endif %}
+                        <li><a href="{% url "carrinho" %}">Carrinho</a></li>
                         <li class="divider"></li>
-                        <li><a href="page-logination.html">Entrar</a></li>
-                        <li><a href="page-logination.html">Cadastre-se</a></li>
+                        <li class="dropdown-header">Autenticação</li>
+                        {% if not user.is_authenticated %}
+                            <li><a href="{% url "auth_login" %}">Entrar</a></li>
+                            <li><a href="{% url "registration_register" %}">Cadastre-se</a></li>
+                        {% else %}
+                            <li><a href="{% url "auth_logout" %}">Sair</a></li>
+                        {% endif %}
+
+
                     </ul>
                 </div>
                 <!--<div class="btn-group">-->

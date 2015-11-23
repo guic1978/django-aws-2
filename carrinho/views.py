@@ -7,7 +7,7 @@ from produtos.models import Produto
 from django.template import loader, Context, RequestContext
 
 def checa_carrinho(request):
-    #Verifica se há carrinho aberto na sessão
+    # Verifica se há carrinho aberto na sessão
     try:
         carrinho_id = request.session["CARRINHO_ID"]
     except:
@@ -19,7 +19,6 @@ def checa_carrinho(request):
         carrinho=False
 
     return carrinho
-
 
 def carrinho(request):
     #Verifica se há carrinho aberto na sessão
