@@ -1,4 +1,4 @@
-git awsebcli==3.5.5
+awsebcli==3.5.5
 blessed==1.9.5
 botocore==1.3.7
 cement==2.4.0
