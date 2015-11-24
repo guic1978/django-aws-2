@@ -43,7 +43,7 @@ class ProdutoAdmin(admin.ModelAdmin):
 admin.site.register(Produto, ProdutoAdmin)
 
 class CategoriaAdmin(admin.ModelAdmin):
-    # list_display = ('__unicode__','sku','descricao_curta', 'preco', 'preco_desconto', 'ativo')
+    list_display = ('nome','slug')
     inlines = [CategoriaImagemInLine]
     prepopulated_fields = {"slug": ('nome',)}
     class Meta:

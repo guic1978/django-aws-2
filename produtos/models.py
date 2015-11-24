@@ -77,7 +77,7 @@ class ProdutoImagemManager(models.Manager):
 ##F0F0F0
 class ProdutoImagem(models.Model):
     produto = models.ForeignKey(Produto)
-    imagem = models.ImageField(upload_to="produtos/image/")
+    imagem = models.ImageField(upload_to="produtos/image/", verbose_name="Imagem (420x450)")
     imagem_65x75 = ImageSpecField(source='imagem',
                                       processors=[ResizeToFit(65, 75, mat_color=(245,245,245)),
                                                 ],
