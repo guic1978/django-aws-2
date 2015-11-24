@@ -19,7 +19,7 @@
                     <div class="product-preview">
                         <a href="{{ produto.get_absolute_url }}" class="preview-image">
                             {% with produto.produtoimagem_set.all|first as imagem %}
-                                <img class="img-default" src="{{ MEDIA_URL }}{{ imagem.imagem.url }}" alt="{{ imagem.titulo }}">
+                                <img class="img-default" src="{{ MEDIA_URL }}{{ imagem.imagem_252x269.url }}" alt="{{ imagem.titulo }}">
                             {% endwith %}
                         </a>
                         <div class="hover">
@@ -51,16 +51,16 @@
     </div>
     <!-- //end product view ajax container -->
 
-    {% if produtos_destaque|length > 10 %}
+    {% if produtos_destaque.produtos.all|length > 10 %}
     <div class="products-nospace-outer row2">
         <div class="products-nospace">
             <div class="slides">
-                {% for produto in produtos_destaque|slice:"10:10" %}
+                {% for produto in produtos_destaque.produtos.all|slice:"10:20" %}
                 <div class="carousel-item">
                     <div class="product-preview">
                         <a href="{{ produto.get_absolute_url }}" class="preview-image">
                             {% with produto.produtoimagem_set.all|first as imagem %}
-                                <img class="img-default" src="{{ MEDIA_URL }}{{ imagem.imagem.url }}" alt="{{ imagem.titulo }}">
+                                <img class="img-default" src="{{ MEDIA_URL }}{{ imagem.imagem_252x269.url }}" alt="{{ imagem.titulo }}">
                             {% endwith %}
                         </a>
                         <div class="hover">

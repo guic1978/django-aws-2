@@ -3,9 +3,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-from django.db.models import signals
-from django.dispatch.dispatcher import receiver
+# from django.db.models import signals
+# from django.dispatch.dispatcher import receiver
 from django.core.urlresolvers import reverse
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill, SmartCrop, SmartResize, ResizeToFit, ResizeCanvas, Anchor
 
 import datetime
 
@@ -72,9 +74,46 @@ class ProdutoImagemManager(models.Manager):
         print principal
         return "bolinha"
 
+##F0F0F0
 class ProdutoImagem(models.Model):
     produto = models.ForeignKey(Produto)
     imagem = models.ImageField(upload_to="produtos/image/")
+    imagem_65x75 = ImageSpecField(source='imagem',
+                                      processors=[ResizeToFit(65, 75, mat_color=(245,245,245)),
+                                                ],
+                                      format='JPEG',
+                                      options={'quality': 75})
+    imagem_90x100 = ImageSpecField(source='imagem',
+                                      processors=[ResizeToFit(90, 100, mat_color=(245,245,245))
+                                                  ],
+                                      format='JPEG',
+                                      options={'quality': 75})
+    imagem_90x90 = ImageSpecField(source='imagem',
+                                      processors=[ResizeToFit(90, 90, mat_color=(245,245,245))
+                                                  ],
+                                      format='JPEG',
+                                      options={'quality': 75})
+    imagem_170x220 = ImageSpecField(source='imagem',
+                                      processors=[ResizeToFit(170, 220, mat_color=(245,245,245)),
+                                      ],
+                                      format='JPEG',
+                                      options={'quality': 75})
+    imagem_252x269 = ImageSpecField(source='imagem',
+                                      processors=[ResizeToFit(252, 269, mat_color=(245,245,245)),
+                                                  ],
+                                      format='JPEG',
+                                      options={'quality': 75})
+    imagem_390x390 = ImageSpecField(source='imagem',
+                                  processors=[ResizeToFit(390, 390, mat_color=(245,245,245)),
+                                              ],
+                                  format='JPEG',
+                                  options={'quality': 75})
+    imagem_450x450 = ImageSpecField(source='imagem',
+                              processors=[ResizeToFit(450, 450, mat_color=(245,245,245)),
+                                          ],
+                              format='JPEG',
+                              options={'quality': 75})
+
     titulo = models.CharField(max_length=120, null=True, blank=True)
     imagem_principal = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
@@ -83,6 +122,10 @@ class ProdutoImagem(models.Model):
 
     def __unicode__(self):
         return self.titulo
+
+pd = ProdutoImagem.objects.all()[0]
+print pd.imagem_90x100.url    # > /media/CACHE/images/982d5af84cddddfd0fbf70892b4431e4.jpg
+print pd.imagem_90x100.width
 
 class Tag(models.Model):
     produto = models.ForeignKey(Produto)

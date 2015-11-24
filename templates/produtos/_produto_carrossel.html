@@ -9,15 +9,15 @@
                     <div class="preview-image-outer">
                         <a href="{{ produto.get_absolute_url }}" class="preview-image">
                             {% with produto.produtoimagem_set.all|first as imagem %}
-                                <img class="img-responsive img-default" src="{{ MEDIA_URL }}{{ imagem.imagem.url }}" alt="{{ imagem.titulo }}">
+                                <img class="img-responsive img-default" src="{{ MEDIA_URL }}{{ imagem.imagem_170x220.url }}" alt="{{ imagem.titulo }}">
                             {% endwith %}
                             {% if produto.produtoimagem_set.all|length > 1 %}
                                 {% with produto.produtoimagem_set.all|index:1 as imagem %}
-                                    <img class="img-responsive img-second" src="{{ MEDIA_URL }}{{ imagem.imagem.url }}" alt="{{ imagem.titulo }}">
+                                    <img class="img-responsive img-second" src="{{ MEDIA_URL }}{{ imagem.imagem_170x220.url }}" alt="{{ imagem.titulo }}">
                                 {% endwith %}
                             {% else %}
                                 {% with produto.produtoimagem_set.all|first as imagem %}
-                                <img class="img-responsive img-second" src="{{ MEDIA_URL }}{{ imagem.imagem.url }}" alt="{{ imagem.titulo }}">
+                                <img class="img-responsive img-second" src="{{ MEDIA_URL }}{{ imagem.imagem_170x220.url }}" alt="{{ imagem.titulo }}">
                                 {% endwith %}
                             {% endif %}
                         </a>

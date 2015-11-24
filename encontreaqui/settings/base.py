@@ -51,16 +51,18 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # EXTERNO
     'registration',
     'widget_tweaks',
-    # 'stripe',
+     'sitetree',
+     'imagekit',
+    # INTERNO
     'core',
     'produtos',
     # 'pedidos',
     'perfis',
     # 'contato',
     'carrinho',
-    'sitetree',
 )
 
 MIDDLEWARE_CLASSES = (

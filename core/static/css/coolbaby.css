@@ -2203,6 +2203,10 @@ body.responsive .blog-widget .posts {
 	width: auto
 }
 
+.product-view .single-product {
+    width: 360px !important;
+}
+
 @media (min-width: 480px) and (max-width: 767px) {
 body.responsive .blog-widget .slides div.carousel-item {
 	font-size: 12px

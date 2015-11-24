@@ -5,7 +5,7 @@
     
     <div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 ">
         {% with produto.produtoimagem_set.all|first as imagem %}
-        <div class="large-image"> <img src = "{{ MEDIA_URL }}{{ imagem.imagem.url }}" class="img-responsive" /> </div>
+        <div class="large-image"> <img src = "{{ MEDIA_URL }}{{ imagem.imagem_390x390.url }}" class="img-responsive" /> </div>
         {% endwith %}
       </div>
     <div class="info-cell col-sm-6 col-md-6 col-lg-6"> <a href="#" class="close-view"><span class="icon flaticon-close19"></span></a>
