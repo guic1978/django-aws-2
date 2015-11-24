@@ -1,36 +1,8 @@
 {% load staticfiles %}
 {% load sitetree %}
 
-{#{% if user.is_authenticated %}#}
-{#<p class="f_size_small">Benvindo {{ user.username }}, <a href="#" data-popup="#login_popup">Não é minha conta</a></p>#}
-{#{% else %}#}
-{#<p class="f_size_small">Benvindo visitante,<a href="#" data-popup="#login_popup">Entrar</a> ou <a href="#">Criar uma conta</a> </p>#}
-{#{% endif %}#}
-{##}
-{#{% if itens %}#}
-{#    {{ itens.count }}#}
-{#{% else %}#}
-{#    0#}
-{#{% endif %}#}
-{##}
-{#{% if itens %}#}
-{#{{ carrinho.total }}#}
-{#{% else %}#}
-{#0#}
-{#{% endif %}#}
-{#				#}
-
-
 <!-- Navbar -->
-
-
-
-
 <header>
-
-{#<br>#}
-{#{% sitetree_breadcrumbs from "maintree" %}#}
-
 <!-- Search -->
 <div id="openSearch">
     <div class="container">
@@ -57,7 +29,12 @@
                     <a href="#" class="btn btn-xs btn-default" data-toggle="dropdown"><span class="icon icon-lg flaticon-zoom45"></span></a>
                 </div>
                 <div class="btn-outer btn-shopping-cart">
-                    <a href="#drop-shopcart" class="btn btn-xs btn-default open-cart" data-toggle="dropdown"><span class="icon icon-md flaticon-shopping66"></span><span class="badge">{{ carrinho_sessao.itemcarrinho_set.count }}</span></a>
+                    <a href="#drop-shopcart" class="btn btn-xs btn-default open-cart" data-toggle="dropdown"><span class="icon icon-md flaticon-shopping66"></span><span class="badge">
+                    {% if carrinho_sessao.itemcarrinho_set %}
+                        {{ carrinho_sessao.itemcarrinho_set.count }}
+                    {% else %}
+                        0
+                    {% endif %}</span></a>
                     <div class="hidden">
                         <div id="drop-shopcart" class="shoppingcart-box">
                             <div class="title">
@@ -75,14 +52,15 @@
                                     </div>
                                 </div>
                             </div>
+                            {% if carrinho_sessao.itemcarrinho_set %}
                             <div class="list animate-delay-outer">
-                                {% for produtos in carrinho_sessao.produtos.all %}
+                                {% for item in carrinho_sessao.itemcarrinho_set.all %}
                                 <div class="item animate-delay fadeInRight">
                                     <div class="image">
-                                        <a href="product.html" class="preview-image"><img src="{% static 'images/products/Tenis-Couro-Azul.jpg' %}" alt=""></a>
+                                        <a href="{% url "item_produto" item.produto.id %}" class="preview-image"><img src="{{ item.produto.produtoimagem.imagem_principal.url }}" alt="{{ item.produto.imagem.titulo }}"></a>
                                     </div>
                                     <div class="description">
-                                        <a href="#">Tênis de Couro Azul</a><strong class="price">1 x R$144,95</strong>
+                                        <a href="#">{{ item.produto }}</a><strong class="price">1 x R${{ item.produto.preco_venda }}</strong>
                                     </div>
                                     <div class="buttons">
                                         <a href="#" class="icon icon-sm flaticon-write13"></a><a href="#" class="icon icon-sm flaticon-recycle59 remove-from-cart"></a>
@@ -93,15 +71,21 @@
                             <div class="total">
                                 Total: <strong>R${{ carrinho_sessao.total }}</strong>
                             </div>
-                            {% if not carrinho_sessao %}
+                            <a href="{% url "carrinho" %}" class="btn btn-cool">Comprar todos os produtos</a>
+{#                            <div class="view-link">#}
+{#                                <a href="shopping-cart.html">Ver detalhe do carrinho </a>#}
+{#                            </div>#}
                             <div class="empty">
-                                Carrinho vazio
+                                Não há itens no carrinho.
+                            </div>
+                            {% else %}
+                            <div class="list animate-delay-outer">
+                                <div class="item animate-delay fadeInRight"></div>
+                            </div>
+                            <div class="empty" style="display: block">
+                                Não há itens no carrinho.
                             </div>
                             {% endif %}
-                            <a href="checkout.html" class="btn btn-cool">Comprar todos os produtos</a>
-                            <div class="view-link">
-                                <a href="shopping-cart.html">Ver detalhe do carrinho </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,7 +108,7 @@
                         Bem-vindos ao nosso shopping<br><br>
                         {% if user.is_authenticated %}
                             {% if user.first_name %}
-                                <strong>{{ user.first_name }} {{ user.last_name }}</strong>
+                                <strong>{{ user.first_name }} {{ user.last_name }}</strong>,<a href="{% url "auth_logout" %}"> sair.</a>
                             {% else %}
                                 <strong>{{ user }}</strong>
                             {% endif %}
@@ -147,7 +131,13 @@
                     <!-- Secondary menu -->
                     <div class="top-link pull-right compact-visible">
                         <div class="btn-outer btn-shopping-cart">
-                            <a href="#drop-shopcart" class="btn btn-xs btn-default open-cart" data-toggle="dropdown"><span class="icon icon-md flaticon-shopping66"></span><span class="badge">3</span></a>
+                            <a href="#drop-shopcart" class="btn btn-xs btn-default open-cart" data-toggle="dropdown"><span class="icon icon-md flaticon-shopping66"></span><span class="badge">
+                                {% if carrinho_sessao.itemcarrinho_set %}
+                                    {{ carrinho_sessao.itemcarrinho_set.count }}
+                                {% else %}
+                                    0
+                                {% endif %}
+                            </span></a>
                         </div>
                     </div>
                 </div>

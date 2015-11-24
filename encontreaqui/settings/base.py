@@ -142,10 +142,18 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-EMAIL_HOST          = 'smtp.gmail.com'
+EMAIL_HOST          = 'smtp.zoho.com'
 EMAIL_PORT          = 587
-EMAIL_HOST_USER     = 'guilherme.guic@gmail.com'
-EMAIL_HOST_PASSWORD = 'carolly2010'
+EMAIL_HOST_USER     = 'guilhermereis@bussolatech.com.br'
+EMAIL_HOST_PASSWORD = 'zoho1234@'
 EMAIL_USE_TLS       = True
-# EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
 
+# #SES
+# EMAIL_HOST = 'mail.domain.com'
+# EMAIL_HOST_USER = 'guilherme'
+# EMAIL_HOST_PASSWORD = 'tkxS*Ej0*M}K'
+# DEFAULT_FROM_EMAIL = 'abc@domain.com'
+# SERVER_EMAIL = 'abc@domain.com'
+# EMAIL_PORT = 25
+# EMAIL_USE_TLS = False

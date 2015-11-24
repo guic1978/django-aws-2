@@ -62,6 +62,16 @@ class Produto(models.Model):
 
     categoria_principal = property(_get_mainCategory)
 
+#Não funciona, corrigir!!!
+class ProdutoImagemManager(models.Manager):
+    def imagem_principal(self):
+        try:
+            principal = super(ProdutoImagemManager, self).filter(imagem_principal=True)[:1]
+        except:
+            principal = super(ProdutoImagemManager, self).all()[:1]
+        print principal
+        return "bolinha"
+
 class ProdutoImagem(models.Model):
     produto = models.ForeignKey(Produto)
     imagem = models.ImageField(upload_to="produtos/image/")
@@ -69,6 +79,7 @@ class ProdutoImagem(models.Model):
     imagem_principal = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
+    objects = ProdutoImagemManager()
 
     def __unicode__(self):
         return self.titulo

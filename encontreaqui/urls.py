@@ -40,6 +40,8 @@ urlpatterns = [
     url(r'^carrinho/alterar/(?P<produto_id>.*)', "carrinho.views.alterar_carrinho", name="alterar_carrinho"),
     url(r'^carrinho/', "carrinho.views.carrinho", name="carrinho"),
 
+
+
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
         }),
