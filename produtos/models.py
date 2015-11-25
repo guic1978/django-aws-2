@@ -7,7 +7,7 @@ from django.core.files.storage import FileSystemStorage
 # from django.dispatch.dispatcher import receiver
 from django.core.urlresolvers import reverse
 from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill, SmartCrop, SmartResize, ResizeToFit, ResizeCanvas, Anchor
+from imagekit.processors import ResizeToFit
 
 import datetime
 
@@ -63,17 +63,15 @@ class Produto(models.Model):
 
     categoria_principal = property(_get_mainCategory)
 
-#Não funciona, corrigir!!!
 class ProdutoImagemManager(models.Manager):
-    def imagem_principal(self):
+    def get_imagem_principal(self, produto):
         try:
-            principal = super(ProdutoImagemManager, self).filter(imagem_principal=True)[:1]
+            principal = super(ProdutoImagemManager, self).filter(produto=produto).filter(imagem_principal=True)[:1]
         except:
-            principal = super(ProdutoImagemManager, self).all()[:1]
-        print principal
-        return "bolinha"
+            principal = super(ProdutoImagemManager, self).filter(produto=produto)[:1]
 
-##F0F0F0
+        return principal[0]
+
 class ProdutoImagem(models.Model):
     produto = models.ForeignKey(Produto)
     imagem = models.ImageField(upload_to="produtos/image/", verbose_name="Imagem (420x450)")

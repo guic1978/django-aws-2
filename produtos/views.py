@@ -50,7 +50,12 @@ def produtos(request):
     return render(request, "produtos/lista_produtos.html", locals())
 
 def produto(request, produto_id):
-    produto = Produto.objects.get(pk=produto_id)
+    try:
+        produto = Produto.objects.get(pk=produto_id)
+    except:
+        raise Http404
+
+    imagem_principal = ProdutoImagem.objects.get_imagem_principal(produto)
     downloadable = _checar_produto_comprado(request.user, produto)
 
     produtos_relacionados = []
