@@ -5,6 +5,8 @@ from django.core.urlresolvers import reverse
 from .models import Carrinho, ItemCarrinho
 from produtos.models import Produto
 from django.template import loader, Context, RequestContext
+from django.contrib.auth.decorators import login_required
+
 
 def checa_carrinho(request):
     # Verifica se há carrinho aberto na sessão
@@ -32,7 +34,7 @@ def carrinho(request):
 
     return render(request, "carrinho/mostra_carrinho.html", locals())
 
-
+@login_required
 def alterar_carrinho(request, produto_id):
     #Verifica se o produto existe
     try:

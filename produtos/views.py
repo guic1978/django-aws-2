@@ -54,6 +54,7 @@ def produto(request, produto_id):
 
     produtos_relacionados = []
     for categoria in produto.categoria_set.all():
+        categoria.categoriabannerimagem_set.all()
         produtos_categoria = categoria.produto.all()
         for item in produtos_categoria:
             if (not item == produto) and (item not in produtos_relacionados):

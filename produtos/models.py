@@ -242,7 +242,12 @@ def get_active_tree(include_self=True):
 
 class CategoriaImagem(models.Model):
     categoria = models.ForeignKey(Categoria, null=True)
-    imagem = models.ImageField(upload_to="produtos/image/")
+    imagem = models.ImageField(upload_to="produtos/image/", null=True, blank=True, verbose_name="Imagem (100x100)")
+    imagem_100x100 = ImageSpecField(source='imagem',
+                                      processors=[ResizeToFit(100, 100, mat_color=(255,255,255)),
+                                                ],
+                                      format='JPEG',
+                                      options={'quality': 75})
     titulo = models.CharField(max_length=120, null=True, blank=True)
     imagem_principal = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
@@ -250,6 +255,24 @@ class CategoriaImagem(models.Model):
 
     def __unicode__(self):
         return self.titulo
+
+class CategoriaBannerImagem(models.Model):
+    categoria = models.ForeignKey(Categoria, null=True)
+    imagem = models.ImageField(upload_to="produtos/image/", null=True, blank=True, verbose_name="Imagem (453x154)")
+    imagem_453x154 = ImageSpecField(source='imagem',
+                                      processors=[ResizeToFit(453, 154, mat_color=(255,255,255)),
+                                                ],
+                                      format='JPEG',
+                                      options={'quality': 75})
+    titulo = models.CharField(max_length=120, null=True, blank=True)
+    imagem_principal = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
+    updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
+
+    def __unicode__(self):
+        return self.titulo
+
+
 
 # @receiver(signals.post_save, sender=Produto)
 # def atualizar_historico_save(sender, instance, **kwargs):

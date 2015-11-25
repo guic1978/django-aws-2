@@ -17,7 +17,9 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
-from django.views.generic import TemplateView
+# from django.views.generic import TemplateView
+from registration.forms import RegistrationFormUniqueEmail
+from registration.backends.default.views import RegistrationView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -50,6 +52,10 @@ urlpatterns = [
         }),
 
     url(r'^accounts/', include('registration.backends.hmac.urls')),
+
+    # url(r'^accounts/register/$',
+    #     RegistrationView.as_view(form_class=RegistrationFormUniqueEmail),
+    #     name='registration_register'),
 ]
 
 

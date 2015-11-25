@@ -1,9 +1,12 @@
 # -*- encoding: utf-8 -*-
 from django.contrib import admin
-from .models import Produto, Categoria, Tag, ProdutoImagem, CategoriaImagem, Destaque
+from .models import Produto, Categoria, Tag, ProdutoImagem, CategoriaImagem, Destaque, CategoriaBannerImagem
 
 class CategoriaImagemInLine(admin.StackedInline):
     model = CategoriaImagem
+
+class CategoriaBannerImagemInLine(admin.StackedInline):
+    model = CategoriaBannerImagem
 
 class TagInLine(admin.StackedInline):
     prepopulated_fields = {"slug": ('nome',)}
@@ -20,10 +23,13 @@ class ProdutoAdmin(admin.ModelAdmin):
     search_fields = ('nome', 'sku', 'categoria__nome')
     list_filter = ('preco', 'created_at')
     prepopulated_fields = {"slug": ('nome',)}
-    readonly_fields = ['categorias', 'link']
+    readonly_fields = ['link']
 
     class Meta:
         model = Produto
+
+    def get_categorias(self, obj):
+        return "\n".join([c.categorias for c in obj.categoria_set.all()])
 
     def categorias(self, obj):
         cat = []
@@ -44,7 +50,7 @@ admin.site.register(Produto, ProdutoAdmin)
 
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('nome','slug')
-    inlines = [CategoriaImagemInLine]
+    inlines = [CategoriaImagemInLine, CategoriaBannerImagemInLine]
     prepopulated_fields = {"slug": ('nome',)}
     class Meta:
         model = Categoria

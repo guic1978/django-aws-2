@@ -21,23 +21,24 @@
 <div class="row">
     <!-- Right column -->
     <section class="col-sm-8 col-md-9 col-lg-10 content-center">
+    {% if categoria.categoriabannerimagem_set.all|length > 0 %}
     <div class="row category-banners">
+        {% for banner in categoria.categoriabannerimagem_set.all|slice:":2" %}
         <div class="col-xs-6">
-            <a href="#" title="category"><img src="{% static 'images/category-banner1.jpg' %}" alt="" class="img-responsive"></a>
+            <a href="#" title="category"><img src="{{ banner.imagem_453x154.url }}" alt="{{ banner.imagem.titulo }}" class="img-responsive"></a>
         </div>
-        <div class="col-xs-6">
-            <a href="#" title="category"><img src="{% static 'images/category-banner2.jpg' %}" alt="" class="img-responsive"></a>
-        </div>
+        {% endfor %}
     </div>
     <div class="divider divider-lg">
     </div>
+    {% endif %}
     <h1>{{ categoria }}</h1>
     <!-- Description -->
     <p>
         {{ categoria.descricao }}
     </p>
     <!-- //end Description -->
-    {% if categoria.produto %}
+    {% if categoria.produto.all|length > 0 %}
     {% with categoria.produto.all as produtos %}
 
     {% include "produtos/_lista_produtos.html" %}
