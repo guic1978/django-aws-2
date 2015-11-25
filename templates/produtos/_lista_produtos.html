@@ -12,18 +12,28 @@
         <div class="col-sm-3 col-md-3 col-lg-4 hidden-xs">
              Show
             <div class="btn-group btn-select perpage-select">
-                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="value">15</span><span class="caret min"></span></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-up"></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-down"></a>
+                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="value">16</span><span class="caret min"></span></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-up"></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-down"></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">30</a></li>
-                    <li><a href="#">50</a></li>
-                    <li><a href="#">100</a></li>
-                    <li><a href="#">All</a></li>
+                    <li><a href="#">32</a></li>
+                    <li><a href="#">64</a></li>
                 </ul>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
             <div class="pagination pull-right text-right">
-                <a href="#" class="icon flaticon-left33 pagination-prev"></a><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#" class="icon flaticon-play45 pagination-next"></a>
+                {% if produtos.has_previous %}
+                    <a href="?page={{ produtos.previous_page_number }}" class="icon flaticon-left33 pagination-prev"></a>
+                {% endif %}
+                {% for pg in produtos.paginator.page_range %}
+                    {% if produtos.number == pg %}
+                        <a href="?page={{ pg }}" class="ative">{{ pg }}</a>
+                    {% else %}
+                        <a href="?page={{ pg }}">{{ pg }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if produtos.has_next %}
+                    <a href="?page={{ produtos.next_page_number }}" class="icon flaticon-play45 pagination-next"></a>
+                {% endif %}
             </div>
         </div>
     </div>

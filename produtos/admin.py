@@ -3,10 +3,15 @@ from django.contrib import admin
 from .models import Produto, Categoria, Tag, ProdutoImagem, CategoriaImagem, Destaque, CategoriaBannerImagem
 
 class CategoriaImagemInLine(admin.StackedInline):
+    extra = 1
     model = CategoriaImagem
 
 class CategoriaBannerImagemInLine(admin.StackedInline):
+    extra = 1
     model = CategoriaBannerImagem
+
+class CategoriaProdutoInline(admin.TabularInline):
+    model = Categoria.produto.through
 
 class TagInLine(admin.StackedInline):
     prepopulated_fields = {"slug": ('nome',)}
@@ -14,12 +19,13 @@ class TagInLine(admin.StackedInline):
     model = Tag
 
 class ImagemInLine(admin.StackedInline):
-    extra = 2
+    extra = 3
     model = ProdutoImagem
+    # raw_id_fields = ("imagem",)
 
 class ProdutoAdmin(admin.ModelAdmin):
     list_display = ('__unicode__','sku','descricao_curta', 'preco', 'preco_desconto', 'ativo', 'categorias', 'link')
-    inlines = [TagInLine, ImagemInLine]
+    inlines = [CategoriaProdutoInline, ImagemInLine, TagInLine]
     search_fields = ('nome', 'sku', 'categoria__nome')
     list_filter = ('preco', 'created_at')
     prepopulated_fields = {"slug": ('nome',)}

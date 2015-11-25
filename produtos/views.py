@@ -11,9 +11,10 @@ from django.template.defaultfilters import slugify
 from django.forms import modelformset_factory
 from django.core.servers.basehttp import FileWrapper
 from django.db.models import Q
-from produtos.models import get_active_tree
+# from produtos.models import get_active_tree
 from .models import Produto, Categoria, ProdutoImagem
 from .forms import ProdutoForm, ProdutoImagemForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def _checar_produto_comprado(user, produto):
     if user.is_authenticated():
@@ -139,25 +140,35 @@ def categoria(request, slug):
     except:
         raise Http404
 
-    # print categoria
-    # print categoria.parents()
-    # print categoria.get_all_children()
-
-    produtos = categoria.produto.all()
-
-    # print get_active_tree()
+    produtos_list = categoria.produto.all()
 
     categorias_relacionadas = []
-    for produto in produtos:
+    for produto in produtos_list:
         categorias_produto = produto.categoria_set.all()
         for item_categoria in categorias_produto:
             if (not item_categoria == categoria) and (item_categoria not in categorias_relacionadas):
                 categorias_relacionadas.append(item_categoria)
 
     try:
-        todas_categorias = Categoria.objects.all
+        todas_categorias = Categoria.objects.all()
     except:
         todas_categorias = False
+
+    page = request.GET.get('page')
+    try:
+        per_page = int(request.REQUEST['page'])
+    except:
+        per_page = 25     # default value
+
+    paginator = Paginator(produtos_list, 16)
+
+    try:
+        produtos = paginator.page(page)
+    except PageNotAnInteger:
+        produtos = paginator.page(1)
+    except EmptyPage:
+        produtos = paginator.page(paginator.num_pages)
+
 
 
     return render(request, "produtos/produtos_categoria.html", locals())

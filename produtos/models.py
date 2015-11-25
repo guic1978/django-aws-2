@@ -25,7 +25,6 @@ class Produto(models.Model):
     descricao = models.TextField(null=True, blank=True, verbose_name="Descrição")
     download = models.FileField(upload_to=local_download, storage=FileSystemStorage(location=local_protegido), null=True, blank=True)
     descricao_curta = models.TextField(null=True, blank=True, verbose_name="Descrição Curta")
-    especificacao = models.TextField(null=True, blank=True, verbose_name="Especificações")
     sku = models.IntegerField(null=True, blank=True)
     order = models.IntegerField(default=0)
     ativo = models.BooleanField(default=True)
@@ -104,15 +103,15 @@ class ProdutoImagem(models.Model):
                                       format='JPEG',
                                       options={'quality': 75})
     imagem_390x390 = ImageSpecField(source='imagem',
-                                  processors=[ResizeToFit(390, 390, mat_color=(245,245,245)),
-                                              ],
-                                  format='JPEG',
-                                  options={'quality': 75})
+                                      processors=[ResizeToFit(390, 390, mat_color=(245,245,245)),
+                                                  ],
+                                      format='JPEG',
+                                      options={'quality': 75})
     imagem_450x450 = ImageSpecField(source='imagem',
-                              processors=[ResizeToFit(450, 450, mat_color=(245,245,245)),
-                                          ],
-                              format='JPEG',
-                              options={'quality': 75})
+                                      processors=[ResizeToFit(450, 450, mat_color=(245,245,245)),
+                                                  ],
+                                      format='JPEG',
+                                      options={'quality': 75})
 
     titulo = models.CharField(max_length=120, null=True, blank=True)
     imagem_principal = models.BooleanField(default=False)
@@ -122,10 +121,6 @@ class ProdutoImagem(models.Model):
 
     def __unicode__(self):
         return self.titulo
-
-pd = ProdutoImagem.objects.all()[0]
-print pd.imagem_90x100.url    # > /media/CACHE/images/982d5af84cddddfd0fbf70892b4431e4.jpg
-print pd.imagem_90x100.width
 
 class Tag(models.Model):
     produto = models.ForeignKey(Produto)

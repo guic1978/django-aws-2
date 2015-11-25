@@ -38,12 +38,9 @@
         {{ categoria.descricao }}
     </p>
     <!-- //end Description -->
-    {% if categoria.produto.all|length > 0 %}
-    {% with categoria.produto.all as produtos %}
+    {% if produtos %}
 
     {% include "produtos/_lista_produtos.html" %}
-
-    {% endwith %}
 
     {% else %}
         <h6>Não há resultado para essa busca</h6>
