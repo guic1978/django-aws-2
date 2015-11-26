@@ -1,0 +1,18 @@
+{% load mptt_tags %}
+
+{% recursetree categorias_nodes %}
+    {% if node.is_root_node %}
+        <dt class="item"><a href="{% url "categoria" node.slug %}" class="btn-main">{{ node.nome }}</a></dt>
+        {% if not node.is_leaf_node %}
+            <dd class="item-content content-small">
+                <div class="megamenuClose">
+                </div>
+                <ul class="row-list">
+                    {{ children }}
+                </ul>
+            </dd>
+        {% endif %}
+    {% else %}
+        <li><a href="{% url "categoria" node.slug %}">{{ node.nome }}</a></li>
+    {% endif %}
+{% endrecursetree %}

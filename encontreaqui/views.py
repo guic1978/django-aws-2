@@ -1,10 +1,9 @@
 import os
 from django.shortcuts import render, RequestContext, Http404
-from django.core.mail import EmailMessage
 # from registration.backends.hmac.views import RegistrationView
 # from django.contrib.auth.models import User
 
-from produtos.models import Produto, Destaque
+from produtos.models import Produto, Destaque, Categoria
 
 def home(request):
     produtos_destaque = Destaque.objects.get_instancia_destaque()

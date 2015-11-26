@@ -1,0 +1,64 @@
+{% load mptt_tags %}
+
+<div class="panel">
+    <div class="panel-heading">
+        <a data-toggle="collapse" href="#box1"><span class="arrow-down">+</span><span class="arrow-up">-</span> CATEGORIAS </a>
+    </div>
+    <div id="box1" class="panel-collapse in">
+        <div class="panel-body">
+            {% drilldown_tree_for_node categoria as drilldown %}
+            {% for node,structure in drilldown|tree_info %}
+                {% if structure.new_level %}<ul class="simple-list"><li>{% else %}</li><li>{% endif %}
+                {% ifequal node categoria %}
+                    <strong>{{ node.nome }}</strong>
+                {% else %}
+                    <a href="{{ node.get_absolute_url }}">{{ node.nome }}</a>
+{#                    {% ifequal node.parent_id genre.pk %}({{ node.produto_count }}){% endifequal %}#}
+                {% endifequal %}
+                {% for level in structure.closed_levels %}</li></ul>{% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{#<div class="panel">#}
+{#    <div class="panel-heading">#}
+{#        <a data-toggle="collapse" href="#box1"><span class="arrow-down">+</span><span class="arrow-up">-</span> CATEGORIAS </a>#}
+{#    </div>#}
+{#    <div id="box1" class="panel-collapse in">#}
+{#        <div class="panel-body">#}
+{#            <ul class="simple-list">#}
+{#                {% for item in sitetree_items %}#}
+{#                <li>#}
+{#                    <a href="{% sitetree_url for item %}"#}
+{#                       {% if item.hint %}title="{{ item.hint }}"#}
+{#                       {% endif %}#}
+{#                       {% if item.is_current or item.in_current_branch %}class="{{ item.is_current|yesno:"current_item ," }}{{ item.in_current_branch|yesno:"current_branch," }}"#}
+{#                       {% endif %}>{{ item.title_resolved }}#}
+{#                    </a>#}
+{#                </li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#{% endif %}#}
+
+{#{{ todas_categorias }}#}
+
+{#<ul>#}
+{#	{% for item in sitetree_items %}#}
+{#        {{ item }}#}
+{#	<li>#}
+{#        <a href="{% sitetree_url for item %}"#}
+{#           {% if item.hint %}title="{{ item.hint }}"#}
+{#           {% endif %}#}
+{#           {% if item.is_current or item.in_current_branch %}class="{{ item.is_current|yesno:"current_item ," }}{{ item.in_current_branch|yesno:"current_branch," }}"#}
+{#           {% endif %}>{{ item.title_resolved }}#}
+{#        </a>#}
+{#		{% if item.has_children %}#}
+{#			{% sitetree_children of item for menu template "sitetree/menu.html" %}#}
+{#		{% endif %}#}
+{#	</li>#}
+{#	{% endfor %}#}
+{#</ul>#}

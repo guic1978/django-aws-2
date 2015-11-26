@@ -1,0 +1,17 @@
+{% load mptt_tags %}
+
+{% for parent in categoria.get_ancestors %}
+    <a href="{{ parent }}">{{ parent.nome }}</a><span class="divider">&nbsp;</span>
+{% endfor %}
+{{ categoria.nome }}
+
+
+{#{% if sitetree_items|length_is:"1" %}#}
+{#{% else %}#}
+{#    {% for item in sitetree_items %}#}
+{#        <a href="{% sitetree_url for item %}">{{ item.title_resolved }}</a>#}
+{#        {% if not forloop.last %}#}
+{#            <span class="divider">&nbsp;</span>#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+{#{% endif %}#}

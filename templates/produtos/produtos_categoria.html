@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% load filename %}
-{% load sitetree %}
 {% block content %}
 
 {% include "services.html" %}
@@ -10,7 +9,10 @@
 <section class="breadcrumbs">
 <div class="container">
     <a href="{% url "home" %}">home</a><span class="divider">&nbsp;</span>
-    {% sitetree_breadcrumbs from "maintree" template "sitetree/breadcrumbs_coolbaby.html" %}
+
+{#    {% sitetree_breadcrumbs from "maintree" template "sitetree/breadcrumbs_coolbaby.html" %}#}
+    {% include "produtos/breadcrumbs_coolbaby.html" %}
+
 {#    <a href="#">artesanato</a><span class="divider">&nbsp;</span>#}
 {#    <a href="#">brincos</a>#}
 </div>
@@ -60,8 +62,9 @@
     <aside class="col-sm-4 col-md-3 col-lg-2 content-aside">
     <div class="panel-group accordion-simple">
 {#    {% include "produtos/_secao_categoria_menu_lateral.html" %}#}
-        {% sitetree_menu from "maintree" include "this-siblings" template "sitetree/menu_categoria_lateral_coolbaby.html" %}
-        {% sitetree_menu from "maintree" include "this-children" template "sitetree/menu_categoria_lateral_coolbaby.html" %}
+{#        {% sitetree_menu from "maintree" include "this-siblings" template "sitetree/menu_categoria_lateral_coolbaby.html" %}#}
+{#        {% sitetree_menu from "maintree" include "this-children" template "sitetree/menu_categoria_lateral_coolbaby.html" %}#}
+        {% include "produtos/menu_categoria_lateral_coolbaby.html" %}
     </div>
     </aside>
     <!-- //end Left column -->

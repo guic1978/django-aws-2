@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 from django.contrib import admin
 from .models import Produto, Categoria, Tag, ProdutoImagem, CategoriaImagem, Destaque, CategoriaBannerImagem
+from mptt.admin import MPTTModelAdmin
 
 class CategoriaImagemInLine(admin.StackedInline):
     extra = 1
@@ -30,6 +31,7 @@ class ProdutoAdmin(admin.ModelAdmin):
     list_filter = ('preco', 'created_at')
     prepopulated_fields = {"slug": ('nome',)}
     readonly_fields = ['link']
+    fields = ('usuario','nome','descricao','ativo','preco','preco_desconto','slug')
 
     class Meta:
         model = Produto
@@ -51,17 +53,26 @@ class ProdutoAdmin(admin.ModelAdmin):
 
     link.allow_tags = True
 
-
 admin.site.register(Produto, ProdutoAdmin)
 
-class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ('nome','slug')
+class CustomMPTTModelAdmin(MPTTModelAdmin):
+    list_display = ('nome','slug','total_produtos','mostra_menu','ordem_menu')
     inlines = [CategoriaImagemInLine, CategoriaBannerImagemInLine]
+    fields = ('nome','descricao','slug','ativo','parent','mostra_menu','ordem_menu')
     prepopulated_fields = {"slug": ('nome',)}
-    class Meta:
-        model = Categoria
+    mptt_level_indent = 20
 
-admin.site.register(Categoria, CategoriaAdmin)
+admin.site.register(Categoria, CustomMPTTModelAdmin)
+
+# class CategoriaAdmin(admin.ModelAdmin):
+#     list_display = ('nome','slug')
+#     inlines = [CategoriaImagemInLine, CategoriaBannerImagemInLine]
+#     prepopulated_fields = {"slug": ('nome',)}
+#     class Meta:
+#         model = Categoria
+#
+# admin.site.register(Categoria, CategoriaAdmin)
+
 admin.site.register(Tag)
 
 class ProdutosDestaquesAdmin(admin.ModelAdmin):

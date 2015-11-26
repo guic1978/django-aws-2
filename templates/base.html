@@ -1,5 +1,3 @@
-{% load sitetree %}
-
 <!DOCTYPE html>
 <html>
 <head lang="pt-br">
@@ -36,7 +34,7 @@
         </div>
     </div>
 
-    {% sitetree_tree from "maintree" include "trunk,topmenu" template "sitetree/megamenu_coolbaby_mobile.html" %}
+    {% include "produtos/megamenu_coolbaby_mobile.html" %}
 
     <div id="outer">
 	    <div id="outer-canvas">

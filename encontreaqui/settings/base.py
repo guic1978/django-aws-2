@@ -52,9 +52,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # EXTERNO
+    'mptt',
+    'django_mptt_admin',
     'registration',
     'widget_tweaks',
-     'sitetree',
+     # 'sitetree',
      'imagekit',
     # INTERNO
     'core',
@@ -91,6 +93,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.core.context_processors.static',
                 'carrinho.context_processors.checa_carrinho',
+                'produtos.context_processors.get_categorias_menu',
             ],
         },
     },
@@ -127,9 +130,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 MEDIA_ROOT = os.path.join(BASE_DIR, "core/media")
 STATIC_ROOT = os.path.join(BASE_DIR, "core/static")
-# MEDIA_ROOT = "/opt/bitnami/apps/django/django_projects/Project/core/media"
-# STATIC_ROOT = "/opt/bitnami/apps/django/django_projects/Project/core/static"
-# STATIC_ADMIN_ROOT = "/opt/bitnami/python/lib/python2.7/site-packages/django/contrib/admin/static"
 UPLOADS_PROTEGIDOS = os.path.join(BASE_DIR, "core/protegido")
 
 MEDIA_URL = '/media/'
