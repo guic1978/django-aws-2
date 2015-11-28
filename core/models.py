@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFit
+from tinymce import models as tinymce_models
 
 OPERACAO = (
     ("S", "SALVAR"),
@@ -38,7 +39,8 @@ class Noticia(models.Model):
     titulo = models.CharField(max_length=255)
     titulo_curto = models.CharField(max_length=100, null=True, blank=True)
     slug = models.SlugField()
-    conteudo = models.TextField(null=True, blank=True, verbose_name="Conteúdo")
+    # conteudo = models.TextField(null=True, blank=True, verbose_name="Conteúdo")
+    conteudo = tinymce_models.HTMLField(null=True, blank=True, verbose_name="Conteúdo")
     autor = models.ForeignKey(User, null=True, blank=True)
     data_publicacao = models.DateTimeField()
     data_expiracao = models.DateTimeField()
@@ -52,6 +54,8 @@ class Noticia(models.Model):
                                       options={'quality': 75})
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
+
+    conteudo.allow_tags=True
 
 
     def get_absolute_url(self):

@@ -56,7 +56,8 @@ INSTALLED_APPS = (
     'django_mptt_admin',
     'registration',
     'widget_tweaks',
-     'imagekit',
+    'imagekit',
+    'tinymce',
     # INTERNO
     'core',
     'produtos',
@@ -143,6 +144,14 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+TINYMCE_JS_URL = os.path.join(STATIC_URL, "tiny_mce/tiny_mce.js")
+TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "tiny_mce")
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+}
 
 EMAIL_HOST          = 'smtp.sendgrid.net'
 EMAIL_PORT          = 587
