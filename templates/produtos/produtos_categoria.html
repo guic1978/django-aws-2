@@ -1,76 +1,66 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% load filename %}
+
 {% block content %}
 
-{% include "services.html" %}
+    {% include "services.html" %}
 
-<!-- Breadcrumbs-->
-<section class="breadcrumbs">
-<div class="container">
-    <a href="{% url "home" %}">home</a><span class="divider">&nbsp;</span>
+    <!-- Breadcrumbs-->
+    <section class="breadcrumbs">
+    <div class="container">
+        <a href="{% url "home" %}">home</a><span class="divider">&nbsp;</span>
 
-{#    {% sitetree_breadcrumbs from "maintree" template "sitetree/breadcrumbs_coolbaby.html" %}#}
-    {% include "produtos/breadcrumbs_coolbaby.html" %}
+    {#    {% sitetree_breadcrumbs from "maintree" template "sitetree/breadcrumbs_coolbaby.html" %}#}
+        {% include "produtos/breadcrumbs_coolbaby.html" %}
 
-{#    <a href="#">artesanato</a><span class="divider">&nbsp;</span>#}
-{#    <a href="#">brincos</a>#}
-</div>
-</section>
-<!-- //end Breadcrumbs -->
-<!-- Two columns content -->
-<section class="container">
-<div class="row">
-    <!-- Right column -->
-    <section class="col-sm-8 col-md-9 col-lg-10 content-center">
-    {% if categoria.categoriabannerimagem_set.all|length > 0 %}
-    <div class="row category-banners">
-        {% for banner in categoria.categoriabannerimagem_set.all|slice:":2" %}
-        <div class="col-xs-6">
-            <a href="#" title="category"><img src="{{ banner.imagem_453x154.url }}" alt="{{ banner.imagem.titulo }}" class="img-responsive"></a>
-        </div>
-        {% endfor %}
+    {#    <a href="#">artesanato</a><span class="divider">&nbsp;</span>#}
+    {#    <a href="#">brincos</a>#}
     </div>
-    <div class="divider divider-lg">
-    </div>
-    {% endif %}
-    <h1>{{ categoria }}</h1>
-    <!-- Description -->
-    <p>
-        {{ categoria.descricao }}
-    </p>
-    <!-- //end Description -->
-    {% if produtos %}
-
-    {% include "produtos/_lista_produtos.html" %}
-
-    {% else %}
-        <h6>Não há resultado para essa busca</h6>
-    {% endif %}
-
-    {% if categorias_relacionadas %}
-    <h3>Categorias Relacionadas</h3>
-
-    {% for item in categorias_relacionadas %}
-        {{ item.nome }}
-    {% endfor %}
-    {% endif %}
-
     </section>
-    <!-- //end Right column -->
-    <!-- Left column -->
-    <aside class="col-sm-4 col-md-3 col-lg-2 content-aside">
-    <div class="panel-group accordion-simple">
-{#    {% include "produtos/_secao_categoria_menu_lateral.html" %}#}
-{#        {% sitetree_menu from "maintree" include "this-siblings" template "sitetree/menu_categoria_lateral_coolbaby.html" %}#}
-{#        {% sitetree_menu from "maintree" include "this-children" template "sitetree/menu_categoria_lateral_coolbaby.html" %}#}
-        {% include "produtos/menu_categoria_lateral_coolbaby.html" %}
+    <!-- //end Breadcrumbs -->
+    <!-- Two columns content -->
+    <section class="container">
+    <div class="row">
+        <!-- Right column -->
+        <section class="col-sm-8 col-md-9 col-lg-10 content-center">
+        {% if categoria.categoriabannerimagem_set.all|length > 0 %}
+        <div class="row category-banners">
+            {% for banner in categoria.categoriabannerimagem_set.all|slice:":2" %}
+            <div class="col-xs-6">
+                <a href="#" title="category"><img src="{{ banner.imagem_453x154.url }}" alt="{{ banner.imagem.titulo }}" class="img-responsive"></a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="divider divider-lg">
+        </div>
+        {% endif %}
+        <h1>{{ categoria }}</h1>
+        <!-- Description -->
+        <p>
+            {{ categoria.descricao }}
+        </p>
+        <!-- //end Description -->
+        {% if produtos %}
+
+        {% include "produtos/_lista_produtos.html" %}
+
+        {% else %}
+            <h6>Não há resultado para essa busca.</h6>
+        {% endif %}
+
+        </section>
+        <!-- //end Right column -->
+        <!-- Left column -->
+        <aside class="col-sm-4 col-md-3 col-lg-2 content-aside">
+        <div class="panel-group accordion-simple">
+            {% include "produtos/menu_categoria_lateral_coolbaby.html" %}
+        </div>
+        </aside>
+        <!-- //end Left column -->
     </div>
-    </aside>
-    <!-- //end Left column -->
-</div>
-</section>
-<!-- //end Two columns content -->
+    </section>
+    <!-- //end Two columns content -->
 
 
 {% endblock %}

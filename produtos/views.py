@@ -97,7 +97,6 @@ def gerenciar_imagem_produto(request, produto_id):
 
     return render(request, "produtos/editar_imagem.html", locals())
 
-
 def editar_produto(request, produto_id):
     instance = Produto.objects.get(pk=produto_id)
     form = ProdutoForm(request.POST or None, instance=instance)
@@ -173,8 +172,6 @@ def categoria(request, slug):
         produtos = paginator.page(1)
     except EmptyPage:
         produtos = paginator.page(paginator.num_pages)
-
-
 
     return render(request, "produtos/produtos_categoria.html", locals())
 

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Encontre Aqui - Notícias</title>
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/settings.css' %}" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/extralayers.css' %}" media="screen"/>
+{% endblock %}
+
+{% block content %}
+
+    {% include "services.html" %}
+
+    <!-- Breadcrumbs-->
+    <section class="breadcrumbs">
+        <div class="container">
+            <a href="{% url "home" %}">home</a><span class="divider">&nbsp;</span><span>Notícias</span>
+        </div>
+    </section>
+    <!-- //end Breadcrumbs -->
+
+    <!--Page Content-->
+    <section class="container content">
+        <div class="subtitle">
+            <div>
+                <span>{{ titulo }}</span>
+            </div>
+        </div>
+        <!-- Filtered Products -->
+{#        <section class="filters-by-category clearfix">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="text-center">#}
+{#                    <ul class="option-set" data-option-key="filter">#}
+{#                        <li><a href="#filter" data-option-value="*" class="">all</a></li>#}
+{#                        <li><a href="#filter" data-option-value=".category1" class="">Webdesign</a></li>#}
+{#                        <li><a href="#filter" data-option-value=".category2" class="">Animation</a></li>#}
+{#                        <li><a href="#filter" data-option-value=".category3" class="">Logo design</a></li>#}
+{#                        <li><a href="#filter" data-option-value=".category4" class="">Photography</a></li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        </section>#}
+        <!-- //end Filters -->
+        {% if noticias %}
+            <div class="blog-posts">
+                {% for noticia in noticias %}
+                <div class="blog-post category1">
+                    <a href="{{ noticia.get_absolute_url }}"><img src="{{ noticia.imagem.url }}" alt=""><span class="info">{{ noticia.titulo_curto }}<span class="date">{{ noticia.data_publicacao|date:"M d, Y" }}</span></span></a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="divider divider-lg">
+            </div>
+            <div class="text-center">
+                <div class="pagination">
+                    {% for pg in produtos.paginator.page_range %}
+                    {% if produtos.number == pg %}
+                        <a href="?page={{ pg }}" class="ative">{{ pg }}</a>
+                    {% else %}
+                        <a href="?page={{ pg }}">{{ pg }}</a>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <h5>Não há notícias no periodo.</h5>
+        {% endif %}
+    </section>
+    <!-- //end Page Content -->
+
+{% endblock %}
+
+
+{% block scripts %}
+    <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+    <script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.plugins.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.ini.js' %}"></script>
+{% endblock %}

@@ -55,9 +55,18 @@ class Noticia(models.Model):
 
 
     def get_absolute_url(self):
-        ano = self.data_publicacao.year.strftime("%Y")
-        mes = self.data_publicacao.year.strftime("%m")
+        ano = self.data_publicacao.strftime("%Y")
+        mes = self.data_publicacao.strftime("%m")
         return reverse('noticia', args=[ano, mes, self.slug])
+
+    def get_ano_url(self):
+        ano = self.data_publicacao.strftime("%Y")
+        return reverse('noticias_ano', args=[ano])
+
+    def get_mes_url(self):
+        ano = self.data_publicacao.strftime("%Y")
+        mes = self.data_publicacao.strftime("%m")
+        return reverse('noticias_mes', args=[ano,mes])
 
     class Meta:
         ordering = ['-data_publicacao']

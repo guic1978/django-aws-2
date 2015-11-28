@@ -42,9 +42,9 @@ urlpatterns = [
     url(r'^carrinho/alterar/(?P<produto_id>.*)', "carrinho.views.alterar_carrinho", name="alterar_carrinho"),
     url(r'^carrinho/', "carrinho.views.carrinho", name="carrinho"),
 
-    url(r'^noticias', 'core.views.todas_noticias', name='noticias' ),
-    url(r'^noticias/(?P<ano>\d{4})$', 'core.views.noticias_ano', name='noticias_ano' ),
-    url(r'^noticias/(?P<ano>\d{4})/(?P<mes>\d{2})$', 'core.views.noticias_mes', name='noticias_mes' ),
+    url(r'^noticias/$', 'core.views.todas_noticias', name='noticias' ),
+    url(r'^noticias/(?P<ano>\d{4})/$', 'core.views.noticias_ano', name='noticias_ano' ),
+    url(r'^noticias/(?P<ano>\d{4})/(?P<mes>\d{2})/$', 'core.views.noticias_mes', name='noticias_mes' ),
     url(r'^noticia/(?P<ano>\d{4})/(?P<mes>\d{2})/(?P<slug>.*)$', 'core.views.noticia', name='noticia' ),
 
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
@@ -56,9 +56,8 @@ urlpatterns = [
 
     url(r'^accounts/', include('registration.backends.hmac.urls')),
 
-    # url(r'^accounts/register/$',
-    #     RegistrationView.as_view(form_class=RegistrationFormUniqueEmail),
-    #     name='registration_register'),
+    url(r'^tinymce/', include('tinymce.urls')),
+
 ]
 
 

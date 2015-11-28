@@ -16,3 +16,21 @@ class CustomAdmin(admin.ModelAdmin):
         models.BooleanField: {'widget': CheckboxInput(attrs={'style':'margin-top: 4px;'})},
         models.ManyToManyField: {'widget': CheckboxSelectMultiple},
     }
+
+NOME_MES = {
+    1:'Janeiro',
+    2:'Fevereiro',
+    3:'Março',
+    4:'Abril',
+    5:'Maio',
+    6:'Junho',
+    7:'Julho',
+    8:'Agosto',
+    9:'Setembro',
+    10:'Outubro',
+    11:'Novembro',
+    12:'Dezembro',
+}
+
+def nome_mes(numero):
+    return NOME_MES[numero]

@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Encontre Aqui - Notícias</title>
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/settings.css' %}" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/extralayers.css' %}" media="screen"/>
+{% endblock %}
+
+{% block content %}
+
+    {% include "services.html" %}
+
+    <!-- Breadcrumbs-->
+    <section class="breadcrumbs">
+    <div class="container">
+    <a href="{% url "home" %}">home</a><span class="divider">&nbsp;</span>
+        <a href="{% url "noticias" %}">Notícias</a><span class="divider">&nbsp;</span>
+        <a href="{{ noticia.get_ano_url }}">{{ noticia.data_publicacao|date:'Y' }}</a><span class="divider">&nbsp;</span>
+        <a href="{{ noticia.get_mes_url }}">{{ noticia.data_publicacao|date:'m' }}</a><span class="divider">&nbsp;</span>
+        <span>{{ noticia }}</span>
+    </div>
+    </section>
+    <!-- //end Breadcrumbs -->
+    <!--Page Content-->
+    <section class="container content">
+    <div class="subtitle">
+        <div>
+            <span>Notícia</span>
+        </div>
+    </div>
+    <div class="row">
+        <section class="col-sm-10 col-md-10 col-lg-9 blog-left">
+        <!-- Blog post -->
+        <div class="divider-xs">
+        </div>
+        <div class="blog-post">
+            <div class="post-container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="title">
+                            <h2>{{ noticia }}<br>
+                            <span class="sub-header">
+                                {{ noticia.data_publicacao|date:"d M Y" }}
+                            </span></h2>
+                        </div>
+{#                        <div class="divider-sm">#}
+{#                        </div>#}
+                    </div>
+                    <!--<div class="col-md-6 col-lg-6">-->
+                        <!--<img src="images/blog-img.jpg" alt="" width="400" class="img-responsive animate scale">-->
+                        <!--<div class="divider-sm">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-6 col-lg-6">-->
+                        <!--<div class="title">-->
+                            <!--<h2>Blog post number 1<br>-->
+                            <!--<span class="sub-header">September 02, 2015</span></h2>-->
+                        <!--</div>-->
+                        <!--<p>-->
+                            <!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, laoreet sit amet, nunc. Ut sit amet turpis. In est arcu, sollicitudin eu, vehicula venenatis, tempor vitae, est. Praesent vitae dui. Morbi id tellus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas eu enim in lorem scelerisque auctor. Ut non erat. Suspendisse fermentum posuere lectus. Fusce vulputate nibh egestas orci. Aliquam lectus. Morbi eget dolor sagittis. Morbi sit amet quam. Nulla libero.-->
+                        <!--</p>-->
+                        <!--<p>-->
+                            <!--Donec et mi eu massa ultrices scelerisque. Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu dictum justo urna et mi.-->
+                        <!--</p>-->
+                        <!--<div class="blockquote">-->
+                            <!--<div class="inside">-->
+                                <!--<p>-->
+                                    <!--Curabitur convallis facilisis lorem. Vivamus euismod nulla vel nunc. Fusce tincidunt, justo congue egestas molestie, tortor tortor blandit erat, et scelerisque metus metus at ipsum. Maecenas tincidunt adipiscing tellus. Nunc tristique pede. Ut condimentum mattis est. Duis sit amet augue.-->
+                                <!--</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+                <div class="clearfix">
+                </div>
+                <div class="text">
+
+                    {{ noticia.conteudo }}
+
+                    <div class="divider divider-sm">
+                    </div>
+                    <ul class="tags">
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Wordpress</a></li>
+                        <li><a href="#">Animation</a></li>
+                    </ul>
+                    <div class="clearfix">
+                    </div>
+{#                    <div class="post-navigation">#}
+{#                        <div class="pull-left">#}
+{#                            <a href="#" class="btn btn-cool">&nbsp; &nbsp; <span class="icon flaticon-left33"></span> &nbsp; Prev POST&nbsp; &nbsp; </a>#}
+{#                        </div>#}
+{#                        <div class="pull-right">#}
+{#                            <a href="#" class="btn btn-cool">&nbsp; &nbsp; Next Post &nbsp;&nbsp; <span class="icon flaticon-play45"></span>&nbsp; &nbsp; </a>#}
+{#                        </div>#}
+{#                    </div>#}
+                    <div class="line-divider">
+                    </div>
+                    <div class="divider divider-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //end Blog post -->
+        <!--<div class="clearfix">-->
+        <!--</div>-->
+        <!--<h3>Comments (2) </h3>-->
+        <!--<section class="comments">-->
+        <!--<div class="comment">-->
+            <!--<div class="inside">-->
+                <!--<p>-->
+                    <!--<strong>Username</strong><br>-->
+                     <!--Sep 15, 2012 at 6:15 pm-->
+                <!--</p>-->
+                <!--<p>-->
+                     <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam enim enim, pharetra in sodales at, interdum sit amet dui. Nullam vulputate euismod urna non pharetra. Phasellus blandit mattis ipsum, ac laoreet lorem lacinia et. Cras et ligula libero.-->
+                <!--</p>-->
+                <!--<a href="#" class="btn btn-cool">&nbsp;&nbsp;<span class="icon flaticon-rectangular25"></span>replay&nbsp;&nbsp;</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="comment">-->
+            <!--<div class="inside">-->
+                <!--<p>-->
+                    <!--<strong>Username</strong><br>-->
+                     <!--Sep 15, 2012 at 6:15 pm-->
+                <!--</p>-->
+                <!--<p>-->
+                     <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam enim enim, pharetra in sodales at, interdum sit amet dui. Nullam vulputate euismod urna non pharetra. Phasellus blandit mattis ipsum, ac laoreet lorem lacinia et. Cras et ligula libero.-->
+                <!--</p>-->
+                <!--<a href="#" class="btn btn-cool">&nbsp;&nbsp;<span class="icon flaticon-rectangular25"></span>replay&nbsp;&nbsp;</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--</section>-->
+        <!--<div class="divider divider-sm">-->
+        <!--</div>-->
+        <!--<div class="line-divider">-->
+        <!--</div>-->
+        <!--<div class="divider divider-lg">-->
+        <!--</div>-->
+        <!--<h3>Leave a Comment</h3>-->
+        <!--<div class="comment-form row">-->
+            <!--<div class="col-md-6">-->
+                <!--<div class="form-group">-->
+                    <!--<span class="icon icon-user"></span>-->
+                    <!--<input type="text" class="form-control" value="Your Name:" onblur="if (this.value == '') {this.value = 'Your Name:';}" onfocus="if(this.value == 'Your Name:') {this.value = '';}">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="clearfix">-->
+            <!--</div>-->
+            <!--<div class="col-md-6">-->
+                <!--<div class="form-group">-->
+                    <!--<span class="icon icon-envelop"></span>-->
+                    <!--<input type="text" class="form-control" value="Your E-Mail:" onblur="if (this.value == '') {this.value = 'Your E-Mail:';}" onfocus="if(this.value == 'Your E-Mail:') {this.value = '';}">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-12">-->
+                <!--<div class="form-group">-->
+                    <!--<span class="icon icon-bubbles-2"></span>-->
+                    <!--<textarea class="form-control" onblur="if (this.value == '') {this.value = 'Your Comment';}" onfocus="if(this.value == 'Your Comment') {this.value = '';}">Your Comment</textarea>-->
+                <!--</div>-->
+                <!--<div class="divider divider-sm">-->
+                <!--</div>-->
+                <!--<button type="submit" class="btn btn-cool"><span class="icon flaticon-new78"></span> Leave a Comment</button>-->
+                <!--<div class="divider divider-lg">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        </section>
+        <aside class="col-sm-2 col-md-2 col-lg-3 column-right">
+        <section class="container-widget">
+        <h3>Mais Notícias</h3>
+        <ul class="simple-list">
+            <li class="active"><a href="#">Novembro de 2015 (2)</a></li>
+            <li><a href="#">Outubro de 2015 (7)</a></li>
+            <li><a href="#">Setembro de 2015 (7)</a></li>
+            <!--<li><a href="#">Links (1)</a></li>-->
+            <!--<li><a href="#">Mobile (1)</a></li>-->
+            <!--<li><a href="#">Photography (5)</a></li>-->
+            <!--<li><a href="#">Quotes (1)</a></li>-->
+            <!--<li><a href="#">Resources (3)</a></li>-->
+            <!--<li><a href="#">Status (1)</a></li>-->
+        </ul>
+        </section>
+        <!--<section class="container-widget">-->
+        <!--<h3>ABOUT THE BLOG</h3>-->
+        <!--<p>-->
+            <!--Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec eros tellus, scelerisque nec, rhoncus eget, laoreet sit amet, nunc. Ut non erat. Suspendisse fermentum posuere lectus. Fusce vulputate nibh egestas orci. Aliquam lectus. Morbi eget dolor sagittis. Morbi sit amet quam.-->
+        <!--</p>-->
+        <!--</section>-->
+        <!--<section class="container-widget">-->
+        <!--<h3>TAGS</h3>-->
+        <!--<ul class="tags">-->
+            <!--<li><a href="#">Web Design </a></li>-->
+            <!--<li><a href="#">Wordpress</a></li>-->
+            <!--<li><a href="#"> Animation </a></li>-->
+            <!--<li><a href="#">Collection </a></li>-->
+            <!--<li><a href="#">Fall </a></li>-->
+            <!--<li><a href="#"> Retail </a></li>-->
+            <!--<li><a href="#">Sale </a></li>-->
+            <!--<li><a href="#">Spring </a></li>-->
+            <!--<li><a href="#">Summer </a></li>-->
+            <!--<li><a href="#"> Winter</a></li>-->
+            <!--<li><a href="#">Discount</a></li>-->
+        <!--</ul>-->
+        <!--<div class="clearfix">-->
+        <!--</div>-->
+        <!--</section>-->
+        <!--<section class="twitter-widget-aside container-widget">-->
+        <!--<h3>TWITTER FEED</h3>-->
+        <!--<ul>-->
+            <!--<li> Mads Mikkelsen really wants to kill #ShiaLaBeouf in #CharlieCountryman trailer <a href="#">http://t.co/8Vmbo5BLUW</a><span class="time">15 minutes ago</span></li>-->
+            <!--<li> Why it's disturbing that @chrisbrown lost his virginity at age 8. In case it wasn't already obvious <a href="#" class="link">http://t.co/D7UbCA8s67</a><span class="time">22 minutes ago</span></li>-->
+        <!--</ul>-->
+        <!--</section>-->
+        <!--<section>-->
+        <!--<h3>Flickr photos</h3>-->
+        <!--<div class="small-photos">-->
+            <!--<a href="gallery-single.html"><img src="images/flickr-photo-1.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-2.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-3.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-4.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-5.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-6.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-7.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-8.jpg" alt=""></a><a href="gallery-single.html"><img src="images/flickr-photo-9.jpg" alt=""></a>-->
+        <!--</div>-->
+        <!--</section>-->
+        </aside>
+    </div>
+    </section>
+    <!-- //end Page Content -->
+
+{% endblock %}
+
+{% block scripts %}
+    <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+    <script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.plugins.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.ini.js' %}"></script>
+{% endblock %}
