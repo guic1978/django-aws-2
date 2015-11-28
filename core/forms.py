@@ -3,7 +3,7 @@ from tinymce.widgets import TinyMCE
 from .models import Noticia
 
 class NoticiaForm(forms.ModelForm):
-    conteudo = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
+    conteudo = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 80}))
 
     class Meta:
         model = Noticia

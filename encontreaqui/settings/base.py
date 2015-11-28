@@ -44,6 +44,8 @@ DATETIME_FORMAT = DATE_FORMAT + ' ' + TIME_FORMAT
 
 # Application definition
 INSTALLED_APPS = (
+    'grappelli',
+    'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
@@ -152,6 +154,8 @@ TINYMCE_DEFAULT_CONFIG = {
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
 }
+
+# FILEBROWSER_DIRECTORY = os.path.join(MEDIA_ROOT, "tinymce/")
 
 EMAIL_HOST          = 'smtp.sendgrid.net'
 EMAIL_PORT          = 587

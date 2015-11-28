@@ -20,8 +20,12 @@ from django.conf import settings
 # from django.views.generic import TemplateView
 from registration.forms import RegistrationFormUniqueEmail
 from registration.backends.default.views import RegistrationView
+from filebrowser.sites import site
 
 urlpatterns = [
+    url(r'^admin/filebrowser/', include(site.urls)),
+    url(r'^grappelli/', include('grappelli.urls')),
+
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', "encontreaqui.views.home", name="home"),
 
