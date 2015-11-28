@@ -16,6 +16,7 @@ from .models import Produto, Categoria, ProdutoImagem
 from .forms import ProdutoForm, ProdutoImagemForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+
 def _checar_produto_comprado(user, produto):
     if user.is_authenticated():
         try:
@@ -114,27 +115,31 @@ def buscar(request):
     produto_queryset = Produto.objects.filter(
         Q(nome__icontains=search)|
         Q(descricao_curta__icontains=search)
-    )
+    ).filter(
+        Q(preco__gt=0)|
+        Q(preco_desconto__gt=0)
+    ).filter(ativo=True)
     # categoria_queryset = Categoria.objects.filter(
     #     Q(nome__icontains=search)|
     #     Q(descricao__icontains=search)
     # )
 
-    # produtos = list(chain(produto_queryset, categoria_queryset))
-    produtos = produto_queryset
+    produtos_list = produto_queryset
 
-    #
-    # if search:
-    #     palavras = search.split()
-    #     if len(palavras) >= 2:
-    #         produtos = []
-    #         for item in palavras:
-    #             todos_produtos = Produto.objects.filter(nome__icontains=item).distinct()
-    #             for produto in todos_produtos:
-    #                 if produto not in produtos:
-    #                     produtos.append(produto)
-    #     else:
-    #         produtos = Produto.objects.filter(nome__icontains=search)
+    page = request.GET.get('page')
+    try:
+        per_page = int(request.REQUEST['page'])
+    except:
+        per_page = 16     # default value
+
+    paginator = Paginator(produtos_list, 16)
+
+    try:
+        produtos = paginator.page(page)
+    except PageNotAnInteger:
+        produtos = paginator.page(1)
+    except EmptyPage:
+        produtos = paginator.page(paginator.num_pages)
 
     return render(request, "produtos/resultado_busca.html", locals())
 
@@ -144,7 +149,12 @@ def categoria(request, slug):
     except:
         raise Http404
 
-    produtos_list = categoria.produtos.all()
+    # produtos_list = categoria.produtos.all()
+
+    produtos_list = categoria.produtos.filter(
+        Q(preco__gt=0)|
+        Q(preco_desconto__gt=0)
+    ).filter(ativo=True)
 
     categorias_relacionadas = []
     for produto in produtos_list:
@@ -162,7 +172,7 @@ def categoria(request, slug):
     try:
         per_page = int(request.REQUEST['page'])
     except:
-        per_page = 25     # default value
+        per_page = 16     # default value
 
     paginator = Paginator(produtos_list, 16)
 

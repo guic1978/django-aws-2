@@ -46,10 +46,11 @@ class ImagemInLine(admin.StackedInline):
 
 class ProdutoAdmin(admin.ModelAdmin):
     form = ProdutoForm
-    list_display = ('imagem_principal_href','__unicode__','sku','descricao_curta', 'preco', 'preco_desconto', 'ativo', 'categorias', 'link')
+    list_display = ('imagem_principal_href','__unicode__','sku','descricao_curta', 'preco', 'preco_desconto', 'ativo', 'categorias', 'created_at', 'link')
     inlines = [CategoriaProdutoInline, ImagemInLine, TagInLine]
     search_fields = ('nome', 'sku', 'categoria__nome')
     prepopulated_fields = {"slug": ('nome',)}
+    ordering = ('-created_at',)
     readonly_fields = ['link']
     fields = ('usuario','nome','descricao','ativo','preco','preco_desconto','slug')
 

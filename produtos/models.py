@@ -18,6 +18,13 @@ def local_download(instance, filename):
     else:
         return "%s/download/%s" %("default", filename)
 
+# class ProdutoManager(models.Manager):
+#     def all(self):
+#         return self.filter(ativo=True).filter(preco__lt=0)
+#
+#     def filter(self):
+#         return self.filter(ativo=True).filter(preco__lt=0)
+
 class Produto(models.Model):
     usuario = models.ForeignKey(User, null=True, blank=True)
     nome = models.CharField(max_length=255)
@@ -32,9 +39,13 @@ class Produto(models.Model):
     slug = models.SlugField()
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
+    # objects = ProdutoManager()
 
     class Meta:
         ordering = ['-order']
+
+    # def all(self, **kwargs):
+    #     return self.filter(ativo=True,preco_venda__lt=0, **kwargs)
 
     def __unicode__(self):
     	return self.nome
@@ -71,11 +82,11 @@ class Produto(models.Model):
 class ProdutoImagemManager(models.Manager):
     def get_imagem_principal(self, produto):
         try:
-            principal = super(ProdutoImagemManager, self).filter(produto=produto).filter(imagem_principal=True)[:1]
+            principal = super(ProdutoImagemManager, self).filter(produto=produto).filter(imagem_principal=True)[0]
         except:
-            principal = super(ProdutoImagemManager, self).filter(produto=produto)[:1]
+            principal = super(ProdutoImagemManager, self).filter(produto=produto)[0]
 
-        return principal[0]
+        return principal
 
 class ProdutoImagem(models.Model):
     produto = models.ForeignKey(Produto)
@@ -212,12 +223,26 @@ class CategoriaBannerImagem(models.Model):
 
 class DestaqueManager(models.Manager):
     def get_instancia_destaque(self):
-        destaques_ativos_no_periodo = super(DestaqueManager, self).filter(inicio__lte=datetime.datetime.now()).filter(fim__gte=datetime.datetime.now()).filter(ativo=True)
+        destaques_ativos_no_periodo = super(DestaqueManager, self)\
+            .filter(inicio__lte=datetime.datetime.now())\
+            .filter(fim__gte=datetime.datetime.now())\
+            .filter(ativo=True)
+
         if len(destaques_ativos_no_periodo) > 0:
-            return destaques_ativos_no_periodo[0]
+            destaque = destaques_ativos_no_periodo[0]
         else:
             destaques_padrao = super(DestaqueManager, self).filter(default=True)
-            return destaques_padrao[0]
+            destaque = destaques_padrao[0]
+
+        produtos_destaques_ativos_preco = []
+        for produto in destaque.produtos.all():
+            if ((produto.preco > 0) | (produto.preco_desconto > 0)) and (produto.ativo == True):
+                produtos_destaques_ativos_preco.append(produto)
+
+        destaque.produtos = produtos_destaques_ativos_preco
+
+        return destaque
+
 
 class Destaque(models.Model):
     titulo = models.CharField(max_length=120)

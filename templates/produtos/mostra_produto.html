@@ -12,7 +12,7 @@
 <!-- Breadcrumbs-->
 <section class="breadcrumbs">
 <div class="container">
-    {{ produto.categoria_principal }}
+    <a href="{% url "home" %}">Home</a>
     {% for categoria in produto.categoria_set.all %}
         <span class="divider">&nbsp;</span><a href="{{ categoria.get_absolute_url }}">{{ categoria.nome }}</a>
     {% endfor %}
@@ -22,28 +22,14 @@
 <!-- //end Breadcrumbs -->
 <!-- Product view -->
 <div class="container">
-    <!--<div class="product-prev-next row">-->
-        <!--<div class="col-xs-6 col-sm-4 col-md-3">-->
-            <!--<div class="text-left">-->
-                <!--<a href="product-classic.html" class="icon flaticon-left33"></a>previous product-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-sm-4 col-md-6 hidden-xs">-->
-            <!--<div class="line-divider">-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-xs-6 col-sm-4 col-md-3">-->
-            <!--<div class="text-right">-->
-                <!--next product<a class="icon flaticon-play45" href="product-classic.html"></a>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
     <div class="product-view row">
         <div class="col-sm-6 col-md-6 col-lg-4">
             <div class="single-product">
                 {% with imagem_principal as imagem %}
                     <div class="carousel-item">
-                        <img class="cloudzoom" src="{{ imagem.imagem_390x390.url }}" data-cloudzoom="zoomImage: '{{ imagem.imagem_450x450.url }}', autoInside : 991, zoomSizeMode: 'image'" alt=""/>
+                        <img class="cloudzoom" src="{{ imagem.imagem_390x390.url }}"
+                             data-cloudzoom="zoomImage: '{{ imagem.imagem_450x450.url }}',
+                             autoInside : 991, zoomSizeMode: 'image'" alt=""/>
                     </div>
                 {% endwith %}
             </div>

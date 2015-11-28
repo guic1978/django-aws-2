@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import emailcredencials
 
 ADMINS = (
     ('Guilherme Reis', 'guilherme.guic@gmail.com'),
@@ -157,8 +158,8 @@ TINYMCE_DEFAULT_CONFIG = {
 
 EMAIL_HOST          = 'smtp.sendgrid.net'
 EMAIL_PORT          = 587
-EMAIL_HOST_USER     = 'guilherme.guic.teste'
-EMAIL_HOST_PASSWORD = 'carolly2010'
+EMAIL_HOST_USER     = emailcredencials.EMAIL_USER
+EMAIL_HOST_PASSWORD = emailcredencials.EMAIL_PASSWORD
 EMAIL_USE_TLS       = True
 EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
 

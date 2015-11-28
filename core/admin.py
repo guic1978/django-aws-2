@@ -5,6 +5,7 @@ from forms import NoticiaForm
 
 class NoticiaAdmin(admin.ModelAdmin):
     form = NoticiaForm
+    prepopulated_fields = {"slug": ('titulo',)}
     # fields = '__all__'
 
     class Meta:
