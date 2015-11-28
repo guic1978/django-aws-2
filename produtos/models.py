@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFit
 from mptt.models import MPTTModel, TreeForeignKey
+from tinymce import models as tinymce_models
 
 import datetime
 
@@ -28,7 +29,8 @@ def local_download(instance, filename):
 class Produto(models.Model):
     usuario = models.ForeignKey(User, null=True, blank=True)
     nome = models.CharField(max_length=255)
-    descricao = models.TextField(null=True, blank=True, verbose_name="Descrição")
+    # descricao = models.TextField(null=True, blank=True, verbose_name="Descrição")
+    descricao = tinymce_models.HTMLField(null=True, blank=True, verbose_name="Descrição")
     download = models.FileField(upload_to=local_download, storage=FileSystemStorage(location=local_protegido), null=True, blank=True)
     descricao_curta = models.TextField(null=True, blank=True, verbose_name="Descrição Curta")
     sku = models.IntegerField(null=True, blank=True)

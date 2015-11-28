@@ -57,8 +57,8 @@ class ProdutoAdmin(admin.ModelAdmin):
     class Meta:
         model = Produto
 
-    def get_categorias(self, obj):
-        return "\n".join([c.categorias for c in obj.categoria_set.all()])
+    # def get_categorias(self, obj):
+    #     return "\n".join([c.categorias for c in obj.categoria_set.all()])
 
     def categorias(self, obj):
         cat = []

@@ -77,3 +77,56 @@ class Noticia(models.Model):
 
     def __unicode__(self):
     	return self.titulo
+
+class Pagina(models.Model):
+    nome = models.CharField(max_length=255)
+    titulo = models.CharField(max_length=255,null=True, blank=True)
+    slug = models.SlugField()
+    conteudo = tinymce_models.HTMLField(null=True, blank=True, verbose_name="Conteúdo")
+    ativo = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
+    updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
+
+    def __unicode__(self):
+    	return self.nome
+
+    def get_absolute_url(self):
+        return reverse('pagina', args=[self.slug])
+
+LOCAL_MENU = (
+    ("HEADER", "HEADER"),
+    ("FOOTER", "FOOTER"),
+    ("MOBILE", "MOBILE"),
+)
+
+class Menu(models.Model):
+    nome = models.CharField(max_length=255)
+    padrao = models.BooleanField(default=False)
+    local = models.CharField(max_length=20,choices=LOCAL_MENU,null=True, blank=True)
+
+    def __unicode__(self):
+    	return self.nome
+
+class GrupoItemMenu(models.Model):
+    nome = models.CharField(max_length=255,verbose_name="Item")
+    menus = models.ManyToManyField(Menu)
+
+    def __unicode__(self):
+    	return self.nome
+
+class ItemMenuManager(models.Manager):
+    def get_paginas(self):
+        paginas = super(ItemMenuManager, self).pagina_set.filter(ativo=True)
+        print(paginas)
+
+class ItemMenu(models.Model):
+    nome = models.CharField(max_length=255,verbose_name="Item")
+    grupo_menu = models.ForeignKey(GrupoItemMenu)
+    ordem = models.SmallIntegerField(default=0)
+    link = models.CharField(max_length=50, null=True, blank=True)
+    is_link = models.BooleanField(default=False)
+    pagina = models.ForeignKey(Pagina, null=True, blank=True)
+
+    def __unicode__(self):
+    	return self.nome
+

@@ -150,10 +150,15 @@ STATICFILES_FINDERS = (
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "tiny_mce/tiny_mce.js")
 TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "tiny_mce")
 TINYMCE_DEFAULT_CONFIG = {
-    'plugins': "table,spellchecker,paste,searchreplace",
     'theme': "advanced",
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'menubar': "insert",
+    'height': 480,
+    # 'toolbar': "media",
+    # 'theme_advanced_buttons1_add' : "media",
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
+    # 'plugins': "youtubeIframe",
 }
 
 EMAIL_HOST          = 'smtp.sendgrid.net'

@@ -51,6 +51,8 @@ urlpatterns = [
     url(r'^noticias/(?P<ano>\d{4})/(?P<mes>\d{2})/$', 'core.views.noticias_mes', name='noticias_mes' ),
     url(r'^noticia/(?P<ano>\d{4})/(?P<mes>\d{2})/(?P<slug>.*)$', 'core.views.noticia', name='noticia' ),
 
+    url(r'^pagina/(?P<slug>.*)/$', 'core.views.pagina', name='pagina' ),
+
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
         }),

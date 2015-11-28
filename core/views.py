@@ -73,3 +73,6 @@ def noticia(request, ano, mes, slug):
         raise Http404
 
     return render(request, "noticias/noticia.html", locals())
+
+def pagina(request):
+    pass
