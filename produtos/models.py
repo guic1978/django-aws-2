@@ -49,6 +49,12 @@ class Produto(models.Model):
         imagemPrincipal = ProdutoImagem.objects.filter(produto = self.id)[:1].get()
         return imagemPrincipal
 
+    def imagem_principal_href(self):
+        imagemPrincipal = ProdutoImagem.objects.filter(produto = self.id)[:1].get()
+        return '<img src="%s" title="%s" />' %(imagemPrincipal.imagem_65x75.url,imagemPrincipal.titulo)
+
+    imagem_principal_href.allow_tags = True
+
     def get_absolute_url(self):
         return reverse('produtos.views.produto', args=[self.id])
 
@@ -118,6 +124,9 @@ class ProdutoImagem(models.Model):
 
     def __unicode__(self):
         return self.titulo
+
+    def get_imagem_90x90(self):
+        return '<img src="%s" title="%s" />' %(self.imagem_90x90.url,self.titulo)
 
 class CategoriaManager(models.Manager):
     def ativa(self, **kwargs):

@@ -7,6 +7,8 @@ from mptt.forms import TreeNodeChoiceField
 from django_mptt_admin.admin import DjangoMpttAdmin
 from django.forms import ModelChoiceField
 from .forms import ProdutoForm
+from django.utils.safestring import mark_safe
+
 
 
 class CategoriaImagemInLine(admin.StackedInline):
@@ -33,11 +35,18 @@ class TagInLine(admin.StackedInline):
 class ImagemInLine(admin.StackedInline):
     extra = 2
     model = ProdutoImagem
+    readonly_fields = ("Thumbnail",)
+    fields = ('Thumbnail','titulo','imagem_principal','imagem')
+
+    def Thumbnail(self, obj):
+        return mark_safe('<img src="%s" />' %(obj.imagem_170x220.url))
+
+
     # raw_id_fields = ("imagem",)
 
 class ProdutoAdmin(admin.ModelAdmin):
     form = ProdutoForm
-    list_display = ('__unicode__','sku','descricao_curta', 'preco', 'preco_desconto', 'ativo', 'categorias', 'link')
+    list_display = ('imagem_principal_href','__unicode__','sku','descricao_curta', 'preco', 'preco_desconto', 'ativo', 'categorias', 'link')
     inlines = [CategoriaProdutoInline, ImagemInLine, TagInLine]
     search_fields = ('nome', 'sku', 'categoria__nome')
     prepopulated_fields = {"slug": ('nome',)}
