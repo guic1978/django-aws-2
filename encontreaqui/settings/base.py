@@ -26,8 +26,6 @@ ACCOUNT_ACTIVATION_DAYS = 7
 LOGIN_REDIRECT_URL = '/'
 SITE_ID = 1
 
-FEINCMS_USE_PAGE_ADMIN=False
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -54,11 +52,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # EXTERNO
-    'feincms',
     'mptt',
-    'feincms.module.page',
-    'feincms.module.medialibrary',
-    'cms',
     'django_mptt_admin',
     'registration',
     'widget_tweaks',
