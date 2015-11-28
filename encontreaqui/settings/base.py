@@ -56,7 +56,6 @@ INSTALLED_APPS = (
     'django_mptt_admin',
     'registration',
     'widget_tweaks',
-     # 'sitetree',
      'imagekit',
     # INTERNO
     'core',

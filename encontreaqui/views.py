@@ -10,4 +10,3 @@ def home(request):
     produtos_novidades = Produto.objects.filter(ativo=True).order_by('-created_at')
 
     return render(request, "home.html", locals())
-

@@ -2,6 +2,12 @@
 from django.contrib import admin
 from .models import Produto, Categoria, Tag, ProdutoImagem, CategoriaImagem, Destaque, CategoriaBannerImagem
 from mptt.admin import MPTTModelAdmin
+from django import forms
+from mptt.forms import TreeNodeChoiceField
+from django_mptt_admin.admin import DjangoMpttAdmin
+from django.forms import ModelChoiceField
+from .forms import ProdutoForm
+
 
 class CategoriaImagemInLine(admin.StackedInline):
     extra = 1
@@ -11,8 +17,13 @@ class CategoriaBannerImagemInLine(admin.StackedInline):
     extra = 1
     model = CategoriaBannerImagem
 
+class TreeModelInlineForm(forms.ModelForm):
+    categoria = TreeNodeChoiceField(queryset=Categoria.objects.all())
+
 class CategoriaProdutoInline(admin.TabularInline):
-    model = Categoria.produto.through
+    model = Categoria.produtos.through
+    form = TreeModelInlineForm
+    extra = 2
 
 class TagInLine(admin.StackedInline):
     prepopulated_fields = {"slug": ('nome',)}
@@ -20,15 +31,15 @@ class TagInLine(admin.StackedInline):
     model = Tag
 
 class ImagemInLine(admin.StackedInline):
-    extra = 3
+    extra = 2
     model = ProdutoImagem
     # raw_id_fields = ("imagem",)
 
 class ProdutoAdmin(admin.ModelAdmin):
+    form = ProdutoForm
     list_display = ('__unicode__','sku','descricao_curta', 'preco', 'preco_desconto', 'ativo', 'categorias', 'link')
     inlines = [CategoriaProdutoInline, ImagemInLine, TagInLine]
     search_fields = ('nome', 'sku', 'categoria__nome')
-    list_filter = ('preco', 'created_at')
     prepopulated_fields = {"slug": ('nome',)}
     readonly_fields = ['link']
     fields = ('usuario','nome','descricao','ativo','preco','preco_desconto','slug')
@@ -55,7 +66,7 @@ class ProdutoAdmin(admin.ModelAdmin):
 
 admin.site.register(Produto, ProdutoAdmin)
 
-class CustomMPTTModelAdmin(MPTTModelAdmin):
+class CustomMPTTModelAdmin(DjangoMpttAdmin):
     list_display = ('nome','slug','total_produtos','mostra_menu','ordem_menu')
     inlines = [CategoriaImagemInLine, CategoriaBannerImagemInLine]
     fields = ('nome','descricao','slug','ativo','parent','mostra_menu','ordem_menu')

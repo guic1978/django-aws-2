@@ -61,7 +61,7 @@ def produto(request, produto_id):
     produtos_relacionados = []
     for categoria in produto.categoria_set.all():
         categoria.categoriabannerimagem_set.all()
-        produtos_categoria = categoria.produto.all()
+        produtos_categoria = categoria.produtos.all()
         for item in produtos_categoria:
             if (not item == produto) and (item not in produtos_relacionados):
                 produtos_relacionados.append(item)
@@ -145,7 +145,7 @@ def categoria(request, slug):
     except:
         raise Http404
 
-    produtos_list = categoria.produto.all()
+    produtos_list = categoria.produtos.all()
 
     categorias_relacionadas = []
     for produto in produtos_list:

@@ -1,11 +1,12 @@
 from django.forms import ModelForm
-from .models import Produto, ProdutoImagem
+from .models import Produto, ProdutoImagem, Categoria
+from django import forms
 
 class ProdutoForm(ModelForm):
     class Meta:
         model = Produto
+        categoria = forms.ModelMultipleChoiceField(queryset=Categoria.objects.all(),widget=forms.CheckboxSelectMultiple(),required=True)
         fields = '__all__'
-        exclude = ('usuario', 'order', 'slug')
 
 class ProdutoImagemForm(ModelForm):
     class Meta:
