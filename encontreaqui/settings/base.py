@@ -155,8 +155,6 @@ TINYMCE_DEFAULT_CONFIG = {
     'custom_undo_redo_levels': 10,
 }
 
-# FILEBROWSER_DIRECTORY = os.path.join(MEDIA_ROOT, "tinymce/")
-
 EMAIL_HOST          = 'smtp.sendgrid.net'
 EMAIL_PORT          = 587
 EMAIL_HOST_USER     = 'guilherme.guic.teste'

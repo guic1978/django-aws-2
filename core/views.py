@@ -65,9 +65,10 @@ def noticias_mes(request, ano, mes):
 
 def noticia(request, ano, mes, slug):
     try:
-        noticia = Noticia.objects.filter(data_publicacao__year=ano).filter(data_publicacao__month=mes).get(slug=slug)
-    except Noticia.MultipleObjectsReturned:
-        noticia = Noticia.objects.filter(data_publicacao__year=ano).filter(data_publicacao__month=mes).get(slug=slug)[0]
+        # noticia = Noticia.objects.filter(data_publicacao__year=ano).filter(data_publicacao__month=mes).get(slug=slug)
+        noticia = Noticia.objects.get(slug=slug)
+    # except Noticia.MultipleObjectsReturned:
+        # noticia = Noticia.objects.filter(data_publicacao__year=ano).filter(data_publicacao__month=mes).get(slug=slug)[0]
     except:
         raise Http404
 
