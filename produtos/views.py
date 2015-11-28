@@ -16,7 +16,6 @@ from .models import Produto, Categoria, ProdutoImagem
 from .forms import ProdutoForm, ProdutoImagemForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-
 def _checar_produto_comprado(user, produto):
     if user.is_authenticated():
         try:

@@ -4,5 +4,7 @@
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 /encontreaqui/settings/prod.py
+/encontreaqui/settings/prod.pyc
 /encontreaqui/settings/emailcredencials.py
+/encontreaqui/settings/emailcredencials.pyc
 /core/media/*
