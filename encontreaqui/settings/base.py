@@ -162,11 +162,3 @@ EMAIL_HOST_USER     = emailcredencials.EMAIL_USER
 EMAIL_HOST_PASSWORD = emailcredencials.EMAIL_PASSWORD
 EMAIL_USE_TLS       = True
 EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
-
-# EMAIL_HOST          = 'smtp.zoho.com'
-# EMAIL_PORT          = 587
-# EMAIL_HOST_USER     = 'guilhermereis@bussolatech.com.br'
-# EMAIL_HOST_PASSWORD = 'zoho1234@'
-# EMAIL_USE_TLS       = True
-# EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
-
