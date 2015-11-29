@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
-from core.models import Noticia
+from core.models import Noticia, Pagina
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import utils
 
@@ -74,5 +74,10 @@ def noticia(request, ano, mes, slug):
 
     return render(request, "noticias/noticia.html", locals())
 
-def pagina(request):
-    pass
+def pagina(request, slug):
+    try:
+        pagina = Pagina.objects.get(slug=slug)
+    except:
+        raise Http404
+
+    return render(request, "pagina.html", locals())

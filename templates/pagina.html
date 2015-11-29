@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Encontre Aqui - {{ pagina }}</title>
+{% endblock %}
+
+{% block content %}
+
+{% include "services.html" %}
+
+<!-- Breadcrumbs-->
+<section class="breadcrumbs">
+<div class="container">
+    <a href="{% url "home" %}">home</a><span class="divider">&nbsp;</span>
+    <span>{{ pagina }}</span>
+</div>
+</section>
+<!-- //end Breadcrumbs -->
+<!--Page Content-->
+<section class="container content">
+<div class="subtitle">
+    <div>
+        <span>{{ pagina }}</span>
+    </div>
+</div>
+<div class="row">
+    <section class="col-sm-12 col-md-12 col-lg-12 blog-left">
+        <!-- Blog post -->
+        <div class="divider-xs">
+        </div>
+        <div class="blog-post">
+            <div class="post-container">
+                <div class="text">
+                    {{ pagina.conteudo|safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</section>
+<!-- //end Page Content -->
+
+{% endblock %}

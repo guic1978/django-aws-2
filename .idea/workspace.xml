@@ -61,6 +61,52 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="noticia.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/noticias/noticia.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.25" vertical-offset="12" max-vertical-offset="360">
+              <caret line="198" column="31" selection-start-line="14" selection-start-column="4" selection-end-line="198" selection-end-column="31" />
+              <folding>
+                <element signature="n#block#0;n#!!top" expanded="false" />
+                <element signature="tag#section#0" expanded="false" />
+                <element signature="tag#div#0;tag#section#0" expanded="false" />
+                <element signature="tag#section#1" expanded="false" />
+                <element signature="tag#div#0;tag#section#1" expanded="false" />
+                <element signature="tag#div#0;tag#div#0;tag#section#1" expanded="false" />
+                <element signature="tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#div#0;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#h2#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#span#0;tag#h2#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#div#1;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#div#0;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#ul#0;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#div#1;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="e#2484#2533#0#DjangoTemplate" expanded="false" />
+                <element signature="e#2538#2585#0#DjangoTemplate" expanded="false" />
+                <element signature="e#2590#2742#0#DjangoTemplate" expanded="false" />
+                <element signature="e#2747#2777#0#DjangoTemplate" expanded="false" />
+                <element signature="e#2782#2830#0#DjangoTemplate" expanded="false" />
+                <element signature="e#2835#2993#0#DjangoTemplate" expanded="false" />
+                <element signature="e#2998#3028#0#DjangoTemplate" expanded="false" />
+                <element signature="e#3033#3059#0#DjangoTemplate" expanded="false" />
+                <element signature="tag#div#2;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#div#3;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#aside#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#section#0;tag#aside#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="tag#ul#0;tag#section#0;tag#aside#0;tag#div#1;tag#section#1" expanded="false" />
+                <element signature="n#block#2;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/admin.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,11 +119,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/footer.html">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4100157" vertical-offset="509" max-vertical-offset="2445">
-              <caret line="94" column="57" selection-start-line="94" selection-start-column="57" selection-end-line="94" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+              <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+              <folding>
+                <element signature="e#26#61#0" expanded="true" />
+                <element signature="e#269#682#0" expanded="false" />
+                <element signature="e#721#1178#0" expanded="false" />
+                <element signature="e#1222#1746#0" expanded="false" />
+                <element signature="e#1790#2229#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pagina.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/pagina.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5603448" vertical-offset="300" max-vertical-offset="750">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="8820">
+              <caret line="19" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="582" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -105,7 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/perfis/models.py" />
         <option value="$PROJECT_DIR$/perfis/admin.py" />
         <option value="$PROJECT_DIR$/templates/produtos/_home_produto_novidade.html" />
@@ -145,7 +216,6 @@
         <option value="$PROJECT_DIR$/produtos/forms.py" />
         <option value="$PROJECT_DIR$/templates/produtos/mostra_produto.html" />
         <option value="$PROJECT_DIR$/encontreaqui/urls.py" />
-        <option value="$PROJECT_DIR$/core/views.py" />
         <option value="$PROJECT_DIR$/produtos/admin.py" />
         <option value="$PROJECT_DIR$/core/forms.py" />
         <option value="$PROJECT_DIR$/carrinho/context_processors.py" />
@@ -156,6 +226,8 @@
         <option value="$PROJECT_DIR$/core/admin.py" />
         <option value="$PROJECT_DIR$/core/context_processors.py" />
         <option value="$PROJECT_DIR$/templates/footer.html" />
+        <option value="$PROJECT_DIR$/core/views.py" />
+        <option value="$PROJECT_DIR$/templates/pagina.html" />
       </list>
     </option>
   </component>
@@ -219,6 +291,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="encontreaqui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="encontreaqui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="noticias" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -621,7 +711,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="encontreaqui" />
-      <option name="launchJavascriptDebuger" value="false" />
+      <option name="launchJavascriptDebuger" value="true" />
       <option name="port" value="8000" />
       <option name="host" value="" />
       <option name="additionalOptions" value="" />
@@ -630,7 +720,9 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -659,8 +751,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.221875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.221875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39914772" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -692,31 +784,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/static/css/coolbaby.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3316413" vertical-offset="32894" max-vertical-offset="101070">
-          <caret line="2206" column="13" selection-start-line="2206" selection-start-column="13" selection-end-line="2206" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/carrinho/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09049774" vertical-offset="0" max-vertical-offset="735">
-          <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/produtos/_ajax_view-product.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1779661" vertical-offset="0" max-vertical-offset="735">
-          <caret line="7" column="85" selection-start-line="7" selection-start-column="85" selection-end-line="7" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/produtos/_home_produto_novidade.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02446982" vertical-offset="0" max-vertical-offset="1125">
@@ -829,14 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7916667" vertical-offset="98" max-vertical-offset="900">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="13" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/produtos/produtos_categoria.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8538961" vertical-offset="359" max-vertical-offset="1065">
@@ -898,14 +961,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.023734177" vertical-offset="0" max-vertical-offset="632">
           <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/noticias/noticia.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1897357" vertical-offset="0" max-vertical-offset="3195">
-          <caret line="51" column="22" selection-start-line="50" selection-start-column="25" selection-end-line="51" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1078,19 +1133,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25267994" vertical-offset="0" max-vertical-offset="653">
-          <caret line="76" column="20" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
-          <folding>
-            <element signature="e#261#674#0" expanded="false" />
-            <element signature="e#713#1170#0" expanded="false" />
-            <element signature="e#1214#1738#0" expanded="false" />
-            <element signature="e#1782#2221#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/encontreaqui/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19970414" vertical-offset="0" max-vertical-offset="676">
@@ -1104,16 +1146,6 @@
         <state vertical-scroll-proportion="0.06656805" vertical-offset="0" max-vertical-offset="676">
           <caret line="3" column="31" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="31" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding>
-            <element signature="e#26#58#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1165,6 +1197,106 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.4100157" vertical-offset="509" max-vertical-offset="2445">
           <caret line="94" column="57" selection-start-line="94" selection-start-column="57" selection-end-line="94" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7251309" vertical-offset="24728" max-vertical-offset="25110">
+          <caret line="1732" column="0" selection-start-line="1732" selection-start-column="0" selection-end-line="1733" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/encontreaqui/lib/python2.7/site-packages/django/conf/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33164558" vertical-offset="349" max-vertical-offset="2655">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding>
+            <element signature="e#26#61#0" expanded="true" />
+            <element signature="e#269#682#0" expanded="false" />
+            <element signature="e#721#1178#0" expanded="false" />
+            <element signature="e#1222#1746#0" expanded="false" />
+            <element signature="e#1790#2229#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="8820">
+          <caret line="19" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="582" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/noticias/noticia.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.25" vertical-offset="12" max-vertical-offset="360">
+          <caret line="198" column="31" selection-start-line="14" selection-start-column="4" selection-end-line="198" selection-end-column="31" />
+          <folding>
+            <element signature="n#block#0;n#!!top" expanded="false" />
+            <element signature="tag#section#0" expanded="false" />
+            <element signature="tag#div#0;tag#section#0" expanded="false" />
+            <element signature="tag#section#1" expanded="false" />
+            <element signature="tag#div#0;tag#section#1" expanded="false" />
+            <element signature="tag#div#0;tag#div#0;tag#section#1" expanded="false" />
+            <element signature="tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#div#0;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#h2#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#span#0;tag#h2#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#div#1;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#div#0;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#ul#0;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#div#1;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="e#2484#2533#0#DjangoTemplate" expanded="false" />
+            <element signature="e#2538#2585#0#DjangoTemplate" expanded="false" />
+            <element signature="e#2590#2742#0#DjangoTemplate" expanded="false" />
+            <element signature="e#2747#2777#0#DjangoTemplate" expanded="false" />
+            <element signature="e#2782#2830#0#DjangoTemplate" expanded="false" />
+            <element signature="e#2835#2993#0#DjangoTemplate" expanded="false" />
+            <element signature="e#2998#3028#0#DjangoTemplate" expanded="false" />
+            <element signature="e#3033#3059#0#DjangoTemplate" expanded="false" />
+            <element signature="tag#div#2;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#div#3;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#aside#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#section#0;tag#aside#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="tag#ul#0;tag#section#0;tag#aside#0;tag#div#1;tag#section#1" expanded="false" />
+            <element signature="n#block#2;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="e#26#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pagina.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5603448" vertical-offset="300" max-vertical-offset="750">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
