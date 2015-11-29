@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-from .models import Categoria
+from produtos.models import Categoria
 
 def get_categorias_menu(request):
 

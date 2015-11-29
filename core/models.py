@@ -103,6 +103,7 @@ class Menu(models.Model):
     nome = models.CharField(max_length=255)
     padrao = models.BooleanField(default=False)
     local = models.CharField(max_length=20,choices=LOCAL_MENU,null=True, blank=True)
+    ativo = models.BooleanField(default=0)
 
     def __unicode__(self):
     	return self.nome
@@ -110,14 +111,18 @@ class Menu(models.Model):
 class GrupoItemMenu(models.Model):
     nome = models.CharField(max_length=255,verbose_name="Item")
     menus = models.ManyToManyField(Menu)
+    ordem = models.SmallIntegerField(default=0)
 
     def __unicode__(self):
     	return self.nome
 
-class ItemMenuManager(models.Manager):
-    def get_paginas(self):
-        paginas = super(ItemMenuManager, self).pagina_set.filter(ativo=True)
-        print(paginas)
+    class Meta:
+        ordering = ['ordem']
+
+# class ItemMenuManager(models.Manager):
+#     def get_paginas(self):
+#         paginas = super(ItemMenuManager, self).pagina_set.filter(ativo=True)
+#         print(paginas)
 
 class ItemMenu(models.Model):
     nome = models.CharField(max_length=255,verbose_name="Item")
@@ -130,3 +135,5 @@ class ItemMenu(models.Model):
     def __unicode__(self):
     	return self.nome
 
+    class Meta:
+        ordering = ['ordem']

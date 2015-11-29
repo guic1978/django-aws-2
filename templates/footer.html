@@ -41,44 +41,64 @@
             <div class="arrow link hidden-xs hidden-sm">
                 <i class="icon flaticon-down14"></i>
             </div>
-            <div class="collapsed-block">
-                <div class="inside">
-                    <h3><span class="link">RME</span><a class="expander visible-sm visible-xs" href="#TabBlock-2">+</a></h3>
-                    <div class="tabBlock" id="TabBlock-2">
-                        <ul class="menu">
-                            <li><a href="about.html">Sobre Nós</a></li>
-                            <li><a href="#">Política de Entrega</a></li>
-                            <li><a href="#">Termo de Privacidades</a></li>
-                            <li><a href="#">Termo de uso</a></li>
-                        </ul>
+
+            {% for grupoitemmenu in menu_footer.grupoitemmenu_set.all %}
+                <div class="collapsed-block">
+                    <div class="inside">
+                        <h3><span class="link">{{ grupoitemmenu }}</span><a class="expander visible-sm visible-xs" href="#TabBlock-2">+</a></h3>
+                        <div class="tabBlock" id="TabBlock-2">
+                            <ul class="menu">
+                                {% for itemmenu in grupoitemmenu.itemmenu_set.all %}
+                                    {% if itemmenu.is_link %}
+                                        <li><a href="{{ itemmenu.link }}">{{ itemmenu }}</a></li>
+                                    {% elif itemmenu.pagina %}
+                                        <li><a href="{% url "pagina" itemmenu.pagina.slug %}">{{ itemmenu.pagina }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="collapsed-block">
-                <div class="inside">
-                    <h3><span class="link">Dúvidas</span><a class="expander visible-sm visible-xs" href="#TabBlock-3">+</a></h3>
-                    <div class="tabBlock" id="TabBlock-3">
-                        <ul class="menu">
-                            <li><a href="#">Support Online</a></li>
-                            <li><a href="#">Perguntas Frequentes</a></li>
-                            <li><a href="#">Call Center</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="collapsed-block">
-                <div class="inside">
-                    <h3><span class="link">Conta</span><a class="expander visible-sm visible-xs" href="#TabBlock-4">+</a></h3>
-                    <div class="tabBlock" id="TabBlock-4">
-                        <ul class="menu">
-                            <li><a href="#">Minha Conta</a></li>
-                            <li><a href="#">Pedidos</a></li>
-                            <li><a href="#">Busca Avançada</a></li>
-                            <li><a href="#">Comentários</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+
+{#            <div class="collapsed-block">#}
+{#                <div class="inside">#}
+{#                    <h3><span class="link">RME</span><a class="expander visible-sm visible-xs" href="#TabBlock-2">+</a></h3>#}
+{#                    <div class="tabBlock" id="TabBlock-2">#}
+{#                        <ul class="menu">#}
+{#                            <li><a href="about.html">Sobre Nós</a></li>#}
+{#                            <li><a href="#">Política de Entrega</a></li>#}
+{#                            <li><a href="#">Termo de Privacidades</a></li>#}
+{#                            <li><a href="#">Termo de uso</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="collapsed-block">#}
+{#                <div class="inside">#}
+{#                    <h3><span class="link">Dúvidas</span><a class="expander visible-sm visible-xs" href="#TabBlock-3">+</a></h3>#}
+{#                    <div class="tabBlock" id="TabBlock-3">#}
+{#                        <ul class="menu">#}
+{#                            <li><a href="#">Support Online</a></li>#}
+{#                            <li><a href="#">Perguntas Frequentes</a></li>#}
+{#                            <li><a href="#">Call Center</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="collapsed-block">#}
+{#                <div class="inside">#}
+{#                    <h3><span class="link">Conta</span><a class="expander visible-sm visible-xs" href="#TabBlock-4">+</a></h3>#}
+{#                    <div class="tabBlock" id="TabBlock-4">#}
+{#                        <ul class="menu">#}
+{#                            <li><a href="#">Minha Conta</a></li>#}
+{#                            <li><a href="#">Pedidos</a></li>#}
+{#                            <li><a href="#">Busca Avançada</a></li>#}
+{#                            <li><a href="#">Comentários</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
             <div class="collapsed-block">
                 <div class="inside">
                     <h3><span class="link">Encontre-nos</span><a class="expander visible-sm visible-xs" href="#TabBlock-5">+</a></h3>

@@ -20,6 +20,7 @@ class GrupoItemMenuInline(admin.TabularInline):
     model = GrupoItemMenu.menus.through
 
 class GrupoItemMenuAdmin(admin.ModelAdmin):
+    list_display = ['nome','ordem']
     inlines = [ItemMenuInline]
     class Meta:
         model = GrupoItemMenu
@@ -27,15 +28,24 @@ class GrupoItemMenuAdmin(admin.ModelAdmin):
 admin.site.register(GrupoItemMenu, GrupoItemMenuAdmin)
 
 class MenuAdmin(admin.ModelAdmin):
+    list_display = ['nome','local','grupos_do_menu','padrao','ativo']
     inlines = [GrupoItemMenuInline]
 
     class Meta:
         model = Menu
 
+    def grupos_do_menu(self, obj):
+        grupos = []
+        for grupo in obj.grupoitemmenu_set.all():
+            item = grupo.nome
+            grupos.append(item)
+
+        return ", ".join(grupos)
+
 admin.site.register(Menu, MenuAdmin)
 
 class ItemMenuAdmin(admin.ModelAdmin):
-    list_display = ['nome','pagina','link','is_link']
+    list_display = ['nome','pagina','link','is_link','ordem']
 
     class Meta:
         model = ItemMenu

@@ -97,6 +97,7 @@ TEMPLATES = [
                 'django.core.context_processors.static',
                 'carrinho.context_processors.checa_carrinho',
                 'produtos.context_processors.get_categorias_menu',
+                'core.context_processors.get_menus',
             ],
         },
     },
