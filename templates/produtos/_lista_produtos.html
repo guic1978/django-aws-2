@@ -1,38 +1,71 @@
 {% load staticfiles %}
 {% load filename %}
+{% load querystring %}
 
 <!-- Filters -->
 <div class="filters-panel">
     <div class="row">
-        <div class="col-sm-3 col-md-3 col-lg-4 hidden-xs">
+        <div class="col-sm-2 col-md-2 col-lg-3 hidden-xs">
             <div class="view-mode">
                 <a href="#" class="view-grid active icon flaticon-tiles"></a><a href="#" class="view-list icon flaticon-menu29"></a>
             </div>
         </div>
-        <div class="col-sm-3 col-md-3 col-lg-4 hidden-xs">
-             Show
+        <div class="col-sm-2 col-md-2 col-lg-3 hidden-xs">
+             Itens
             <div class="btn-group btn-select perpage-select">
-                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="value">16</span><span class="caret min"></span></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-up"></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-down"></a>
+                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="value">
+                        {% if request.GET.pp %}
+                            {{ request.GET.pp }}
+                        {% else %}
+                            16
+                        {% endif %}
+                    </span>
+                    <span class="caret min"></span></a>
+{#                <a href="#" class="icon flaticon-left33 sort-icon sort-icon-up"></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-down"></a>#}
                 <ul class="dropdown-menu">
-                    <li><a href="#">32</a></li>
-                    <li><a href="#">64</a></li>
+                    <li><a href="{{ request.path }}{% query_string request.GET.urlencode pp=16 %}">16</a></li>
+                    <li><a href="{{ request.path }}{% query_string request.GET.urlencode pp=32 %}">32</a></li>
+                    <li><a href="{{ request.path }}{% query_string request.GET.urlencode pp=64 %}">64</a></li>
                 </ul>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <div class="col-sm-2 col-md-2 col-lg-3 hidden-xs">
+             Ordem
+            <div class="btn-group btn-select perpage-select">
+                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="value">
+                        {% if request.GET.o %}
+                            {% if request.GET.o == "preco" %}
+                                Menor Preço
+                            {% elif request.GET.o == "-preco" %}
+                                Maior Preço
+                            {% endif %}
+                        {% else %}
+                            Menor Preço
+                        {% endif %}
+                    </span>
+                    <span class="caret min"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ request.path }}{% query_string request.GET.urlencode o='preco' %}">Menor Preço</a></li>
+                    <li><a href="{{ request.path }}{% query_string request.GET.urlencode o='-preco' %}">Maior Preço</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
             <div class="pagination pull-right text-right">
                 {% if produtos.has_previous %}
-                    <a href="?page={{ produtos.previous_page_number }}" class="icon flaticon-left33 pagination-prev"></a>
+                    <a href="{{ request.path }}{% query_string request.GET.urlencode page=produtos.previous_page_number %}" class="icon flaticon-left33 pagination-prev"></a>
                 {% endif %}
                 {% for pg in produtos.paginator.page_range %}
                     {% if produtos.number == pg %}
-                        <a href="?page={{ pg }}" class="ative">{{ pg }}</a>
+                        <a href="{{ request.path }}{% query_string request.GET.urlencode page=pg %}" class="ative">{{ pg }}</a>
                     {% else %}
-                        <a href="?page={{ pg }}">{{ pg }}</a>
+                        <a href="{{ request.path }}{% query_string request.GET.urlencode page=pg %}" class="ative">{{ pg }}</a>
                     {% endif %}
                 {% endfor %}
                 {% if produtos.has_next %}
-                    <a href="?page={{ produtos.next_page_number }}" class="icon flaticon-play45 pagination-next"></a>
+                    <a href="{{ request.path }}{% query_string request.GET.urlencode page=produtos.next_page_number %}" class="icon flaticon-play45 pagination-next"></a>
                 {% endif %}
             </div>
         </div>
@@ -105,35 +138,67 @@
 <!-- Filters -->
 <div class="filters-panel">
     <div class="row">
-        <div class="col-sm-3 col-md-3 col-lg-4 hidden-xs">
+        <div class="col-sm-2 col-md-2 col-lg-3 hidden-xs">
             <div class="view-mode">
-                <a href="#" class="view-grid active"><img src="{% static 'images/icon-grid.png' %}" alt=""></a><a href="#" class="view-list"><img src="{% static 'images/icon-list.png' %}" alt=""></a>
+                <a href="#" class="view-grid active icon flaticon-tiles"></a><a href="#" class="view-list icon flaticon-menu29"></a>
             </div>
         </div>
-        <div class="col-sm-3 col-md-3 col-lg-4 hidden-xs">
-             Show
+        <div class="col-sm-2 col-md-2 col-lg-3 hidden-xs">
+             Itens
             <div class="btn-group btn-select perpage-select">
-                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="value">16</span><span class="caret min"></span></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-up"></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-down"></a>
+                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="value">
+                        {% if request.GET.pp %}
+                            {{ request.GET.pp }}
+                        {% else %}
+                            16
+                        {% endif %}
+                    </span>
+                    <span class="caret min"></span></a>
+{#                <a href="#" class="icon flaticon-left33 sort-icon sort-icon-up"></a><a href="#" class="icon flaticon-left33 sort-icon sort-icon-down"></a>#}
                 <ul class="dropdown-menu">
-                    <li><a href="#">32</a></li>
-                    <li><a href="#">64</a></li>
+                    <li><a href="{{ request.path }}{% query_string request.GET.urlencode pp=16 %}">16</a></li>
+                    <li><a href="{{ request.path }}{% query_string request.GET.urlencode pp=32 %}">32</a></li>
+                    <li><a href="{{ request.path }}{% query_string request.GET.urlencode pp=64 %}">64</a></li>
                 </ul>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <div class="col-sm-2 col-md-2 col-lg-3 hidden-xs">
+             Ordem
+            <div class="btn-group btn-select perpage-select">
+                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="value">
+                        {% if request.GET.o %}
+                            {% if request.GET.o == "preco" %}
+                                Menor Preço
+                            {% elif request.GET.o == "-preco" %}
+                                Maior Preço
+                            {% endif %}
+                        {% else %}
+                            Menor Preço
+                        {% endif %}
+                    </span>
+                    <span class="caret min"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ request.path }}{% query_string request.GET.urlencode o='preco' %}">Menor Preço</a></li>
+                    <li><a href="{{ request.path }}{% query_string request.GET.urlencode o='-preco' %}">Maior Preço</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
             <div class="pagination pull-right text-right">
                 {% if produtos.has_previous %}
-                    <a href="?page={{ produtos.previous_page_number }}" class="icon flaticon-left33 pagination-prev"></a>
+                    <a href="{{ request.path }}{% query_string request.GET.urlencode page=produtos.previous_page_number %}" class="icon flaticon-left33 pagination-prev"></a>
                 {% endif %}
                 {% for pg in produtos.paginator.page_range %}
                     {% if produtos.number == pg %}
-                        <a href="?page={{ pg }}" class="ative">{{ pg }}</a>
+                        <a href="{{ request.path }}{% query_string request.GET.urlencode page=pg %}" class="ative">{{ pg }}</a>
                     {% else %}
-                        <a href="?page={{ pg }}">{{ pg }}</a>
+                        <a href="{{ request.path }}{% query_string request.GET.urlencode page=pg %}" class="ative">{{ pg }}</a>
                     {% endif %}
                 {% endfor %}
                 {% if produtos.has_next %}
-                    <a href="?page={{ produtos.next_page_number }}" class="icon flaticon-play45 pagination-next"></a>
+                    <a href="{{ request.path }}{% query_string request.GET.urlencode page=produtos.next_page_number %}" class="icon flaticon-play45 pagination-next"></a>
                 {% endif %}
             </div>
         </div>

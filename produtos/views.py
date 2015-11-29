@@ -148,12 +148,15 @@ def categoria(request, slug):
     except:
         raise Http404
 
-    # produtos_list = categoria.produtos.all()
+    if request.GET.get('o'):
+        o = request.GET.get('o')
+    else:
+        o = "preco"     # default value
 
     produtos_list = categoria.produtos.filter(
         Q(preco__gt=0)|
         Q(preco_desconto__gt=0)
-    ).filter(ativo=True)
+    ).filter(ativo=True).order_by(o)
 
     categorias_relacionadas = []
     for produto in produtos_list:
@@ -168,12 +171,13 @@ def categoria(request, slug):
         todas_categorias = False
 
     page = request.GET.get('page')
+
     try:
-        per_page = int(request.REQUEST['page'])
+        per_page = int(request.GET.get('pp'))
     except:
         per_page = 16     # default value
 
-    paginator = Paginator(produtos_list, 16)
+    paginator = Paginator(produtos_list, per_page)
 
     try:
         produtos = paginator.page(page)
