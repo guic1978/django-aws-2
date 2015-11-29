@@ -23,140 +23,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="noticia.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/noticias/noticia.html">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/produtos/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.25" vertical-offset="12" max-vertical-offset="360">
-              <caret line="198" column="31" selection-start-line="14" selection-start-column="4" selection-end-line="198" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1350">
+              <caret line="22" column="23" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="23" />
               <folding>
-                <element signature="n#block#0;n#!!top" expanded="false" />
-                <element signature="tag#section#0" expanded="false" />
-                <element signature="tag#div#0;tag#section#0" expanded="false" />
-                <element signature="tag#section#1" expanded="false" />
-                <element signature="tag#div#0;tag#section#1" expanded="false" />
-                <element signature="tag#div#0;tag#div#0;tag#section#1" expanded="false" />
-                <element signature="tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#div#0;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#h2#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#span#0;tag#h2#0;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#div#1;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#div#0;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#ul#0;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#div#1;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="e#2484#2533#0#DjangoTemplate" expanded="false" />
-                <element signature="e#2538#2585#0#DjangoTemplate" expanded="false" />
-                <element signature="e#2590#2742#0#DjangoTemplate" expanded="false" />
-                <element signature="e#2747#2777#0#DjangoTemplate" expanded="false" />
-                <element signature="e#2782#2830#0#DjangoTemplate" expanded="false" />
-                <element signature="e#2835#2993#0#DjangoTemplate" expanded="false" />
-                <element signature="e#2998#3028#0#DjangoTemplate" expanded="false" />
-                <element signature="e#3033#3059#0#DjangoTemplate" expanded="false" />
-                <element signature="tag#div#2;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#div#3;tag#div#2;tag#div#0;tag#div#1;tag#section#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#aside#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#section#0;tag#aside#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="tag#ul#0;tag#section#0;tag#aside#0;tag#div#1;tag#section#1" expanded="false" />
-                <element signature="n#block#2;n#!!top" expanded="false" />
+                <element signature="e#524#689#0" expanded="false" />
+                <element signature="e#2206#2222#0" expanded="false" />
+                <element signature="e#2259#2369#0" expanded="false" />
+                <element signature="e#2564#2743#0" expanded="false" />
+                <element signature="e#2830#2886#0" expanded="false" />
+                <element signature="e#2929#3128#0" expanded="false" />
+                <element signature="e#3233#3528#0" expanded="false" />
+                <element signature="e#3282#3528#0" expanded="false" />
+                <element signature="e#3569#6444#0" expanded="false" />
+                <element signature="e#6311#6329#0" expanded="false" />
+                <element signature="e#6371#6444#0" expanded="false" />
+                <element signature="e#6525#6565#0" expanded="false" />
+                <element signature="e#6691#7702#0" expanded="false" />
+                <element signature="e#7422#7457#0" expanded="false" />
+                <element signature="e#7494#7510#0" expanded="false" />
+                <element signature="e#7552#7612#0" expanded="false" />
+                <element signature="e#7652#7702#0" expanded="false" />
+                <element signature="e#7733#8043#0" expanded="false" />
+                <element signature="e#8025#8041#0" expanded="false" />
+                <element signature="e#8367#9231#0" expanded="false" />
+                <element signature="e#9213#9231#0" expanded="false" />
+                <element signature="e#9280#10144#0" expanded="false" />
+                <element signature="e#10126#10144#0" expanded="false" />
+                <element signature="e#10189#11018#0" expanded="false" />
+                <element signature="e#10231#11018#0" expanded="false" />
+                <element signature="e#11055#11867#0" expanded="false" />
+                <element signature="e#11786#11804#0" expanded="false" />
+                <element signature="e#11843#11867#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-              <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-              <folding>
-                <element signature="e#26#58#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/encontreaqui/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="885">
-              <caret line="39" column="81" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="81" />
-              <folding>
-                <element signature="e#0#620#1" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pagina.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/pagina.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.583333" vertical-offset="121" max-vertical-offset="750">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="produtos_categoria.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/produtos/produtos_categoria.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.291666" vertical-offset="254" max-vertical-offset="1065">
-              <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_lista_produtos.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/produtos/_lista_produtos.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.026086956" vertical-offset="0" max-vertical-offset="575">
-              <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
-              <folding>
-                <element signature="tag#div#0" expanded="false" />
-                <element signature="tag#div#1" expanded="false" />
-                <element signature="tag#div#4" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="filename.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/produtos/templatetags/filename.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="querystring.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/produtos/templatetags/querystring.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2340">
-              <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="8820">
-              <caret line="19" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="582" selection-end-column="14" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -164,10 +65,9 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/produtos/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1305">
-              <caret line="153" column="39" selection-start-line="153" selection-start-column="39" selection-end-line="153" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="436" max-vertical-offset="1155">
+              <caret line="148" column="69" selection-start-line="148" selection-start-column="69" selection-end-line="148" selection-end-column="69" />
               <folding>
-                <element signature="e#26#35#0" expanded="true" />
                 <element signature="e#751#999#0" expanded="false" />
                 <element signature="e#1058#1694#0" expanded="false" />
                 <element signature="e#1723#1824#0" expanded="false" />
@@ -175,9 +75,31 @@
                 <element signature="e#2559#2911#0" expanded="false" />
                 <element signature="e#2968#3641#0" expanded="false" />
                 <element signature="e#3688#3918#0" expanded="false" />
-                <element signature="e#3945#4887#0" expanded="false" />
-                <element signature="e#6235#6447#0" expanded="false" />
+                <element signature="e#3945#4970#0" expanded="false" />
+                <element signature="e#3945#4023#1" expanded="false" />
+                <element signature="e#5006#5106#1" expanded="false" />
+                <element signature="e#6423#6635#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="produtos_categoria.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/produtos/produtos_categoria.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.666666" vertical-offset="389" max-vertical-offset="1065">
+              <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu_categoria_lateral_coolbaby.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/produtos/menu_categoria_lateral_coolbaby.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3409091" vertical-offset="0" max-vertical-offset="1035">
+              <caret line="14" column="107" selection-start-line="14" selection-start-column="107" selection-end-line="14" selection-end-column="107" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -206,7 +128,6 @@
         <option value="$PROJECT_DIR$/templates/produtos/megamenu_coolbaby_mobile.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/produtos/breadcrumbs_coolbaby.html" />
-        <option value="$PROJECT_DIR$/templates/produtos/menu_categoria_lateral_coolbaby.html" />
         <option value="$PROJECT_DIR$/templates/core/noticia.html" />
         <option value="$PROJECT_DIR$/templates/core/lista_noticias.html" />
         <option value="$PROJECT_DIR$/templates/noticias/blog.html" />
@@ -231,7 +152,6 @@
         <option value="$PROJECT_DIR$/produtos/admin.py" />
         <option value="$PROJECT_DIR$/core/forms.py" />
         <option value="$PROJECT_DIR$/carrinho/context_processors.py" />
-        <option value="$PROJECT_DIR$/produtos/models.py" />
         <option value="$PROJECT_DIR$/produtos/context_processors.py" />
         <option value="$PROJECT_DIR$/encontreaqui/settings/base.py" />
         <option value="$PROJECT_DIR$/core/models.py" />
@@ -241,15 +161,18 @@
         <option value="$PROJECT_DIR$/core/views.py" />
         <option value="$PROJECT_DIR$/templates/pagina.html" />
         <option value="$PROJECT_DIR$/produtos/templatetags/querystring.py" />
-        <option value="$PROJECT_DIR$/produtos/views.py" />
         <option value="$PROJECT_DIR$/templates/produtos/_lista_produtos.html" />
+        <option value="$PROJECT_DIR$/produtos/views.py" />
+        <option value="$PROJECT_DIR$/produtos/models.py" />
+        <option value="$PROJECT_DIR$/templates/produtos/menu_categoria_lateral_coolbaby.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="773" />
+    <option name="x" value="10" />
+    <option name="y" value="29" />
+    <option name="width" value="1141" />
+    <option name="height" value="750" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -305,6 +228,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="encontreaqui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="encontreaqui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="produtos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -320,24 +261,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="produtos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templatetags" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="encontreaqui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="encontreaqui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="encontreaqui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -698,7 +621,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
+    <frame x="10" y="29" width="1141" height="750" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -706,7 +629,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.221875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24890447" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39914772" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -810,13 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16431925" vertical-offset="0" max-vertical-offset="720">
           <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/produtos/menu_categoria_lateral_coolbaby.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07042254" vertical-offset="240" max-vertical-offset="1035">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -983,43 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/produtos/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33224756" vertical-offset="726" max-vertical-offset="1350">
-          <caret line="147" column="34" selection-start-line="147" selection-start-column="34" selection-end-line="147" selection-end-column="34" />
-          <folding>
-            <element signature="e#524#691#0" expanded="false" />
-            <element signature="e#2203#2219#0" expanded="false" />
-            <element signature="e#2256#2366#0" expanded="false" />
-            <element signature="e#2561#2740#0" expanded="false" />
-            <element signature="e#2827#2883#0" expanded="false" />
-            <element signature="e#2926#3125#0" expanded="false" />
-            <element signature="e#3230#3525#0" expanded="false" />
-            <element signature="e#3279#3525#0" expanded="false" />
-            <element signature="e#3566#6441#0" expanded="false" />
-            <element signature="e#6308#6326#0" expanded="false" />
-            <element signature="e#6368#6441#0" expanded="false" />
-            <element signature="e#6522#6562#0" expanded="false" />
-            <element signature="e#6688#7699#0" expanded="false" />
-            <element signature="e#7419#7454#0" expanded="false" />
-            <element signature="e#7491#7507#0" expanded="false" />
-            <element signature="e#7549#7609#0" expanded="false" />
-            <element signature="e#7649#7699#0" expanded="false" />
-            <element signature="e#7730#8040#0" expanded="false" />
-            <element signature="e#8022#8038#0" expanded="false" />
-            <element signature="e#8364#9228#0" expanded="false" />
-            <element signature="e#9210#9228#0" expanded="false" />
-            <element signature="e#9277#10141#0" expanded="false" />
-            <element signature="e#10123#10141#0" expanded="false" />
-            <element signature="e#10186#11015#0" expanded="false" />
-            <element signature="e#10228#11015#0" expanded="false" />
-            <element signature="e#11052#11864#0" expanded="false" />
-            <element signature="e#11783#11801#0" expanded="false" />
-            <element signature="e#11840#11864#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/encontreaqui/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19970414" vertical-offset="0" max-vertical-offset="676">
@@ -1118,17 +997,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="8820">
-          <caret line="19" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="582" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/noticias/noticia.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.25" vertical-offset="12" max-vertical-offset="360">
+        <state vertical-scroll-proportion="0.3338633" vertical-offset="0" max-vertical-offset="629">
           <caret line="198" column="31" selection-start-line="14" selection-start-column="4" selection-end-line="198" selection-end-column="31" />
           <folding>
             <element signature="n#block#0;n#!!top" expanded="false" />
@@ -1170,9 +1041,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/produtos/_lista_produtos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65217394" vertical-offset="0" max-vertical-offset="552">
+          <caret line="206" column="22" selection-start-line="206" selection-start-column="22" selection-end-line="206" selection-end-column="22" />
+          <folding>
+            <element signature="tag#div#0" expanded="false" />
+            <element signature="tag#div#1" expanded="false" />
+            <element signature="tag#div#4" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pagina.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6171617" vertical-offset="121" max-vertical-offset="750">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/encontreaqui/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5235008" vertical-offset="22" max-vertical-offset="885">
+          <caret line="39" column="81" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#620#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
+        <state vertical-scroll-proportion="0.5283308" vertical-offset="0" max-vertical-offset="1260">
           <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
           <folding>
             <element signature="e#26#58#0" expanded="true" />
@@ -1180,33 +1081,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/produtos/mostra_produto.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9788961" vertical-offset="1557" max-vertical-offset="5055">
-          <caret line="144" column="29" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pagina.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.583333" vertical-offset="121" max-vertical-offset="750">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/produtos/produtos_categoria.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.291666" vertical-offset="254" max-vertical-offset="1065">
-          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/produtos/templatetags/filename.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+        <state vertical-scroll-proportion="0.06891271" vertical-offset="0" max-vertical-offset="653">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="29" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -1216,7 +1093,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/produtos/templatetags/querystring.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2340">
+        <state vertical-scroll-proportion="0.06891271" vertical-offset="0" max-vertical-offset="2340">
           <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -1224,22 +1101,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/encontreaqui/urls.py">
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="885">
-          <caret line="39" column="81" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="81" />
-          <folding>
-            <element signature="e#0#620#1" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.46266234" vertical-offset="0" max-vertical-offset="8820">
+          <caret line="19" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="582" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/produtos/mostra_produto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.125" vertical-offset="1557" max-vertical-offset="5055">
+          <caret line="144" column="29" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/produtos/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1305">
-          <caret line="153" column="39" selection-start-line="153" selection-start-column="39" selection-end-line="153" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="436" max-vertical-offset="1155">
+          <caret line="148" column="69" selection-start-line="148" selection-start-column="69" selection-end-line="148" selection-end-column="69" />
           <folding>
-            <element signature="e#26#35#0" expanded="true" />
             <element signature="e#751#999#0" expanded="false" />
             <element signature="e#1058#1694#0" expanded="false" />
             <element signature="e#1723#1824#0" expanded="false" />
@@ -1247,21 +1129,64 @@
             <element signature="e#2559#2911#0" expanded="false" />
             <element signature="e#2968#3641#0" expanded="false" />
             <element signature="e#3688#3918#0" expanded="false" />
-            <element signature="e#3945#4887#0" expanded="false" />
-            <element signature="e#6235#6447#0" expanded="false" />
+            <element signature="e#3945#4970#0" expanded="false" />
+            <element signature="e#3945#4023#1" expanded="false" />
+            <element signature="e#5006#5106#1" expanded="false" />
+            <element signature="e#6423#6635#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/produtos/_lista_produtos.html">
+    <entry file="file://$PROJECT_DIR$/templates/produtos/produtos_categoria.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.026086956" vertical-offset="0" max-vertical-offset="575">
-          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        <state vertical-scroll-proportion="-20.666666" vertical-offset="389" max-vertical-offset="1065">
+          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/produtos/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1350">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="23" />
           <folding>
-            <element signature="tag#div#0" expanded="false" />
-            <element signature="tag#div#1" expanded="false" />
-            <element signature="tag#div#4" expanded="false" />
+            <element signature="e#524#689#0" expanded="false" />
+            <element signature="e#2206#2222#0" expanded="false" />
+            <element signature="e#2259#2369#0" expanded="false" />
+            <element signature="e#2564#2743#0" expanded="false" />
+            <element signature="e#2830#2886#0" expanded="false" />
+            <element signature="e#2929#3128#0" expanded="false" />
+            <element signature="e#3233#3528#0" expanded="false" />
+            <element signature="e#3282#3528#0" expanded="false" />
+            <element signature="e#3569#6444#0" expanded="false" />
+            <element signature="e#6311#6329#0" expanded="false" />
+            <element signature="e#6371#6444#0" expanded="false" />
+            <element signature="e#6525#6565#0" expanded="false" />
+            <element signature="e#6691#7702#0" expanded="false" />
+            <element signature="e#7422#7457#0" expanded="false" />
+            <element signature="e#7494#7510#0" expanded="false" />
+            <element signature="e#7552#7612#0" expanded="false" />
+            <element signature="e#7652#7702#0" expanded="false" />
+            <element signature="e#7733#8043#0" expanded="false" />
+            <element signature="e#8025#8041#0" expanded="false" />
+            <element signature="e#8367#9231#0" expanded="false" />
+            <element signature="e#9213#9231#0" expanded="false" />
+            <element signature="e#9280#10144#0" expanded="false" />
+            <element signature="e#10126#10144#0" expanded="false" />
+            <element signature="e#10189#11018#0" expanded="false" />
+            <element signature="e#10231#11018#0" expanded="false" />
+            <element signature="e#11055#11867#0" expanded="false" />
+            <element signature="e#11786#11804#0" expanded="false" />
+            <element signature="e#11843#11867#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/produtos/menu_categoria_lateral_coolbaby.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3409091" vertical-offset="0" max-vertical-offset="1035">
+          <caret line="14" column="107" selection-start-line="14" selection-start-column="107" selection-end-line="14" selection-end-column="107" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -19,12 +19,12 @@ def local_download(instance, filename):
     else:
         return "%s/download/%s" %("default", filename)
 
-# class ProdutoManager(models.Manager):
-#     def all(self):
-#         return self.filter(ativo=True).filter(preco__lt=0)
-#
-#     def filter(self):
-#         return self.filter(ativo=True).filter(preco__lt=0)
+class ProdutoManager(models.Manager):
+    def all_ativo_preco(self):
+        return self.filter(ativo=True).filter(preco__gt=0)
+
+    # def filter(self):
+    #     return self.filter(ativo=True).filter(preco__lt=0)
 
 class Produto(models.Model):
     usuario = models.ForeignKey(User, null=True, blank=True)
@@ -41,7 +41,7 @@ class Produto(models.Model):
     slug = models.SlugField()
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
-    # objects = ProdutoManager()
+    objects = ProdutoManager()
 
     class Meta:
         ordering = ['-order']

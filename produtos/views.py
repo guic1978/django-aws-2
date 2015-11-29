@@ -106,6 +106,12 @@ def editar_produto(request, produto_id):
     return render(request, "produtos/editar.html", locals())
 
 def buscar(request):
+    '''
+    Retorna os produtos da busca
+
+    :param request:
+    :return:
+    '''
     try:
         search = request.GET.get('busca', '')
     except:
@@ -143,6 +149,13 @@ def buscar(request):
     return render(request, "produtos/resultado_busca.html", locals())
 
 def categoria(request, slug):
+    '''
+    Retorna os produtos da categoria.
+
+    :param request:
+    :param slug:
+    :return:
+    '''
     try:
         categoria = Categoria.objects.get(slug=slug)
     except:
