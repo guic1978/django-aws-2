@@ -8,6 +8,8 @@ from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFit
 from mptt.models import MPTTModel, TreeForeignKey
 from tinymce import models as tinymce_models
+from django.db.models.signals import pre_save, post_save
+from django.dispatch import receiver
 
 import datetime
 
@@ -18,6 +20,36 @@ def local_download(instance, filename):
         return "%s/download/%s" %(instance.usuario.username, filename)
     else:
         return "%s/download/%s" %("default", filename)
+
+# TIPO_ATRIBUTO = (
+#     ("CAMPO_TEXTO", "CAMPO_TEXTO"),
+#     ("SELECAO", "SELECAO"),
+# )
+
+class AtributoManager(models.Manager):
+    def get_atributos_grupo_produto(self, produto):
+        return super(AtributoManager, self).filter(atributogrupo__produto=produto)
+
+class Atributo(models.Model): #Exemplo Cor, Marca, Modelo, Plataforma
+    nome = models.CharField(max_length=50)
+    nome_display = models.CharField(max_length=50)
+    slug = models.SlugField()
+    # tipo = models.CharField(max_length=35, choices=TIPO_ATRIBUTO, default="CAMPO_TEXTO") #Campo Texto ou por DropDown
+    filtra = models.BooleanField(default=False)
+    objects = AtributoManager()
+
+    # def atributogrupos(self):
+    #     return Atributo.objects.filter(atributogrupo__atributo=self)
+
+    def __unicode__(self):
+        return self.nome
+
+class AtributoGrupo(models.Model):
+    nome = models.CharField(max_length=50)
+    atributos = models.ManyToManyField(Atributo) #para associar os atributos a um grupo
+
+    def __unicode__(self):
+        return self.nome
 
 class ProdutoManager(models.Manager):
     def all_ativo_preco(self):
@@ -39,6 +71,7 @@ class Produto(models.Model):
     preco = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     preco_desconto = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     slug = models.SlugField()
+    grupo_atributo = models.ForeignKey(AtributoGrupo) #para listar os atributos disponíveis para o produto
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
     objects = ProdutoManager()
@@ -46,8 +79,7 @@ class Produto(models.Model):
     class Meta:
         ordering = ['-order']
 
-    # def all(self, **kwargs):
-    #     return self.filter(ativo=True,preco_venda__lt=0, **kwargs)
+    # Quando trocar o grpo atributo, apagar os valores dos objeto ProdutoAtributo
 
     def __unicode__(self):
     	return self.nome
@@ -80,6 +112,60 @@ class Produto(models.Model):
             return None
 
     categoria_principal = property(_get_mainCategory)
+
+@receiver(pre_save, sender=Produto)
+def zerar_atributos_produtos(sender, instance, **kwargs):
+    try:
+        obj = sender.objects.get(pk=instance.pk)
+    except sender.DoesNotExist:
+        pass # Object is new, so field hasn't technically changed, but you may want to do something else here.
+    else:
+        try:
+            if not obj.grupo_atributo == instance.grupo_atributo: # Field has changed
+
+                try:
+                    produtos_atributos = ProdutoAtributo.objects.filter(produto=instance) #apaga os atributos do produto
+                    produtos_atributos.delete()
+                except:
+                    pass
+
+                atributo_grupo = instance.grupo_atributo
+                atributos = Atributo.objects.filter(atributogrupo=atributo_grupo)
+
+                if atributos:
+                    for atributo in atributos:
+                        produtoatributo = ProdutoAtributo(produto=instance,atributo=atributo)
+                        produtoatributo.save()
+        except:
+            try:
+                produtos_atributos = ProdutoAtributo.objects.filter(produto=instance) #apaga os atributos do produto
+                produtos_atributos.delete()
+            except:
+                pass
+
+            atributo_grupo = instance.grupo_atributo
+            atributos = Atributo.objects.filter(atributogrupo=atributo_grupo)
+
+            if atributos:
+                for atributo in atributos:
+                    produtoatributo = ProdutoAtributo(produto=instance,atributo=atributo)
+                    produtoatributo.save()
+
+
+@receiver(post_save, sender=Produto)
+def novos_atributos_produtos(sender, instance, **kwargs):
+    try:
+        atributos = ProdutoAtributo.objects.filter(produto = instance)
+    except:
+        atributos = False
+    if not atributos:
+        ProdutoAtributo.objects.filter(produto = instance).delete() #apaga os atributos do produto
+        atributo_grupo = instance.grupo_atributo
+        atributos = Atributo.objects.filter(atributogrupo=atributo_grupo)
+        if atributos:
+            for atributo in atributos:
+                produtoatributo = ProdutoAtributo(produto=instance,atributo=atributo)
+                produtoatributo.save()
 
 class ProdutoImagemManager(models.Manager):
     def get_imagem_principal(self, produto):
@@ -183,14 +269,6 @@ class Tag(models.Model):
     def __unicode__(self):
         return self.nome
 
-# def get_active_tree(include_self=True):
-#     """
-#     Gets a list of all of the children categories which have active products.
-#     """
-#     categoria = Categoria.objects.get(slug="raiz")
-#
-#     return categoria.get_all_children(only_active=True, include_self=include_self)
-
 class CategoriaImagem(models.Model):
     categoria = models.ForeignKey(Categoria, null=True)
     imagem = models.ImageField(upload_to="produtos/image/", null=True, blank=True, verbose_name="Imagem (100x100)")
@@ -223,6 +301,9 @@ class CategoriaBannerImagem(models.Model):
     def __unicode__(self):
         return self.titulo
 
+'''
+Refatoração: Mover Destaque para o app Core
+'''
 class DestaqueManager(models.Manager):
     def get_instancia_destaque(self):
         destaques_ativos_no_periodo = super(DestaqueManager, self)\
@@ -245,7 +326,6 @@ class DestaqueManager(models.Manager):
 
         return destaque
 
-
 class Destaque(models.Model):
     titulo = models.CharField(max_length=120)
     descricao = models.TextField(max_length=200, null=True, blank=True)
@@ -264,3 +344,24 @@ class Destaque(models.Model):
 
     def get_destaques(self):
         return self.produtos[:2]
+
+class ItemAtributo(models.Model): #Exemplo Cor: Branca, Azul,, Preta; Marca: Sony, Microsoft;
+    atributo = models.ForeignKey(Atributo)
+    valor = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return "%s" %(self.valor)
+        # return "Atributo: %s, Valor: %s" %(self.atributo, self.valor)
+
+class ProdutoAtributo(models.Model):
+    produto = models.ForeignKey(Produto)
+    atributo = models.ForeignKey(Atributo)
+    # valor_char = models.CharField(max_length=50, null=True, blank=True)
+    valor_item_atributo = models.ForeignKey(ItemAtributo, null=True, blank=True, verbose_name="valor")
+
+    def __unicode__(self):
+        return "%s" %(self.atributo)
+        # return "Produto: %s, Valor_item: %s" %(self.produto, self.valor_item_atributo)
+
+    class Meta:
+        unique_together = (("produto", "atributo"),)

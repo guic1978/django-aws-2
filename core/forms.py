@@ -15,3 +15,5 @@ class PaginaForm(forms.ModelForm):
     class Meta:
         model = Pagina
         fields = ['nome','titulo','slug','conteudo','ativo']
+
+
