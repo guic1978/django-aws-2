@@ -21,24 +21,25 @@
         </div>
     </div>
 </div>
-{% for key, value in atributos_dicionario.items %}
-    <div class="panel">
-        <div class="panel-heading">
-            <a data-toggle="collapse" href="#"><span class="arrow-down">+</span><span class="arrow-up">-</span> {{ key }} </a>
-        </div>
-        <div id="box21" class="panel-collapse in">
-            <div class="panel-body">
-                <ul class="simple-list">
-                {% for item in value %}
-{#                    test get para deixar bold o filtro#}
-                    <li><a href="{{ request.path }}?f={{ key.slug }}__{{ item.slug }}">{{ item }}</a></li>
-                {% endfor %}
-                </ul>
+{% if atributos_dicionario %}
+    {% for key, value in atributos_dicionario.items %}
+        <div class="panel">
+            <div class="panel-heading">
+                <a data-toggle="collapse" href="#"><span class="arrow-down">+</span><span class="arrow-up">-</span> {{ key }} </a>
+            </div>
+            <div id="box21" class="panel-collapse in">
+                <div class="panel-body">
+                    <ul class="simple-list">
+                    {% for item in value %}
+    {#                    test get para deixar bold o filtro#}
+                        <li><a href="{{ request.path }}?f={{ key.slug }}__{{ item.slug }}">{{ item }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-{% endfor %}
-
+    {% endfor %}
+{% endif %}
 
 
 {#{% endif %}#}

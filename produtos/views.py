@@ -188,18 +188,23 @@ def categoria(request, slug):
         ).filter(ativo=True).order_by(o)
 
     categorias_relacionadas = Categoria.objects.filter(produtos=produtos_list)
-    atributos_relaciondados = ProdutoAtributo.objects.filter(produto__in=produtos_list)
+    
+    try:
+        atributos_relaciondados = ProdutoAtributo.objects.filter(produto__in=produtos_list)
+    except:
+        atributos_relaciondados = False
 
-    atributos_dicionario = dict()
-    distinct_atributo = []
-    for atribut in atributos_relaciondados:
-        if atribut.atributo in atributos_dicionario.keys():
-            if atribut.valor_item_atributo.valor not in distinct_atributo:
-                distinct_atributo.append(atribut.valor_item_atributo.valor)
-                atributos_dicionario[atribut.atributo].append(atribut.valor_item_atributo)
-        else:
-            distinct_atributo = [atribut.valor_item_atributo.valor]
-            atributos_dicionario[atribut.atributo] = [atribut.valor_item_atributo] # [(atribut.valor_item_atributo.valor,1)]
+    if atributos_relaciondados:
+        atributos_dicionario = dict()
+        distinct_atributo = []
+        for atribut in atributos_relaciondados:
+            if atribut.atributo in atributos_dicionario.keys():
+                if atribut.valor_item_atributo.valor not in distinct_atributo:
+                    distinct_atributo.append(atribut.valor_item_atributo.valor)
+                    atributos_dicionario[atribut.atributo].append(atribut.valor_item_atributo)
+            else:
+                distinct_atributo = [atribut.valor_item_atributo.valor]
+                atributos_dicionario[atribut.atributo] = [atribut.valor_item_atributo] # [(atribut.valor_item_atributo.valor,1)]
 
     try:
         todas_categorias = Categoria.objects.all()
