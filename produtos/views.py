@@ -55,16 +55,25 @@ def produto(request, produto_id):
     except:
         raise Http404
 
-    imagem_principal = ProdutoImagem.objects.get_imagem_principal(produto)
+
     downloadable = _checar_produto_comprado(request.user, produto)
 
-    produtos_relacionados = []
-    for categoria in produto.categoria_set.all():
-        categoria.categoriabannerimagem_set.all()
-        produtos_categoria = categoria.produtos.all()
-        for item in produtos_categoria:
-            if (not item == produto) and (item not in produtos_relacionados):
-                produtos_relacionados.append(item)
+    try:
+        imagem_principal = ProdutoImagem.objects.get_imagem_principal(produto)
+    except:
+        imagem_principal = False
+
+    try:
+        produtos_relacionados = []
+        for categoria in produto.categoria_set.all():
+            categoria.categoriabannerimagem_set.all()
+            produtos_categoria = categoria.produtos.all()
+            for item in produtos_categoria:
+                if (not item == produto) and (item not in produtos_relacionados):
+                    produtos_relacionados.append(item)
+    except:
+        produtos_relacionados = False
+
 
     return render(request, "produtos/mostra_produto.html", locals())
 
@@ -188,7 +197,7 @@ def categoria(request, slug):
         ).filter(ativo=True).order_by(o)
 
     categorias_relacionadas = Categoria.objects.filter(produtos=produtos_list)
-    
+
     try:
         atributos_relaciondados = ProdutoAtributo.objects.filter(produto__in=produtos_list)
     except:

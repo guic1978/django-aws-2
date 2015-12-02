@@ -360,7 +360,6 @@ class ItemAtributo(models.Model): #Exemplo Cor: Branca, Azul,, Preta; Marca: Son
 class ProdutoAtributo(models.Model):
     produto = models.ForeignKey(Produto)
     atributo = models.ForeignKey(Atributo)
-    # valor_char = models.CharField(max_length=50, null=True, blank=True)
     valor_item_atributo = models.ForeignKey(ItemAtributo, null=True, blank=True, verbose_name="valor")
 
     def __unicode__(self):
