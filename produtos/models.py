@@ -348,6 +348,10 @@ class Destaque(models.Model):
 class ItemAtributo(models.Model): #Exemplo Cor: Branca, Azul,, Preta; Marca: Sony, Microsoft;
     atributo = models.ForeignKey(Atributo)
     valor = models.CharField(max_length=50)
+    slug = models.SlugField(null=True, blank=True)
+
+    class Meta:
+        unique_together = (("atributo", "slug"),)
 
     def __unicode__(self):
         return "%s" %(self.valor)

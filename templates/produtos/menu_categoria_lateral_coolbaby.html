@@ -1,4 +1,5 @@
 {% load mptt_tags %}
+{% load querystring %}
 
 <div class="panel">
     <div class="panel-heading">
@@ -20,28 +21,26 @@
         </div>
     </div>
 </div>
+{% for key, value in atributos_dicionario.items %}
+    <div class="panel">
+        <div class="panel-heading">
+            <a data-toggle="collapse" href="#"><span class="arrow-down">+</span><span class="arrow-up">-</span> {{ key }} </a>
+        </div>
+        <div id="box21" class="panel-collapse in">
+            <div class="panel-body">
+                <ul class="simple-list">
+                {% for item in value %}
+{#                    test get para deixar bold o filtro#}
+                    <li><a href="{{ request.path }}?f={{ key.slug }}__{{ item.slug }}">{{ item }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endfor %}
 
-{#<div class="panel">#}
-{#    <div class="panel-heading">#}
-{#        <a data-toggle="collapse" href="#box1"><span class="arrow-down">+</span><span class="arrow-up">-</span> CATEGORIAS </a>#}
-{#    </div>#}
-{#    <div id="box1" class="panel-collapse in">#}
-{#        <div class="panel-body">#}
-{#            <ul class="simple-list">#}
-{#                {% for item in sitetree_items %}#}
-{#                <li>#}
-{#                    <a href="{% sitetree_url for item %}"#}
-{#                       {% if item.hint %}title="{{ item.hint }}"#}
-{#                       {% endif %}#}
-{#                       {% if item.is_current or item.in_current_branch %}class="{{ item.is_current|yesno:"current_item ," }}{{ item.in_current_branch|yesno:"current_branch," }}"#}
-{#                       {% endif %}>{{ item.title_resolved }}#}
-{#                    </a>#}
-{#                </li>#}
-{#                {% endfor %}#}
-{#            </ul>#}
-{#        </div>#}
-{#    </div>#}
-{#</div>#}
+
+
 {#{% endif %}#}
 
 {#{{ todas_categorias }}#}

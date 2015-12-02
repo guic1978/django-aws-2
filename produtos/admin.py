@@ -140,6 +140,7 @@ class AtributoGrupoAdmin(admin.ModelAdmin):
 class ItemAtributoInLine(admin.StackedInline):
     extra = 4
     model = ItemAtributo
+    prepopulated_fields = {"slug": ('valor',)}
 
 class AtributoAdmin(admin.ModelAdmin):
     list_display = ('nome','nome_display','slug','filtra')

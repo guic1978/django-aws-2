@@ -12,7 +12,7 @@ from django.forms import modelformset_factory
 from django.core.servers.basehttp import FileWrapper
 from django.db.models import Q
 # from produtos.models import get_active_tree
-from .models import Produto, Categoria, ProdutoImagem
+from .models import Produto, Categoria, ProdutoImagem, ProdutoAtributo
 from .forms import ProdutoForm, ProdutoImagemForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -161,22 +161,45 @@ def categoria(request, slug):
     except:
         raise Http404
 
+    #Obtem o filtro via querystring
+    if request.GET.get('f'):
+        filtro = request.GET.get('f').split('__')
+    else:
+        filtro = False
+
+
+    #Obtem a ordem via qerystring
     if request.GET.get('o'):
         o = request.GET.get('o')
     else:
         o = "preco"     # default value
 
-    produtos_list = categoria.produtos.filter(
-        Q(preco__gt=0)|
-        Q(preco_desconto__gt=0)
-    ).filter(ativo=True).order_by(o)
+    if filtro:
+        produtos_list = categoria.produtos.filter(
+            Q(preco__gt=0)|
+            Q(preco_desconto__gt=0)
+        ).filter(ativo=True).order_by(o)\
+            .filter(produtoatributo__atributo__slug=filtro[0])\
+            .filter(produtoatributo__valor_item_atributo__slug=filtro[1])
+    else:
+        produtos_list = categoria.produtos.filter(
+            Q(preco__gt=0)|
+            Q(preco_desconto__gt=0)
+        ).filter(ativo=True).order_by(o)
 
-    categorias_relacionadas = []
-    for produto in produtos_list:
-        categorias_produto = produto.categoria_set.all()
-        for item_categoria in categorias_produto:
-            if (not item_categoria == categoria) and (item_categoria not in categorias_relacionadas):
-                categorias_relacionadas.append(item_categoria)
+    categorias_relacionadas = Categoria.objects.filter(produtos=produtos_list)
+    atributos_relaciondados = ProdutoAtributo.objects.filter(produto__in=produtos_list)
+
+    atributos_dicionario = dict()
+    distinct_atributo = []
+    for atribut in atributos_relaciondados:
+        if atribut.atributo in atributos_dicionario.keys():
+            if atribut.valor_item_atributo.valor not in distinct_atributo:
+                distinct_atributo.append(atribut.valor_item_atributo.valor)
+                atributos_dicionario[atribut.atributo].append(atribut.valor_item_atributo)
+        else:
+            distinct_atributo = [atribut.valor_item_atributo.valor]
+            atributos_dicionario[atribut.atributo] = [atribut.valor_item_atributo] # [(atribut.valor_item_atributo.valor,1)]
 
     try:
         todas_categorias = Categoria.objects.all()
