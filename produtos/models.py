@@ -151,7 +151,6 @@ def zerar_atributos_produtos(sender, instance, **kwargs):
                     produtoatributo = ProdutoAtributo(produto=instance,atributo=atributo)
                     produtoatributo.save()
 
-
 @receiver(post_save, sender=Produto)
 def novos_atributos_produtos(sender, instance, **kwargs):
     try:
@@ -269,37 +268,37 @@ class Tag(models.Model):
     def __unicode__(self):
         return self.nome
 
-class CategoriaImagem(models.Model):
-    categoria = models.ForeignKey(Categoria, null=True)
-    imagem = models.ImageField(upload_to="produtos/image/", null=True, blank=True, verbose_name="Imagem (100x100)")
-    imagem_100x100 = ImageSpecField(source='imagem',
-                                      processors=[ResizeToFit(100, 100, mat_color=(255,255,255)),
-                                                ],
-                                      format='JPEG',
-                                      options={'quality': 75})
-    titulo = models.CharField(max_length=120, null=True, blank=True)
-    imagem_principal = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
-    updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
+# class CategoriaImagem(models.Model):
+#     categoria = models.ForeignKey(Categoria, null=True)
+#     imagem = models.ImageField(upload_to="produtos/image/", null=True, blank=True, verbose_name="Imagem (100x100)")
+#     imagem_100x100 = ImageSpecField(source='imagem',
+#                                       processors=[ResizeToFit(100, 100, mat_color=(255,255,255)),
+#                                                 ],
+#                                       format='JPEG',
+#                                       options={'quality': 75})
+#     titulo = models.CharField(max_length=120, null=True, blank=True)
+#     imagem_principal = models.BooleanField(default=False)
+#     created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
+#     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
+#
+#     def __unicode__(self):
+#         return self.titulo
 
-    def __unicode__(self):
-        return self.titulo
-
-class CategoriaBannerImagem(models.Model):
-    categoria = models.ForeignKey(Categoria, null=True)
-    imagem = models.ImageField(upload_to="produtos/image/", null=True, blank=True, verbose_name="Imagem (453x154)")
-    imagem_453x154 = ImageSpecField(source='imagem',
-                                      processors=[ResizeToFit(453, 154, mat_color=(255,255,255)),
-                                                ],
-                                      format='JPEG',
-                                      options={'quality': 75})
-    titulo = models.CharField(max_length=120, null=True, blank=True)
-    imagem_principal = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
-    updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
-
-    def __unicode__(self):
-        return self.titulo
+# class CategoriaBannerImagem(models.Model):
+#     categoria = models.ForeignKey(Categoria, null=True)
+#     imagem = models.ImageField(upload_to="produtos/image/", null=True, blank=True, verbose_name="Imagem (453x154)")
+#     imagem_453x154 = ImageSpecField(source='imagem',
+#                                       processors=[ResizeToFit(453, 154, mat_color=(255,255,255)),
+#                                                 ],
+#                                       format='JPEG',
+#                                       options={'quality': 75})
+#     titulo = models.CharField(max_length=120, null=True, blank=True)
+#     imagem_principal = models.BooleanField(default=False)
+#     created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Criado em")
+#     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name="Alterado")
+#
+#     def __unicode__(self):
+#         return self.titulo
 
 '''
 Refatoração: Mover Destaque para o app Core

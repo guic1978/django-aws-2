@@ -4,6 +4,7 @@ from django.db.models import Q
 from produtos.models import Produto, Destaque, Categoria
 
 def home(request):
+
     try:
         produtos_destaque = Destaque.objects.get_instancia_destaque()
     except:

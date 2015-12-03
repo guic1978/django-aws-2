@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 from django.contrib import admin
 from .models import Produto, Categoria, Tag, ProdutoImagem, \
-    CategoriaImagem, Destaque, CategoriaBannerImagem, AtributoGrupo,\
+     Destaque, AtributoGrupo,\
     Atributo, ItemAtributo, ProdutoAtributo
 from mptt.admin import MPTTModelAdmin
 from django import forms
@@ -107,17 +107,17 @@ class ProdutosDestaquesAdmin(admin.ModelAdmin):
         model = Destaque
 
 # CATEGORIA
-class CategoriaImagemInLine(admin.StackedInline):
-    extra = 1
-    model = CategoriaImagem
-
-class CategoriaBannerImagemInLine(admin.StackedInline):
-    extra = 1
-    model = CategoriaBannerImagem
+# class CategoriaImagemInLine(admin.StackedInline):
+#     extra = 1
+#     model = CategoriaImagem
+#
+# class CategoriaBannerImagemInLine(admin.StackedInline):
+#     extra = 1
+#     model = CategoriaBannerImagem
 
 class CustomMPTTModelAdmin(DjangoMpttAdmin):
     list_display = ('nome','slug','total_produtos','mostra_menu','ordem_menu')
-    inlines = [CategoriaImagemInLine, CategoriaBannerImagemInLine]
+    # inlines = [CategoriaImagemInLine, CategoriaBannerImagemInLine]
     fields = ('nome','descricao','slug','ativo','parent','mostra_menu','ordem_menu')
     prepopulated_fields = {"slug": ('nome',)}
     mptt_level_indent = 20
