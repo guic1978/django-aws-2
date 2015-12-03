@@ -145,6 +145,7 @@ class ItemAtributoInLine(admin.StackedInline):
 class AtributoAdmin(admin.ModelAdmin):
     list_display = ('nome','nome_display','slug','filtra')
     inlines = [ItemAtributoInLine]
+    prepopulated_fields = {"slug": ('nome',)}
 
     class Meta:
         model = Atributo
