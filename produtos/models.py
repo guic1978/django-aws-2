@@ -267,7 +267,7 @@ class Tag(models.Model):
 
     def __unicode__(self):
         return self.nome
-
+ 
 # class CategoriaImagem(models.Model):
 #     categoria = models.ForeignKey(Categoria, null=True)
 #     imagem = models.ImageField(upload_to="produtos/image/", null=True, blank=True, verbose_name="Imagem (100x100)")
