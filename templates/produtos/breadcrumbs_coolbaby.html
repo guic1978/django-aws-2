@@ -1,7 +1,7 @@
 {% load mptt_tags %}
 
 {% for parent in categoria.get_ancestors %}
-    <a href="{{ parent }}">{{ parent.nome }}</a><span class="divider">&nbsp;</span>
+    <a href="{% url "categoria" parent.slug %}">{{ parent.nome }}</a><span class="divider">&nbsp;</span>
 {% endfor %}
 {{ categoria.nome }}
 
